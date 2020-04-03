@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - czujniki@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - czujniki@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - czujniki@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="czujniki: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - czujniki@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="czujniki: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="czujnik: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - czujniki@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="czujniki: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="pomiar: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - czujniki@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="czujniki: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="raport: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Sass File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP_5.6.3_WAMP" />
+  <component name="ProjectId" id="1ZwSvQOwP2SR4fPeFPOj01IOuWj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\szust\PhpstormProjects\SensorNetwork" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\szust\PhpstormProjects\SensorNetwork" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="MySQL - czujniki@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="MySQL - czujniki@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@692a1dab" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="MySQL - czujniki@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@57ea1855" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="" />
+      <created>1585748894097</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585748894097</updated>
+      <workItem from="1585748895352" duration="8147000" />
+      <workItem from="1585842768735" duration="24909000" />
+      <workItem from="1585921404572" duration="8484000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="349" y="67" key="#CLI_Interpreters" timestamp="1585750379590">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="349" y="67" key="#CLI_Interpreters/0.0.1536.824@0.0.1536.824" timestamp="1585750379590" />
+    <state x="476" y="3" key="#PHP" timestamp="1585750098480">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="476" y="3" key="#PHP/0.0.1536.824@0.0.1536.824" timestamp="1585750098480" />
+    <state x="314" y="128" key="#SQL_Dialects" timestamp="1585850908713">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="314" y="128" key="#SQL_Dialects/0.0.1536.824@0.0.1536.824" timestamp="1585850908713" />
+    <state x="314" y="128" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585851435927">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="314" y="128" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1585851435927" />
+    <state x="519" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585861437920">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="519" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1585861437920" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585926179780">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1585926179780" />
+    <state x="865" y="353" key="DBNavigator.ConnectionAuthenticationDialog" timestamp="1585848212907">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="865" y="353" key="DBNavigator.ConnectionAuthenticationDialog/0.0.1536.824@0.0.1536.824" timestamp="1585848212907" />
+    <state x="252" y="124" key="DBNavigator.ProjectSettingsDialog" timestamp="1585849405354">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="252" y="124" key="DBNavigator.ProjectSettingsDialog/0.0.1536.824@0.0.1536.824" timestamp="1585849405354" />
+    <state x="405" y="191" key="EditFileWatcherDialog" timestamp="1585863253654">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="405" y="191" key="EditFileWatcherDialog/0.0.1536.824@0.0.1536.824" timestamp="1585863253653" />
+    <state x="586" y="140" key="FileChooserDialogImpl" timestamp="1585848114671">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="586" y="140" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1585848114671" />
+    <state width="1024" height="247" key="GridCell.Tab.0.bottom" timestamp="1585866741750">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="247" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585866741750" />
+    <state width="1024" height="247" key="GridCell.Tab.0.center" timestamp="1585866741749">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="247" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585866741749" />
+    <state width="1024" height="247" key="GridCell.Tab.0.left" timestamp="1585866741749">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="247" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585866741749" />
+    <state width="1024" height="247" key="GridCell.Tab.0.right" timestamp="1585866741750">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="247" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585866741750" />
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1585923361008">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1585923361008" />
+    <state x="277" y="55" key="SettingsEditor" timestamp="1585750383848">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585750383848" />
+    <state x="418" y="293" key="com.intellij.ide.util.TipDialog" timestamp="1585921754023">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="418" y="293" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1585921754023" />
+    <state x="425" y="189" key="run.anything.popup" timestamp="1585750654644">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1585750654644" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1585924273745">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1585924273745" />
+  </component>
+</project>
