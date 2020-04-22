@@ -18,7 +18,7 @@ function dodajCzujnik($id,$program_id,$miejsce)
     echo "Connect Successfully. Host info: " . mysqli_get_host_info($link);
 
     mysqli_query($link,"SET NAMES 'utf8'");
-    $sql = "INSERT INTO czujnik VALUES (1, 1, 87, 'Za sałatą (test dodania czujnika)')";
+    $sql = "INSERT INTO czujnik VALUES (".$id.", ".$program_id.", 0, ".$miejsce.")";
     if(!mysqli_query($link, $sql)){
         //todo:obsługa błędu
     }
