@@ -8,6 +8,11 @@
  */
 function dodajCzujnik($id,$program_id,$miejsce)
 {
+
+    /**
+     * todo (!)sanityzacja
+     *      (?)Zmiana na PDO
+     */
     # Połączenie
     $link = mysqli_connect("localhost", "root", "", "czujniki");
     if($link === false){

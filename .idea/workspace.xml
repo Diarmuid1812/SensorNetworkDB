@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/communicationPost.php" afterDir="false" />
+    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="Wyświetlanie tabeli pomiarów">
+      <change afterPath="$PROJECT_DIR$/tabelaPomiar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dodajCzujnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/dodajCzujnik.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabelaCzujnikow.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabelaCzujnikow.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +110,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -165,12 +166,26 @@
       <workItem from="1586292777189" duration="1606000" />
       <workItem from="1586297974645" duration="625000" />
       <workItem from="1586724298596" duration="1303000" />
-      <workItem from="1587561948174" duration="2910000" />
+      <workItem from="1587561948174" duration="4175000" />
+      <workItem from="1587597896457" duration="3827000" />
     </task>
+    <task id="LOCAL-00001" summary="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji">
+      <created>1587566032743</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587566032743</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji" />
+    <MESSAGE value="Wyświetlanie tabeli pomiarów" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wyświetlanie tabeli pomiarów" />
   </component>
   <component name="WindowStateProjectService">
     <state x="349" y="67" key="#CLI_Interpreters" timestamp="1585750379590">
@@ -197,10 +212,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1585926179780" />
-    <state x="393" y="0" key="CommitChangelistDialog2" timestamp="1587565969033">
+    <state x="271" y="0" width="849" height="824" key="CommitChangelistDialog2" timestamp="1587602601050">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="393" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587565969033" />
+    <state x="271" y="0" width="849" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587602601050" />
     <state x="865" y="353" key="DBNavigator.ConnectionAuthenticationDialog" timestamp="1585848212907">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -233,18 +248,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1024" height="247" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585866741750" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1587563680828">
+    <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1587597974909">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1587563680828" />
-    <state x="277" y="55" key="SettingsEditor" timestamp="1586297767379">
+    <state width="189" height="457" key="HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824" timestamp="1587597974909" />
+    <state x="540" y="227" key="NewPhpClassDialog" timestamp="1587598341325">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1586297767379" />
-    <state x="418" y="293" key="com.intellij.ide.util.TipDialog" timestamp="1587563476942">
+    <state x="540" y="227" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1587598341325" />
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1587598357963">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="418" y="293" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1587563476942" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1587598357963" />
+    <state x="277" y="55" key="SettingsEditor" timestamp="1587566098538">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587566098538" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1587566400224">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587566400224" />
+    <state x="418" y="293" key="com.intellij.ide.util.TipDialog" timestamp="1587597918354">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="418" y="293" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1587597918354" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586297792171">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

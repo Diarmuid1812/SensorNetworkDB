@@ -4,22 +4,23 @@
  */
 
 /*todo:
- *  use for currently logged in user only,
- *  delete "root"
+ *  (!)use for currently logged in user only,
+ *  (!)delete "root"
+ *  (?)PDO
 */
 
 $linkSensTable=mysqli_connect("localhost:3306","root","","czujniki");
 /*
 if(!$linkSensTable)
 {
-todo: error handling(?)
+todo: (?)error handling
 }
 */
 
 mysqli_query($linkSensTable,"SET NAMES 'utf8'");
 $tableMapSensors=mysqli_query($linkSensTable,"SELECT * FROM czujnik");
 
-echo "<table border='1'>
+echo "<table>
     <tr>
     <th>id</th>
     <th>programowy_nr</th>
