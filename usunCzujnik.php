@@ -2,25 +2,39 @@
 function deleteSensor($num_id)
 {
 
-    $link = mysqli_connect("localhost", "root", "", "czujniki");
 
-// Check connection
-    if ($link === false) {
-        die("ERROR: Could not connect. " . mysqli_connect_error());
+    try{
+        /*** link data ***/
+        $hostname = 'localhost';
+        $username = 'root';
+        $passwd   = '';
+        $database = 'czujniki';
+
+        $dbLink = new PDO("mysql:host=$hostname;dbname=$database;charset=utf8", $username, $passwd);
+        echo 'Connected to database<br>';
+
+        /***error reporting attribute ***/
+        $dbLink->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $dbLink ->exec("SET SQL_SAFE_UPDATES=0");
+
+        $qry = $dbLink->prepare("DELETE FROM czujnik WHERE id=:id");
+
+        $qry->bindParam(':id', $num_id, PDO::PARAM_INT);
+
+        $qry->execute();
+
+        /*** closing connection ***/
+        $dbLink ->exec("SET SQL_SAFE_UPDATES=1");
+        $dbLink = null;
+        echo "Records were deleted successfully.\n";
+        return true;
+    }
+    catch(PDOException $e)
+    {
+        echo $e->getMessage();
+        return false;
+        //todo: throw, handling
     }
 
-    mysqli_query($link, "SET SQL_SAFE_UPDATES = 0;");
-
-// Attempt delete query execution
-    $sql = "DELETE FROM czujnik WHERE id=".$num_id;
-    if (mysqli_query($link, $sql)) {
-        echo "Records were deleted successfully.";
-    } else {
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-    }
-
-    mysqli_query($link, "SET SQL_SAFE_UPDATES = 1;");
-
-// Close connection
-    mysqli_close($link);
 }

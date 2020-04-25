@@ -6,28 +6,60 @@
  * @param $miejsce
  * @return bool
  */
-function dodajCzujnik($id,$program_id,$miejsce)
+function addSensor($id,$program_id,$miejsce)
 {
 
     /**
-     * todo (!)sanityzacja
-     *      (?)Zmiana na PDO
+     * todo (!)obsługa wyjątku
      */
-    # Połączenie
-    $link = mysqli_connect("localhost", "root", "", "czujniki");
-    if($link === false){
-        echo("ERROR: Could not connect. " . mysqli_connect_error());
+
+    if(! filter_var($id,FILTER_VALIDATE_INT) || !filter_var($program_id,FILTER_VALIDATE_INT))
+    {
+        echo "Nieprawidłowy numer id";
         return false;
     }
 
-    echo "Connect Successfully. Host info: " . mysqli_get_host_info($link);
-
-    mysqli_query($link,"SET NAMES 'utf8'");
-    $sql = "INSERT INTO czujnik VALUES (".$id.", ".$program_id.", 0, ".$miejsce.")";
-    if(!mysqli_query($link, $sql)){
-        //todo:obsługa błędu
+    if(! filter_var($miejsce, FILTER_VALIDATE_REGEXP,
+    array("options"=>array("regexp"=>'/^[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ _]{3,100}$/')))){
+        echo "Nieprawidłowy opis miejsca";
+        return false;
     }
+    /*if(!preg_match('/[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ _]{3,100}/',$miejsce)) {
+        echo "Nieprawidłowy opsi miejsca";
+        return false;
+    }*/
 
-    mysqli_close($link);
-    return true;
-}
+    try{
+        /*** link data ***/
+        $hostname = 'localhost';
+        $username = 'root';
+        $passwd   = '';
+        $database = 'czujniki';
+
+        $dbLink = new PDO("mysql:host=$hostname;dbname=$database;charset=utf8", $username, $passwd);
+        echo 'Connected to database\n';
+
+        /***error reporting attribute ***/
+        $dbLink->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $qry = $dbLink->prepare("INSERT INTO czujnik VALUES (:id, :program_id, 0, :miejsce)");
+
+        /*** bind the paramaters ***/
+        $qry->bindParam(':id', $id, PDO::PARAM_INT);
+        $qry->bindParam(':program_id', $program_id, PDO::PARAM_INT);
+        $qry->bindParam(':miejsce', $miejsce, PDO::PARAM_STR, 100);
+
+        $qry->execute();
+
+        /*** closing connection ***/
+        $dbLink = null;
+        echo 'Sensor added successfully.\n';
+        return true;
+    }
+catch(PDOException $e)
+    {
+        echo $e->getMessage();
+        return false;
+        //todo: throw, handling
+    }
+ }
