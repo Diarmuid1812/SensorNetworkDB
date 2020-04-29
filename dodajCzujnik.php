@@ -24,10 +24,6 @@ function addSensor($id,$program_id,$miejsce)
         echo "Nieprawidłowy opis miejsca";
         return false;
     }
-    /*if(!preg_match('/[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ _]{3,100}/',$miejsce)) {
-        echo "Nieprawidłowy opsi miejsca";
-        return false;
-    }*/
 
     try{
         /*** link data ***/

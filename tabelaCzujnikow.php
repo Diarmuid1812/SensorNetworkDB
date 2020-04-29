@@ -41,7 +41,7 @@ try
         echo "<td>". $rowSensors["bateria"] . "</td>";
         echo "<td>". $rowSensors["miejsce"] . "</td>";
     }
-    $dbh = null;
+    $dbLink = null;
 }
 catch (PDOException $e)
 {

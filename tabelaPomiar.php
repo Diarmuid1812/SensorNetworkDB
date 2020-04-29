@@ -45,6 +45,8 @@ try
         echo "<td>" . $rowPomiar["temperatura"] . "</td>";
     }
 
+    $dbLink=null;
+
 }
 catch (PDOException $e)
 {
