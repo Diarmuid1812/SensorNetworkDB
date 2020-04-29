@@ -9,18 +9,23 @@
  *  (?)PDO
 */
 
-$linkSensTable=mysqli_connect("localhost:3306","root","","czujniki");
-/*
-if(!$linkSensTable)
+/** Data */
+
+$host = 'localhost';
+/*todo: Set to logged user*/
+$username = 'root';
+$password = '';
+
+
+
+
+try
 {
-todo: (?)error handling
-}
-*/
+    $dbLink = new PDO("mysql:host=$host;dbname=czujniki;charset=utf8", $username, $password);
 
-mysqli_query($linkSensTable,"SET NAMES 'utf8'");
-$tableMapSensors=mysqli_query($linkSensTable,"SELECT * FROM czujnik");
+    $qry = "SELECT * FROM czujnik";
 
-echo "<table>
+    echo "<table>
     <tr>
     <th>id</th>
     <th>programowy_nr</th>
@@ -28,11 +33,17 @@ echo "<table>
     <th>miejsce</th>
     ";
 
-while ($rowSensors=mysqli_fetch_array($tableMapSensors))
+    foreach ( $dbLink->query($qry) as $rowSensors)
+    {
+        echo "<tr>";
+        echo "<td>". $rowSensors["id"] . "</td>";
+        echo "<td>". $rowSensors["programowy_nr"] . "</td>";
+        echo "<td>". $rowSensors["bateria"] . "</td>";
+        echo "<td>". $rowSensors["miejsce"] . "</td>";
+    }
+    $dbh = null;
+}
+catch (PDOException $e)
 {
-    echo "<tr>";
-    echo "<td>". $rowSensors["id"] . "</td>";
-    echo "<td>". $rowSensors["programowy_nr"] . "</td>";
-    echo "<td>". $rowSensors["bateria"] . "</td>";
-    echo "<td>". $rowSensors["miejsce"] . "</td>";
+    echo $e->getMessage();
 }

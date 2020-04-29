@@ -1,72 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/testFunctionality.php" afterDir="false" />
+    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="PDO (2/2) tabele">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todolist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/140b3f0e-e6d9-4b54-86a6-884790ae1b5c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/140b3f0e-e6d9-4b54-86a6-884790ae1b5c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/140b3f0e-e6d9-4b54-86a6-884790ae1b5c/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/140b3f0e-e6d9-4b54-86a6-884790ae1b5c/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dodajCzujnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/dodajCzujnik.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usunCzujnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/usunCzujnik.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/mailTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabelaCzujnikow.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabelaCzujnikow.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabelaPomiar.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabelaPomiar.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <execution />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="MySQL - czujniki@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="MySQL - czujniki@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="MySQL - czujniki@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="czujniki: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="MySQL - czujniki@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="czujniki: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="czujnik: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="MySQL - czujniki@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="czujniki: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="pomiar: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="MySQL - czujniki@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="czujniki: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="raport: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-    </expand>
-    <select />
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="140b3f0e-e6d9-4b54-86a6-884790ae1b5c" value="Green" />
+    </colors>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -90,19 +51,20 @@
     <option name="WARN_ABOUT_CRLF" value="false" />
     <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP_5.6.3_WAMP" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP_7.4.5_WAMP(XAMPP)" />
   <component name="ProjectId" id="1ZwSvQOwP2SR4fPeFPOj01IOuWj" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DatabaseDriversLRU" value="mysql&#10;mariadb" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../xampp/php/php.exe" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -110,7 +72,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -119,33 +81,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\szust\PhpstormProjects\SensorNetwork" />
     </key>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="MySQL - czujniki@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="MySQL - czujniki@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@692a1dab" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="MySQL - czujniki@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@57ea1855" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -169,6 +104,8 @@
       <workItem from="1587561948174" duration="4175000" />
       <workItem from="1587597896457" duration="4641000" />
       <workItem from="1587808878857" duration="10101000" />
+      <workItem from="1588169029606" duration="6115000" />
+      <workItem from="1588176143172" duration="4921000" />
     </task>
     <task id="LOCAL-00001" summary="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji">
       <created>1587566032743</created>
@@ -188,55 +125,64 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji" />
     <MESSAGE value="Wyświetlanie tabeli pomiarów" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wyświetlanie tabeli pomiarów" />
+    <MESSAGE value="PDO (2/2) tabele" />
+    <option name="LAST_COMMIT_MESSAGE" value="PDO (2/2) tabele" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="349" y="67" key="#CLI_Interpreters" timestamp="1585750379590">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="436" y="85" key="#CLI_Interpreters" timestamp="1588171188187">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="349" y="67" key="#CLI_Interpreters/0.0.1536.824@0.0.1536.824" timestamp="1585750379590" />
-    <state x="476" y="3" key="#PHP" timestamp="1585750098480">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="436" y="85" key="#CLI_Interpreters/0.0.1920.1040@0.0.1920.1040" timestamp="1588171188187" />
+    <state x="595" y="4" key="#PHP" timestamp="1588172090345">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="476" y="3" key="#PHP/0.0.1536.824@0.0.1536.824" timestamp="1585750098480" />
+    <state x="595" y="4" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1588172090345" />
     <state x="314" y="128" key="#SQL_Dialects" timestamp="1585850908713">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="314" y="128" key="#SQL_Dialects/0.0.1536.824@0.0.1536.824" timestamp="1585850908713" />
-    <state x="314" y="128" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585851435927">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="338" y="444" key="#SQL_Resolution_Scopes" timestamp="1588175602394">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="338" y="444" key="#SQL_Resolution_Scopes/0.0.1920.1040@0.0.1920.1040" timestamp="1588175602394" />
+    <state x="393" y="162" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588184583401">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="314" y="128" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1585851435927" />
-    <state x="519" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585861437920">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="393" y="162" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588184583401" />
+    <state x="649" y="271" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588173516572">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="519" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1585861437920" />
+    <state x="649" y="271" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588173516572" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585926179780">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1585926179780" />
-    <state x="426" y="0" width="849" height="824" key="CommitChangelistDialog2" timestamp="1587820066893">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="533" y="0" width="849" height="824" key="CommitChangelistDialog2" timestamp="1588186906641">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="426" y="0" width="849" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587820066893" />
+    <state x="533" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588186906641" />
     <state x="865" y="353" key="DBNavigator.ConnectionAuthenticationDialog" timestamp="1585848212907">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -245,34 +191,44 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="252" y="124" key="DBNavigator.ProjectSettingsDialog/0.0.1536.824@0.0.1536.824" timestamp="1585849405354" />
+    <state x="577" y="343" key="DUMP_DIALOG_DIMENSION_KEY" timestamp="1588176449939">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="577" y="343" key="DUMP_DIALOG_DIMENSION_KEY/0.0.1920.1040@0.0.1920.1040" timestamp="1588176449939" />
     <state x="405" y="191" key="EditFileWatcherDialog" timestamp="1585863253654">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="405" y="191" key="EditFileWatcherDialog/0.0.1536.824@0.0.1536.824" timestamp="1585863253653" />
-    <state x="586" y="140" key="FileChooserDialogImpl" timestamp="1586293751515">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="762" y="174" key="FileChooserDialogImpl" timestamp="1588176449086">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="586" y="140" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586293751515" />
-    <state width="1024" height="247" key="GridCell.Tab.0.bottom" timestamp="1585866741750">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="762" y="174" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588176449086" />
+    <state width="636" height="266" key="GridCell.Tab.0.bottom" timestamp="1588186750668">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1024" height="247" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585866741750" />
-    <state width="1024" height="247" key="GridCell.Tab.0.center" timestamp="1585866741749">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="636" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588186750668" />
+    <state width="636" height="266" key="GridCell.Tab.0.center" timestamp="1588186750668">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1024" height="247" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585866741749" />
-    <state width="1024" height="247" key="GridCell.Tab.0.left" timestamp="1585866741749">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="636" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588186750668" />
+    <state width="636" height="266" key="GridCell.Tab.0.left" timestamp="1588186750668">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1024" height="247" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585866741749" />
-    <state width="1024" height="247" key="GridCell.Tab.0.right" timestamp="1585866741750">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="636" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588186750668" />
+    <state width="636" height="266" key="GridCell.Tab.0.right" timestamp="1588186750668">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1024" height="247" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585866741750" />
-    <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1587597974909">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="636" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588186750668" />
+    <state width="237" height="577" key="HiddenNamespacesPopup" timestamp="1588184594851">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="189" height="457" key="HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824" timestamp="1587597974909" />
+    <state width="237" height="577" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1588184594851" />
     <state x="540" y="227" key="NewPhpClassDialog" timestamp="1587598341325">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -281,14 +237,23 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1587809345219" />
-    <state x="277" y="55" key="SettingsEditor" timestamp="1587814010483">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="346" y="69" key="SettingsEditor" timestamp="1588186918265">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587814010483" />
+    <state x="346" y="69" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588186918265" />
+    <state width="335" height="441" key="SqlResolveConfigurable" timestamp="1588175601107">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="335" height="441" key="SqlResolveConfigurable/0.0.1920.1040@0.0.1920.1040" timestamp="1588175601107" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1587566400224">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587566400224" />
+    <state x="755" y="326" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1588175631075">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="755" y="326" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588175631075" />
     <state x="418" y="293" key="com.intellij.ide.util.TipDialog" timestamp="1587809011786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

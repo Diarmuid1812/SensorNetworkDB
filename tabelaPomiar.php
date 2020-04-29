@@ -7,21 +7,25 @@
 /*todo:
  *  (!)use for currently logged in user only,
  *  (!)delete "root"
- *  (?)PDO
 */
 
-$linkSensTable = mysqli_connect("localhost:3306", "root", "", "czujniki");
-/*
-if(!$linkSensTable)
+/** Data */
+
+$hostname = 'localhost';
+/*todo: Set to logged user*/
+$username = 'root';
+$passwd = '';
+$database = 'czujniki';
+
+try
 {
-todo: (?)error handling
-}
-*/
 
-mysqli_query($linkSensTable, "SET NAMES 'utf8'");
-$tableMapPomiar = mysqli_query($linkSensTable, "SELECT * FROM pomiar");
 
-echo "<table>
+    $dbLink = new PDO("mysql:host=$hostname;dbname=$database;charset=utf8", $username, $passwd);
+
+    $qry = "SELECT * FROM pomiar";
+
+    echo "<table>
     <tr>
     <th>id</th>
     <th>Nr czujnika</th>
@@ -30,11 +34,19 @@ echo "<table>
     <th>Temperatura</th>
     ";
 
-while ($rowPomiar = mysqli_fetch_array($tableMapPomiar)) {
-    echo "<tr>";
-    echo "<td>" . $rowPomiar["id"] . "</td>";
-    echo "<td>" . $rowPomiar["nr_czujnika"] . "</td>";
-    echo "<td>" . $rowPomiar["data"] . "</td>";
-    echo "<td>" . $rowPomiar["wilgotnosc"] . "</td>";
-    echo "<td>" . $rowPomiar["temperatura"] . "</td>";
+
+    foreach ( $dbLink->query($qry) as $rowPomiar)
+    {
+        echo "<tr>";
+        echo "<td>" . $rowPomiar["id"] . "</td>";
+        echo "<td>" . $rowPomiar["nr_czujnika"] . "</td>";
+        echo "<td>" . $rowPomiar["data"] . "</td>";
+        echo "<td>" . $rowPomiar["wilgotnosc"] . "</td>";
+        echo "<td>" . $rowPomiar["temperatura"] . "</td>";
+    }
+
+}
+catch (PDOException $e)
+{
+    echo $e->getMessage();
 }
