@@ -19,13 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="">
+    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="Komunikacja do przetestowania">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/140b3f0e-e6d9-4b54-86a6-884790ae1b5c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/140b3f0e-e6d9-4b54-86a6-884790ae1b5c/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/communicationPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/communicationPost.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dodajCzujnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/dodajCzujnik.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tabelaCzujnikow.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabelaCzujnikow.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tabelaPomiar.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabelaPomiar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist" beforeDir="false" afterPath="$PROJECT_DIR$/todolist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usunCzujnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/usunCzujnik.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,11 +37,6 @@
   </component>
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <execution />
-  </component>
-  <component name="DatabaseLocalColorSettings">
-    <colors>
-      <entry key="140b3f0e-e6d9-4b54-86a6-884790ae1b5c" value="Green" />
-    </colors>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -83,7 +81,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -116,7 +114,11 @@
       <workItem from="1587597896457" duration="4641000" />
       <workItem from="1587808878857" duration="10101000" />
       <workItem from="1588169029606" duration="6115000" />
-      <workItem from="1588176143172" duration="8252000" />
+      <workItem from="1588176143172" duration="8819000" />
+      <workItem from="1588267403758" duration="32000" />
+      <workItem from="1588325558630" duration="1213000" />
+      <workItem from="1588368304798" duration="12000" />
+      <workItem from="1588450562654" duration="1072000" />
     </task>
     <task id="LOCAL-00001" summary="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji">
       <created>1587566032743</created>
@@ -139,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588186947234</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Komunikacja do przetestowania">
+      <created>1588190473590</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1588190473590</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,7 +170,8 @@
     <MESSAGE value="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji" />
     <MESSAGE value="Wyświetlanie tabeli pomiarów" />
     <MESSAGE value="PDO (2/2) tabele" />
-    <option name="LAST_COMMIT_MESSAGE" value="PDO (2/2) tabele" />
+    <MESSAGE value="Komunikacja do przetestowania" />
+    <option name="LAST_COMMIT_MESSAGE" value="Komunikacja do przetestowania" />
   </component>
   <component name="WindowStateProjectService">
     <state x="436" y="85" key="#CLI_Interpreters" timestamp="1588171188187">
@@ -196,11 +206,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1585926179780" />
-    <state x="533" y="0" width="849" height="824" key="CommitChangelistDialog2" timestamp="1588186946307">
+    <state x="533" y="0" width="849" height="824" key="CommitChangelistDialog2" timestamp="1588190495596">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="426" y="0" width="849" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587820066893" />
-    <state x="533" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588186946307" />
+    <state x="533" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588190495596" />
     <state x="865" y="353" key="DBNavigator.ConnectionAuthenticationDialog" timestamp="1585848212907">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -217,11 +227,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="405" y="191" key="EditFileWatcherDialog/0.0.1536.824@0.0.1536.824" timestamp="1585863253653" />
-    <state x="762" y="174" key="FileChooserDialogImpl" timestamp="1588176449086">
+    <state x="762" y="174" key="FileChooserDialogImpl" timestamp="1588450887333">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="586" y="140" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586293751515" />
-    <state x="762" y="174" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588176449086" />
+    <state x="762" y="174" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588450887333" />
     <state width="636" height="266" key="GridCell.Tab.0.bottom" timestamp="1588186750668">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -255,11 +265,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1587809345219" />
-    <state x="346" y="69" key="SettingsEditor" timestamp="1588186918265">
+    <state x="346" y="69" key="SettingsEditor" timestamp="1588450889872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587814010483" />
-    <state x="346" y="69" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588186918265" />
+    <state x="346" y="69" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588450889872" />
     <state width="335" height="441" key="SqlResolveConfigurable" timestamp="1588175601107">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -280,6 +290,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1586297792171" />
+    <state x="618" y="298" width="612" height="281" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1588450888597">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="618" y="298" width="612" height="281" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588450888597" />
     <state x="425" y="189" key="run.anything.popup" timestamp="1585750654644">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

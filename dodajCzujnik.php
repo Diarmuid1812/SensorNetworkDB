@@ -29,6 +29,7 @@ function addSensor($id,$program_id,$miejsce)
         /*** link data ***/
         $hostname = 'localhost';
         $username = 'root';
+        /*** Set password*/
         $passwd   = '';
         $database = 'czujniki';
 

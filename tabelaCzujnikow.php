@@ -3,16 +3,10 @@
  *  Code to display a table of sensors, loaded from MySQL Database
  */
 
-/*todo:
- *  (!)use for currently logged in user only,
- *  (!)delete "root"
- *  (?)PDO
-*/
-
 /** Data */
 
 $host = 'localhost';
-/*todo: Set to logged user*/
+/*** Set password*/
 $username = 'root';
 $password = '';
 

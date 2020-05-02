@@ -7,6 +7,7 @@ function deleteSensor($num_id)
         /*** link data ***/
         $hostname = 'localhost';
         $username = 'root';
+        /*** Set password*/
         $passwd   = '';
         $database = 'czujniki';
 

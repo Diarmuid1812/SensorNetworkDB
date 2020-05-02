@@ -42,7 +42,7 @@ if(! filter_var($comBatt,FILTER_VALIDATE_INT))
 
 
 $hostname = 'localhost';
-/*todo: Set to logged user*/
+/*** Set password*/
 $username = 'root';
 $passwd = '';
 $database = 'czujniki';

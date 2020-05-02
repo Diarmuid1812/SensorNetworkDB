@@ -4,15 +4,12 @@
  *  Code to display a table of measures, loaded from MySQL Database
  */
 
-/*todo:
- *  (!)use for currently logged in user only,
- *  (!)delete "root"
-*/
+
 
 /** Data */
 
 $hostname = 'localhost';
-/*todo: Set to logged user*/
+/*** Set password*/
 $username = 'root';
 $passwd = '';
 $database = 'czujniki';
