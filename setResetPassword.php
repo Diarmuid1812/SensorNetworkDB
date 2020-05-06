@@ -83,3 +83,43 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     // Close connection
     unset($pdo);
 }
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 350px; padding: 20px; }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h2>Zresetuj hasło</h2>
+    <p>Wprowadź i potwierdź nowe hasło</p>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <div class="form-group <?php echo (!empty($new_password_err)) ? 'has-error' : ''; ?>">
+            <label>Nowe hasło
+            <input type="password" name="new_password" class="form-control" value="<?php echo $new_password; ?>">
+            <span class="help-block"><?php echo $new_password_err; ?></span>
+            </label>
+        </div>
+        <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+            <label>Powtórz hasło
+            <input type="password" name="confirm_password" class="form-control">
+            <span class="help-block"><?php echo $confirm_password_err; ?></span>
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Zmień">
+            <a class="btn btn-link" href="interfejsGlowny.phtml">Powrót</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

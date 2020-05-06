@@ -7,7 +7,7 @@ session_start();
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: welcome.php");
+    header("location: interfejsGlowny.phtml");
     exit;
 }
 
@@ -65,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: welcome.php");
+                            header("location: interfejsGlowny.phtml");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "Niepoprawna hasło";
@@ -106,18 +106,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
             <label>Nazwa użytkownika
-            <input type="text" name="Nazwa użytkownika" class="form-control" value="<?php echo $username; ?>">
+            <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
             <span class="help-block"><?php echo $username_err; ?></span>
             </label>
         </div>
         <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
             <label>Hasło
-            <input type="password" name="Hasło" class="form-control">
+            <input type="password" name="password" class="form-control">
             <span class="help-block"><?php echo $password_err; ?></span>
             </label>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Login">
+            <input type="submit" class="btn btn-primary" value="Zaloguj się">
         </div>
     </form>
 </div>

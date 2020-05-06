@@ -1,5 +1,3 @@
-
-
 <?php
 // Include config file
 require_once "config_db.php";
@@ -33,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $username = trim($_POST["username"]);
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Coś poszło nie tak. Spróbuj ponownie później.";
             }
 
             // Close statement
@@ -45,6 +43,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before inserting in database
     if(empty($username_err)){
 
+        //create password -- todo: random password + send via mail ??? Other method ?
+        //preset test password
+        $password = trim("test1");
+
+
         // Prepare an insert statement
         $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
 
@@ -55,11 +58,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Set parameters
             $param_username = $username;
+            $param_password = password_hash($password, PASSWORD_DEFAULT);;
 
             // Attempt to execute the prepared statement
             if($stmt->execute()){
                 echo "Dodano użytkownika";
-            } else{
+            }
+            else
+            {
                 echo "Coś poszło nie tak. Spróbuj ponownie później";
             }
 
@@ -93,7 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Nazwa
-                    <input type="text" name="Nazwa" class="form-control" value="<?php echo $username; ?>">
+                    <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
                 </label>
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>
