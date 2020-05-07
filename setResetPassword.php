@@ -25,6 +25,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     if(empty(trim($_POST["new_password"]))){
         $new_password_err = "Pole nie może być puste.";
     }
+
     elseif(strlen(trim($_POST["new_password"])) < 5)
     {
         $new_password_err = "Hasło musi mieć co najmniej 5 znaków.";

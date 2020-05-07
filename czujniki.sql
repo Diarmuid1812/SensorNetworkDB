@@ -44,7 +44,7 @@ CREATE TABLE `czujnik` (
 CREATE TABLE `pomiar` (
   `id` int(11) NOT NULL,
   `nr_czujnika` int(11) NOT NULL,
-  `data` int(11) NOT NULL,
+  `data` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `wilgotnosc` int(11) NOT NULL,
   `temperatura` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
