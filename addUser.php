@@ -1,82 +1,117 @@
 <?php
 // Include config file
+require 'mailTest.php';
 require_once "config_db.php";
 
 // Initializing username variable and error message variable
 $username = "";
-$username_err = "";
+$email = "";
+$username_err = $email_err = "";
 
+try
+{
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if ($_SERVER["REQUEST_METHOD"] == "POST")
+    {
 
-    // Validate username
-    if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter a username.";
-    } else{
-        // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = :username";
+        $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
 
-        if($stmt = $dbLink->prepare($sql)){
-            // Bind variables to the prepared statement as parameters
-            $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
+        // Validate username
+        if (empty(trim($_POST["username"])))
+        {
+            $username_err = "Podaj nazwę użytkownika.";
+        } elseif (empty(trim($_POST["email"])))
+        {
+            $email_err = "Podaj email nowego użytkownika.";
+        } elseif ($email === false)
+        {
+            $email_err = "Niepoprawny email";
+        } else
+        {
+            // Prepare a select statement
+            $sql = "SELECT id FROM users WHERE username = :username";
 
-            // Set parameters
-            $param_username = trim($_POST["username"]);
-
-            // Attempt to execute the prepared statement
-            if($stmt->execute()){
-                if($stmt->rowCount() == 1){
-                    $username_err = "Nazwa użytkownika zajęta";
-                } else{
-                    $username = trim($_POST["username"]);
-                }
-            } else{
-                echo "Coś poszło nie tak. Spróbuj ponownie później.";
-            }
-
-            // Close statement
-            unset($stmt);
-        }
-    }
-
-
-    // Check input errors before inserting in database
-    if(empty($username_err)){
-
-        //create password -- todo: random password + send via mail ??? Other method ?
-        //preset test password
-        $password = trim("test1");
-
-
-        // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
-
-        if($stmt = $dbLink->prepare($sql)){
-            // Bind variables to the prepared statement as parameters
-            $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
-            $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
-
-            // Set parameters
-            $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT);;
-
-            // Attempt to execute the prepared statement
-            if($stmt->execute()){
-                echo "Dodano użytkownika";
-            }
-            else
+            if ($stmt = $dbLink->prepare($sql))
             {
-                echo "Coś poszło nie tak. Spróbuj ponownie później";
+                // Bind variables to the prepared statement as parameters
+                $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
+
+                // Set parameters
+                $param_username = trim($_POST["username"]);
+
+                // Attempt to execute the prepared statement
+                if ($stmt->execute())
+                {
+                    if ($stmt->rowCount() == 1)
+                    {
+                        $username_err = "Nazwa użytkownika zajęta";
+                    } else
+                    {
+                        $username = trim($_POST["username"]);
+                    }
+                } else
+                {
+                    echo "Coś poszło nie tak. Spróbuj ponownie później.";
+                }
+
+
+                // Close statement
+                unset($stmt);
             }
-
-            // Close statement
-            unset($stmt);
         }
-    }
 
-    // Close connection
-    unset($pdo);
+
+        // Check input errors before inserting in database
+        if (empty($username_err) && empty($email_err))
+        {
+
+            //create password
+            $password = trim(bin2hex(random_bytes(5)));
+            mailTo($email,'Temporary password',$password);
+
+                // Prepare an insert statement
+            $sql = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
+
+            if ($stmt = $dbLink->prepare($sql))
+            {
+                // Bind variables to the prepared statement as parameters
+                $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
+                $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
+                $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
+
+                // Set parameters
+                $param_username = $username;
+                $param_email    = $email;
+                $param_password = password_hash($password, PASSWORD_DEFAULT);;
+
+                // Attempt to execute the prepared statement
+                if ($stmt->execute())
+                {
+                    echo "Dodano użytkownika";
+                } else
+                {
+                    echo "Coś poszło nie tak. Spróbuj ponownie później";
+                }
+
+                // Close statement
+                unset($stmt);
+            }
+        }
+
+        // Close connection
+        unset($pdo);
+    }
 }
+catch (PDOException $E)
+{
+
+}
+catch (Exception $e)
+{
+
+}
+
+
 ?>
 
 <!--todo: Move to part of administrator menu-->
@@ -102,6 +137,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
                 </label>
                 <span class="help-block"><?php echo $username_err; ?></span>
+            </div>
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <label>E-mail
+                    <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
+                </label>
+                <span class="help-block"><?php echo $email_err; ?></span>
             </div>
 
             <div class="form-group">

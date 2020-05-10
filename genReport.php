@@ -1,7 +1,7 @@
 <?php
 
 header('Content-Type: text/csv');
-header('Content-Disposition: attachment; filename="sample.csv"');
+header('Content-Disposition: attachment; filename="reports/sample.csv"');
 
 try{
     require_once "config_db.php";

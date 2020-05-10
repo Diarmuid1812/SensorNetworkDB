@@ -19,22 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/genReport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="CSV prototyp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/addUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config_db.php" beforeDir="false" afterPath="$PROJECT_DIR$/config_db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/czujniki.sql" beforeDir="false" afterPath="$PROJECT_DIR$/czujniki.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interfejsGlowny.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/interfejsGlowny.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setResetPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/setResetPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/communicationPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/communicationPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genReport.php" beforeDir="false" afterPath="$PROJECT_DIR$/genReport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/mailTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist" beforeDir="false" afterPath="$PROJECT_DIR$/todolist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/userTable.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usrLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/usrLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usrLogout.php" beforeDir="false" afterPath="$PROJECT_DIR$/usrLogout.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +89,19 @@
       <recent name="C:\Users\szust\PhpstormProjects\SensorNetwork" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="userTable.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/userTable.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="ebf5b897-f41b-4467-bc77-3dc490b79534" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Database Script.userTable.sql" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -131,7 +136,10 @@
       <workItem from="1588717599707" duration="4775000" />
       <workItem from="1588761243825" duration="1798000" />
       <workItem from="1588788926382" duration="3061000" />
-      <workItem from="1588866333673" duration="2987000" />
+      <workItem from="1588866333673" duration="3537000" />
+      <workItem from="1588894165104" duration="2666000" />
+      <workItem from="1589023517126" duration="1266000" />
+      <workItem from="1589028125982" duration="4178000" />
     </task>
     <task id="LOCAL-00001" summary="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji">
       <created>1587566032743</created>
@@ -175,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588722171857</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="CSV prototyp">
+      <created>1588871061509</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1588871061509</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +215,8 @@
     <MESSAGE value="Komunikacja do przetestowania" />
     <MESSAGE value="Init Fork" />
     <MESSAGE value="Prototyp 1 - nie gotowe&#10;Wymaga integracji, decyzji co do metody tworzenia&#10;hasła dla nowych użytkowników, wdrożenia&#10;do architektury aplikacji i użycia włsnego&#10;arkusza stylów." />
-    <option name="LAST_COMMIT_MESSAGE" value="Prototyp 1 - nie gotowe&#10;Wymaga integracji, decyzji co do metody tworzenia&#10;hasła dla nowych użytkowników, wdrożenia&#10;do architektury aplikacji i użycia włsnego&#10;arkusza stylów." />
+    <MESSAGE value="CSV prototyp" />
+    <option name="LAST_COMMIT_MESSAGE" value="CSV prototyp" />
   </component>
   <component name="WindowStateProjectService">
     <state x="436" y="85" key="#CLI_Interpreters" timestamp="1588171188187">
@@ -235,6 +251,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1585926179780" />
+    <state x="669" y="169" key="#userTable.sql" timestamp="1589115821847">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="669" y="169" key="#userTable.sql/0.0.1920.1040@0.0.1920.1040" timestamp="1589115821847" />
     <state x="533" y="0" width="849" height="824" key="CommitChangelistDialog2" timestamp="1588459768277">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -290,11 +310,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="540" y="227" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1587598341325" />
-    <state x="755" y="424" key="NewPhpFileDialog" timestamp="1588868671606">
+    <state x="755" y="424" key="NewPhpFileDialog" timestamp="1588895993066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1587809345219" />
-    <state x="755" y="424" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588868671606" />
+    <state x="755" y="424" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588895993066" />
     <state x="346" y="69" key="SettingsEditor" timestamp="1588460022477">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -304,11 +324,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="335" height="441" key="SqlResolveConfigurable/0.0.1920.1040@0.0.1920.1040" timestamp="1588175601107" />
-    <state x="451" y="183" key="Vcs.Push.Dialog.v2" timestamp="1588722203015">
+    <state x="451" y="183" key="Vcs.Push.Dialog.v2" timestamp="1588871081324">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587566400224" />
-    <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588722203015" />
+    <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588871081324" />
+    <state x="854" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1589115744431">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="854" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040@0.0.1920.1040" timestamp="1589115744431" />
     <state x="755" y="326" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1588175631075">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

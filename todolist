@@ -1,5 +1,7 @@
 todo:  (!) transactions
        (!) accounts
        (!) frontend
+       (!) trim
+       (!) connection cofig
        (?) safe updates forcing
        (?) exception handling
