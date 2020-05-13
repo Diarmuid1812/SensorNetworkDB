@@ -20,7 +20,7 @@ function addSensor($id,$program_id,$miejsce)
     }
 
     if(! filter_var($miejsce, FILTER_VALIDATE_REGEXP,
-    array("options"=>array("regexp"=>'/^[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ _]{3,100}$/')))){
+    array("options"=>array("regexp"=>'/^[a-zA-ZąćęłńóśżźĄĆĘŁŃÓŚŻŹ _]{3,100}$/')))){
         echo "Nieprawidłowy opis miejsca";
         return false;
     }

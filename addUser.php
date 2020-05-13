@@ -14,7 +14,7 @@ try
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
 
-        $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
+        $email = filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL);
 
         // Validate username
         if (empty(trim($_POST["username"])))
@@ -47,7 +47,14 @@ try
                         $username_err = "Nazwa użytkownika zajęta";
                     } else
                     {
-                        $username = trim($_POST["username"]);
+                        $username = filter_var(trim($_POST["username"]),FILTER_VALIDATE_REGEXP,
+                            array("options"=>array("regexp"=>'/^[A-Za-z0-9ąćęłńóśżźĄĆĘŁŃÓŚŻŹ!\_\.\-\$]$/')));
+                        if($username === false)
+                        {
+                            $username_err = "Niepoprawna nazwa użytkownika <br>
+                                             Dozwolone znaki to A-Z, a-z, 0-9, <br>
+                                             'ąćęłńóśżźĄĆĘŁŃÓŚŻŹ', '-', '_', '.', '!', '$'";
+                        }
                     }
                 } else
                 {
@@ -99,7 +106,7 @@ try
         }
 
         // Close connection
-        unset($pdo);
+        unset($dbLink);
     }
 }
 catch (PDOException $E)
@@ -147,6 +154,10 @@ catch (Exception $e)
 
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Stwórz">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Zmień">
+                <a class="btn btn-link" href="interfejsGlowny.phtml">Powrót</a>
             </div>
         </form>
     </div>

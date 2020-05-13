@@ -68,7 +68,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             header("location: interfejsGlowny.phtml");
                         } else{
                             // Display an error message if password is not valid
-                            $password_err = "Niepoprawna hasło";
+                            $password_err = "Niepoprawne hasło";
                         }
                     }
                 } else{

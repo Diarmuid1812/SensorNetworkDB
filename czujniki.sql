@@ -31,7 +31,7 @@ SET time_zone = "+01:00";
 CREATE TABLE `czujnik` (
   `id` int(11) NOT NULL,
   `programowy_nr` int(11) NOT NULL,
-  `bateria` int(11) NOT NULL,
+  `bateria` float(11) NOT NULL,
   `miejsce` text COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
@@ -42,11 +42,11 @@ CREATE TABLE `czujnik` (
 --
 
 CREATE TABLE `pomiar` (
-  `id` int(11) NOT NULL,
+  `id` INT(11) NOT NULL,
   `nr_czujnika` int(11) NOT NULL,
   `data` DATETIME DEFAULT CURRENT_TIMESTAMP,
-  `wilgotnosc` int(11) NOT NULL,
-  `temperatura` int(11) NOT NULL
+  `wilgotnosc` float(11) NOT NULL,
+  `temperatura` float(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
