@@ -89,7 +89,8 @@ ALTER TABLE `pomiar`
 -- AUTO_INCREMENT dla tabeli `czujnik`
 --
 ALTER TABLE `czujnik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
+  MODIFY `programowy_nr` int(11) NOT NULL UNIQUE;
 --
 -- AUTO_INCREMENT dla tabeli `pomiar`
 --

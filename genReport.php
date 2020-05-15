@@ -13,14 +13,16 @@ try{
     $qrySens="SELECT * FROM czujnik";
     foreach ( $dbLink->query($qrySens) as $rowSens)
     {
+        $paramID = "";
         $qryMeas= $dbLink->prepare("SELECT * FROM pomiar WHERE nr_czujnika=:sensID");
-        $qry->bindParam(':sensID', $paramID, PDO::PARAM_INT);
-        $paramID = $rowSens["id"]; // todo: or programowy nr ??!!!
+        $qryMeas->bindParam(':sensID', $paramID, PDO::PARAM_INT);
+        $paramID = $rowSens["programowy_nr"];
+
         $fp = fopen('php://output', 'wb');
 
         foreach ($dbLink->query($qryMeas) as $rowMeas)
         {
-            $val =  array($rowMeas["id"],$rowMeas["data"],$rowMeas["wilgotnosc"],$rowMeas["temperatura"]);
+            $val =  array($rowMeas["id czujnika"],$rowMeas["data"],$rowMeas["wilgotnosc"],$rowMeas["temperatura"]);
             fputcsv($fp, $val);
         }
         fclose($fp);
@@ -49,7 +51,6 @@ catch(PDOException $e)
 {
     echo $e->getMessage();
     return false;
-    //todo: throw, handling
 }
 
 

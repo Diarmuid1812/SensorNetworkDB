@@ -1,7 +1,7 @@
 <?php
 // Include config file
 require 'mailTest.php';
-require_once "config_db.php";
+
 
 // Initializing username variable and error message variable
 $username = "";
@@ -10,7 +10,11 @@ $username_err = $email_err = "";
 
 try
 {
-// Processing form data when form is submitted
+    //database connection
+    require_once "config_db.php";
+    $dbLink->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Processing form data when form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
 
@@ -48,7 +52,7 @@ try
                     } else
                     {
                         $username = filter_var(trim($_POST["username"]),FILTER_VALIDATE_REGEXP,
-                            array("options"=>array("regexp"=>'/^[A-Za-z0-9ąćęłńóśżźĄĆĘŁŃÓŚŻŹ!\_\.\-\$]$/')));
+                            array("options"=>array("regexp"=>'/^[A-Za-z0-9ąćęłńóśżźĄĆĘŁŃÓŚŻŹ_!\\.\\-\\$]{4,30}$/')));
                         if($username === false)
                         {
                             $username_err = "Niepoprawna nazwa użytkownika <br>
@@ -75,6 +79,7 @@ try
             //create password
             $password = trim(bin2hex(random_bytes(5)));
             mailTo($email,'Temporary password',$password);
+            $dbLink->beginTransaction();
 
                 // Prepare an insert statement
             $sql = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
@@ -89,14 +94,16 @@ try
                 // Set parameters
                 $param_username = $username;
                 $param_email    = $email;
-                $param_password = password_hash($password, PASSWORD_DEFAULT);;
+                $param_password = password_hash($password, PASSWORD_DEFAULT);
 
                 // Attempt to execute the prepared statement
                 if ($stmt->execute())
                 {
+                    $dbLink->commit();
                     echo "Dodano użytkownika";
                 } else
                 {
+                    $dbLink->rollBack();
                     echo "Coś poszło nie tak. Spróbuj ponownie później";
                 }
 
@@ -111,11 +118,12 @@ try
 }
 catch (PDOException $E)
 {
-
+    $dbLink->rollBack();
+    echo $E->getMessage();
 }
 catch (Exception $e)
 {
-
+    echo $e->getMessage();
 }
 
 
@@ -154,9 +162,6 @@ catch (Exception $e)
 
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Stwórz">
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Zmień">
                 <a class="btn btn-link" href="interfejsGlowny.phtml">Powrót</a>
             </div>
         </form>

@@ -5,17 +5,12 @@
 
 /** Data */
 
-$host = 'localhost';
-/*** Set password*/
-$username = 'root';
-$password = '';
-
 
 
 
 try
 {
-    $dbLink = new PDO("mysql:host=$host;dbname=czujniki;charset=utf8", $username, $password);
+    require_once "config_db.php";
 
     $qry = "SELECT * FROM czujnik";
 

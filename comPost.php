@@ -16,13 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $inf = ob_get_clean();
     fwrite($f_hand,$inf);
 
-    $comID    = filter_var($_POST['id'], FILTER_VALIDATE_INT);
-    $comTemp  = filter_var($_POST['temperature'],FILTER_VALIDATE_FLOAT);
-    $comHum   = filter_var($_POST['humidity'],FILTER_VALIDATE_FLOAT);
-    $comBatt  = filter_var($_POST['battery'],FILTER_VALIDATE_FLOAT);
+    $comID    = trim(filter_var($_POST['id'], FILTER_VALIDATE_INT));
+    $comTemp  = trim(filter_var($_POST['temperature'],FILTER_VALIDATE_FLOAT));
+    $comHum   = trim(filter_var($_POST['humidity'],FILTER_VALIDATE_FLOAT));
+    $comBatt  = trim(filter_var($_POST['battery'],FILTER_VALIDATE_FLOAT));
 
-//todo: (!)sprawdzanie nr czujnika z bazą,
-//      (!)obsługa błędów
+//todo: (!)sprawdzanie nr czujnika z bazą
 
     if(!$comID)
     {
@@ -57,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     try
     {
         require_once 'config_db.php';
+        $dbLink->beginTransaction();
 
         $inf = "Połączono z bazą danych\n";
         fwrite($f_hand, $inf);
@@ -70,10 +70,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $qry->bindParam(':comBatt', $comBatt, PDO::PARAM_STR);
 
         $qry->execute();
-
+        $dbLink->commit();
         unset($qry);
 
         /** insert measure into table */
+        $dbLink->beginTransaction();
         $qry = $dbLink->prepare("INSERT INTO pomiar (nr_czujnika, wilgotnosc, temperatura) 
                                             VALUES (:comID, :comHum, :comTemp)");
 
@@ -82,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $qry->bindParam(':comTemp', $comTemp, PDO::PARAM_STR);
 
         $qry->execute();
-
+        $dbLink->commit();
         $inf = "Dodano wartości do bazy.\n";
         fwrite($f_hand, $inf);
 
@@ -91,6 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     } catch (PDOException $e)
     {
         echo $e->getMessage();
+        $dbLink->rollBack();
         $inf = "Błąd: ". $e->getMessage() . "\n";
         fwrite($f_hand, $inf);
     }

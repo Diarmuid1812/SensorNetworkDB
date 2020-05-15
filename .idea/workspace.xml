@@ -19,15 +19,22 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Arduino/ESP8266_DHT22.ino" afterDir="false" />
+    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="Transakcej i zabezpieczenia dla bazy danych">
+      <change beforePath="$PROJECT_DIR$/.idea/SensorNetwork.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SensorNetwork.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/addUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/communicationPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/comPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/comPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config_db.php" beforeDir="false" afterPath="$PROJECT_DIR$/config_db.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/czujniki.sql" beforeDir="false" afterPath="$PROJECT_DIR$/czujniki.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dodajCzujnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/dodajCzujnik.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genReport.php" beforeDir="false" afterPath="$PROJECT_DIR$/genReport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setResetPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/setResetPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabelaCzujnikow.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabelaCzujnikow.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabelaPomiar.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabelaPomiar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist" beforeDir="false" afterPath="$PROJECT_DIR$/todolist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/userTable.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usrLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/usrLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usunCzujnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/usunCzujnik.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +150,8 @@
       <workItem from="1589023517126" duration="1266000" />
       <workItem from="1589028125982" duration="4839000" />
       <workItem from="1589312070274" duration="3381000" />
-      <workItem from="1589370380342" duration="7885000" />
+      <workItem from="1589370380342" duration="10404000" />
+      <workItem from="1589490274344" duration="9049000" />
     </task>
     <task id="LOCAL-00001" summary="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji">
       <created>1587566032743</created>
@@ -201,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589119911272</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Działająca komunikacja">
+      <created>1589378898254</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1589378898254</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +243,9 @@
     <MESSAGE value="Prototyp 1 - nie gotowe&#10;Wymaga integracji, decyzji co do metody tworzenia&#10;hasła dla nowych użytkowników, wdrożenia&#10;do architektury aplikacji i użycia włsnego&#10;arkusza stylów." />
     <MESSAGE value="CSV prototyp" />
     <MESSAGE value="Mail z pierwszym hasłem, data w com" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mail z pierwszym hasłem, data w com" />
+    <MESSAGE value="Działająca komunikacja" />
+    <MESSAGE value="Transakcej i zabezpieczenia dla bazy danych" />
+    <option name="LAST_COMMIT_MESSAGE" value="Transakcej i zabezpieczenia dla bazy danych" />
   </component>
   <component name="WindowStateProjectService">
     <state x="436" y="85" key="#CLI_Interpreters" timestamp="1588171188187">
@@ -263,10 +280,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1585926179780" />
-    <state x="669" y="169" key="#userTable.sql" timestamp="1589115821847">
+    <state x="669" y="169" key="#userTable.sql" timestamp="1589399512034">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="669" y="169" key="#userTable.sql/0.0.1920.1040@0.0.1920.1040" timestamp="1589115821847" />
+    <state x="669" y="169" key="#userTable.sql/0.0.1920.1040@0.0.1920.1040" timestamp="1589399512034" />
     <state x="533" y="0" width="849" height="824" key="CommitChangelistDialog2" timestamp="1588459768277">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -293,26 +310,26 @@
     </state>
     <state x="586" y="140" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586293751515" />
     <state x="762" y="174" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588450887333" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1589120500046">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1589399985610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1024" height="247" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585866741750" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589120500046" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1589120500046">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589399985610" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1589399985610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1024" height="247" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585866741749" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589120500046" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1589120500046">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589399985610" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1589399985610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1024" height="247" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585866741749" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589120500046" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1589120500046">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589399985610" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1589399985610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1024" height="247" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585866741750" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589120500046" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589399985610" />
     <state width="237" height="577" key="HiddenNamespacesPopup" timestamp="1588184594851">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -341,10 +358,10 @@
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587566400224" />
     <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588871081324" />
-    <state x="854" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1589373500003">
+    <state x="854" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1589399489073">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="854" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040@0.0.1920.1040" timestamp="1589373500003" />
+    <state x="854" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040@0.0.1920.1040" timestamp="1589399489073" />
     <state x="755" y="326" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1588175631075">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -353,14 +370,19 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="418" y="293" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1587809011786" />
-    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586297792171">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="723" y="415" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589502864148">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1586297792171" />
+    <state x="723" y="415" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589502864148" />
     <state x="618" y="298" width="612" height="281" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1588450888597">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="618" y="298" width="612" height="281" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588450888597" />
+    <state x="736" y="292" key="refactoring.ChangeSignatureDialog" timestamp="1589493793845">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="736" y="292" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589493793845" />
     <state x="425" y="189" key="run.anything.popup" timestamp="1585750654644">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

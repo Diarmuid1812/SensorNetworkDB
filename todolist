@@ -1,6 +1,4 @@
-todo:  (!) transactions
-       (!) frontend
-       (!) trim
-       (!) connection cofig
-       (?) safe updates forcing
+todo:  (!) frontend
+       (?) regexp for password
        (?) exception handling
+       (?) checking if password was changed first time

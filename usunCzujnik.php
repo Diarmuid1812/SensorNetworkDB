@@ -4,19 +4,12 @@ function deleteSensor($num_id)
 
 
     try{
-        /*** link data ***/
-        $hostname = 'localhost';
-        $username = 'root';
-        /*** Set password*/
-        $passwd   = '';
-        $database = 'czujniki';
+        require "config_db.php";
 
-        $dbLink = new PDO("mysql:host=$hostname;dbname=$database;charset=utf8", $username, $passwd);
         echo 'Connected to database<br>';
 
-        /***error reporting attribute ***/
-        $dbLink->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+        /** @var $dbLink PDO */
+        $dbLink->beginTransaction();
         $dbLink ->exec("SET SQL_SAFE_UPDATES=0");
 
         $qry = $dbLink->prepare("DELETE FROM czujnik WHERE id=:id");
@@ -27,15 +20,16 @@ function deleteSensor($num_id)
 
         /*** closing connection ***/
         $dbLink ->exec("SET SQL_SAFE_UPDATES=1");
-        $dbLink = null;
-        echo "Records were deleted successfully.\n";
+        $dbLink->commit();
+        echo "Records were deleted successfully.<br>";
         return true;
     }
     catch(PDOException $e)
     {
+        $dbLink->rollBack();
         echo $e->getMessage();
         return false;
-        //todo: throw, handling
+
     }
 
 }

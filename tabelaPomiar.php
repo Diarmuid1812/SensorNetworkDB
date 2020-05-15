@@ -8,17 +8,11 @@
 
 /** Data */
 
-$hostname = 'localhost';
-/*** Set password*/
-$username = 'root';
-$passwd = '';
-$database = 'czujniki';
+
 
 try
 {
-
-
-    $dbLink = new PDO("mysql:host=$hostname;dbname=$database;charset=utf8", $username, $passwd);
+    require_once "config_db.php";
 
     $qry = "SELECT * FROM pomiar";
 

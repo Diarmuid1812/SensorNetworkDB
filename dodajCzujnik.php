@@ -26,37 +26,32 @@ function addSensor($id,$program_id,$miejsce)
     }
 
     try{
-        /*** link data ***/
-        $hostname = 'localhost';
-        $username = 'root';
-        /*** Set password*/
-        $passwd   = '';
-        $database = 'czujniki';
 
-        $dbLink = new PDO("mysql:host=$hostname;dbname=$database;charset=utf8", $username, $passwd);
-        echo 'Connected to database\n';
+        require "config_db.php";
 
-        /***error reporting attribute ***/
-        $dbLink->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo '<p>Connected to database</p>';
+        /** @var $dbLink PDO*/
+        $dbLink->beginTransaction();
 
-        $qry = $dbLink->prepare("INSERT INTO czujnik VALUES (:id, :program_id, 0, :miejsce)");
+        $qry = $dbLink->prepare("INSERT INTO czujnik (programowy_nr, bateria, miejsce) VALUES (:program_id, 0, :miejsce)");
+
+        $param_miejsce = trim($miejsce);
 
         /*** bind the paramaters ***/
-        $qry->bindParam(':id', $id, PDO::PARAM_INT);
         $qry->bindParam(':program_id', $program_id, PDO::PARAM_INT);
-        $qry->bindParam(':miejsce', $miejsce, PDO::PARAM_STR, 100);
+        $qry->bindParam(':miejsce', $param_miejsce, PDO::PARAM_STR, 100);
 
         $qry->execute();
-
+        $dbLink->commit();
         /*** closing connection ***/
-        $dbLink = null;
+
         echo 'Sensor added successfully.\n';
         return true;
     }
 catch(PDOException $e)
     {
+        $dbLink->rollBack();
         echo $e->getMessage();
         return false;
-        //todo: throw, handling
     }
  }

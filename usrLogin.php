@@ -1,7 +1,5 @@
 <?php
 
-//todo: (?) checking if password was changed first time
-
 // Initialize the session
 session_start();
 
