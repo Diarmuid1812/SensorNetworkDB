@@ -75,10 +75,14 @@ body{
 .column.content {
     background-color: rgba(238, 97, 33, 0.52);
     width: 70%;
+    overflow: auto;
 }
 
 .column.content table{
     border-collapse: collapse;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 .column.content th {
     padding-top: 12px;
@@ -87,12 +91,19 @@ body{
     background-color: #00008a;
     color: white;
 }
-.column.content tr:nth-child(even){background-color: #2d426f;}
+.column.content tr{
+    background: #001060;
+
+}
+
+.column.content tr:nth-child(2){
+    background: #1934b3;
+}
 
 .column.content td, .content th
 {
     color: white;
-    background: #001060;
+
     border: 2px white solid;
     padding: 5px;
 }
