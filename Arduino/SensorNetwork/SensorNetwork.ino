@@ -1,4 +1,4 @@
-#include "DHT.h"
+#include "src/DHT_sensor_library/DHT.h"
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 #include <WiFiClient.h>
@@ -7,6 +7,9 @@
 #define DHTTYPE DHT22
 #define DHT_VCC D1
 #define DHT_PIN D2
+
+#define SSID_EEPROM_ADDR 10
+#define PASSWD_EEPROM_ADDR 50
 
 DHT dht(DHT_PIN, DHTTYPE);
 
@@ -23,16 +26,66 @@ void setup()
   //uruchomienie EEPROM
   EEPROM.begin(512);
 
-  Serial.print("EEPROM test: ");
-  Serial.print(char(EEPROM.read(1)));
-  Serial.print(char(EEPROM.read(2)));
-  Serial.println(char(EEPROM.read(3)));
+  String ssid = "ssid";
+  String password = "passwd";
 
-
-
-  //
+  Serial.println("Waiting for wifi config");
   delay(2000);
 
+  if (Serial.available() > 0)
+  {
+    String configMsg;
+    configMsg = Serial.readString();
+
+    //identyfikacja komendy nazwy sieci
+    if (configMsg.substring(0, 5) == "ssid=")
+    {
+      ssid = configMsg.substring(5, configMsg.length());
+      Serial.print("new ssid: ");
+      Serial.println(ssid);
+
+      //zapis ssid do EEPROM
+      for (int i = 0; i < ssid.length(); i++)
+      {
+        char c = ssid[i];
+        EEPROM.write(SSID_EEPROM_ADDR + i, c);
+      }
+      EEPROM.write(SSID_EEPROM_ADDR - 1, ssid.length());
+      EEPROM.commit();
+
+
+    }
+    //identyfikacja komendy hasła
+    if (configMsg.substring(0, 7) == "passwd=")
+    {
+      password = configMsg.substring(7, configMsg.length());
+      Serial.print("new password: ");
+      Serial.println(password);
+
+      //zapis hasła do EEPROM
+      for (int i = 0; i < password.length(); i++)
+      {
+        char c = password[i];
+        EEPROM.write(PASSWD_EEPROM_ADDR + i, c);
+      }
+      EEPROM.write(PASSWD_EEPROM_ADDR - 1, password.length());
+      EEPROM.commit();
+    }
+  }
+
+  //odczyt ssid i hasła z EEPROM
+  ssid = "";
+  for (int i = 0; i < EEPROM.read(SSID_EEPROM_ADDR - 1); i++)
+  {
+    ssid += EEPROM.read(SSID_EEPROM_ADDR + i);
+  }
+  password = "";
+  for (int i = 0; i < EEPROM.read(PASSWD_EEPROM_ADDR - 1); i++)
+  {
+    password += EEPROM.read(PASSWD_EEPROM_ADDR + i);
+  }
+
+  //odczyt wilgotności, temperatury i napięcia baterii
   float humidity = dht.readHumidity();
   float temperature = dht.readTemperature();
   float battery = float(analogRead(A0)) / 1024 * 3.3;
@@ -50,8 +103,7 @@ void setup()
   WiFi.disconnect();
   Serial.println("Connecting to wifi");
 
-  String ssid = "ssid";
-  String password = "passwd";
+
 
   WiFi.begin(ssid, password);
   Serial.println("Connecting");
@@ -74,7 +126,7 @@ void setup()
   String hum = "&humidity=";
   String bat = "&battery=";
 
-  String httpRequestData = id + temp + String(temperature) + hum + String(humidity) + bat + String(battery)+"";
+  String httpRequestData = id + temp + String(temperature) + hum + String(humidity) + bat + String(battery) + "";
   Serial.print("httpRequestData: ");
   Serial.println(httpRequestData);
 
@@ -91,12 +143,6 @@ void setup()
     Serial.println(httpResponseCode);
   }
   http.end();
-
-
-  for (int i = 0; i < 1; i++)
-  {
-    delay(1000);
-  }
 
   Serial.println("Sleep for 5 seconds");
   Serial.println("##########################################");
