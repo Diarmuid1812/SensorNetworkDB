@@ -109,4 +109,33 @@ body{
 }
 
 
+table{
+    border-collapse: collapse;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #00008a;
+    color: white;
+}
+tr{
+    background: #001060;
+
+}
+
+tr:nth-child(2){
+    background: #1934b3;
+}
+
+td, .content th
+{
+    color: white;
+
+    border: 2px white solid;
+    padding: 5px;
+}
 

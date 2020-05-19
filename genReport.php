@@ -1,28 +1,34 @@
 <?php
 
-//header('Content-Type: text/csv');
-//header('Content-Disposition: attachment; filename="reports/sample.csv"');
+
 
 //time todo: get form _POST
+if(isset($_POST["dateStart"])&&isset($_POST["dateEnd"]))
+{
+    $dateStart=$_POST["dateStart"];
+    $dateEnd=$_POST["dateEnd"];
+}
+else
+{
+    $months = 24;
+    $days = 0;
+    $years = 0;
 
-$months = 1;
-$days   = 0;
-$years  = 0;
-
-$dateEnd = date("Y-m-d");
-$dateStart = date("Y-m-d",
-    mktime(
-        date("H"),
-        date("i"),
-        date("s"),
-        date("m")-$months,
-        date("d")-$days,
-        date("Y")-$years));
+    $dateEnd = date("Y-m-d");
+    $dateStart = date("Y-m-d",
+        mktime(
+            0,
+            0,
+            0,
+            date("m") - $months,
+            date("d") - $days,
+            date("Y") - $years));
+}
 
 try{
     require_once "config_db.php";
 
-    echo 'Connected to database\n';
+    $report = array();
 
     $qrySens="SELECT * FROM czujnik";
     foreach ( $dbLink->query($qrySens) as $rowSens)
@@ -34,37 +40,35 @@ try{
         $qryMeas->bindParam(':dateEnd', $dateEnd, PDO::PARAM_STR);
         $qryMeas->bindParam(':sensID', $paramID, PDO::PARAM_INT);
 
-        //$fp = fopen('php://output', 'wb');
+        $qryMeas->execute();
 
-        //Row number
-        $iX = 1; //reset to 1;
-
-        foreach ($dbLink->query($qryMeas) as $rowMeas)
+        foreach ($qryMeas as $rowMeas)
         {
-            //$val =  array($rowMeas["id czujnika"],$rowMeas["data"],$rowMeas["wilgotnosc"],$rowMeas["temperatura"]);
-            //fputcsv($fp, $val);
-/*
-            $qry = $dbLink->prepare("INSERT INTO raport (id, nr_czujnika, miejsce, data, wilgotnosc, temperatura)
-                                        VALUES (:iX, :sensID, :place, :date, :param_hum,:param_temp)");
-
-            $place=trim($rowMeas["miejsce"]);
-            $date =trim($rowMeas["data"]);
-            $param_hum=trim($rowMeas["wilgotnosc"]);
-            $param_temp=trim($rowMeas["temperatura"]);
-
-            $qry->bindParam(':iX', $iX, PDO::PARAM_INT);
-            $qry->bindParam(':sensID', $paramID, PDO::PARAM_INT);
-            $qry->bindParam(':place', $place, PDO::PARAM_STR, 100);
-            $qry->bindParam(':date', $date, PDO::PARAM_STR, 30);
-            $qry->bindParam(':param_hum', $param_hum, PDO::PARAM_INT);
-            $qry->bindParam(':param_temp', $param_temp, PDO::PARAM_INT);
-
-            $qry->execute();*/
-            ++$iX;
+            array_push($report,
+                array("nr_czujnika" => $rowMeas["nr_czujnika"],
+                    "data" => $rowMeas["data"],
+                    "wilgotnosc" =>number_format($rowMeas["wilgotnosc"],2),
+                    "temperatura" =>number_format($rowMeas["temperatura"],2)));
         }
-        //fclose($fp);
+        if(isset($_POST["generate"])&&$_POST["generate"]==="gen")
+        {
 
+            $fp = fopen('reports/sample.csv', 'wb');
+            foreach ($report as $rowMeas)
+            {
+                $info = array($rowMeas["nr_czujnika"], $rowMeas["data"], $rowMeas["wilgotnosc"], $rowMeas["temperatura"]);
+                fputcsv($fp, $info);
+            }
+            fclose($fp);
+
+            header("Content-Description: File Transfer");
+            header('Content-Disposition: attachment; filename="raport.csv"');
+            header('Content-Type: text/csv');
+            readfile("reports/sample.csv");
+            die();
+        }
     }
+
 
     unset($dbLink);
 
@@ -74,8 +78,72 @@ try{
 }
 catch(PDOException $e)
 {
-    echo $e->getMessage();
-    return false;
+    echo "Błąd:".$e->getMessage();
 }
 
+?>
+
+<!DOCTYPE html>
+<html lang="pl">
+<link rel="stylesheet" type="text/css" href="stylInterfejs.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Raport</title>
+</head>
+<body>
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <div class="form-group <?php echo (!empty($dateStartErr)) ? 'has-error' : ''; ?>">
+        <label>Od:
+            <input type="date" name="dateStart" class="form-control" value="<?php echo $dateStart; ?>">
+        </label>
+        <span class="help-block"><?php echo isset($dateStartErr); ?></span>
+    </div>
+    <div class="form-group <?php echo (!empty($dateEndErr)) ? 'has-error' : ''; ?>">
+        <label>Do:
+            <input type="date" name="dateEnd" class="form-control" value="<?php echo $dateEnd; ?>">
+        </label>
+        <span class="help-block"><?php echo isset($dateEndErr); ?></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Zmień">
+        <input type="reset">
+    </div>
+</form>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nr czujnika</th>
+                <th>Data pomiaru</th>
+                <th>Wilgotność</th>
+                <th>Temperatura</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+        foreach ($report as $rowTable)
+        {
+            echo "<tr>".
+                "<td>".$rowTable['nr_czujnika']."</td>".
+                "<td>".$rowTable['data']."</td>".
+                "<td>".$rowTable['wilgotnosc']."</td>".
+                "<td>".$rowTable['temperatura']."</td>".
+                "</tr>";
+        }
+        ?>
+        </tbody>
+    </table>
+</div>
+<div>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <input type="hidden" name="generate" value="gen" />
+        <input type="hidden" name="dateStart" value="<?php echo $dateStart; ?>" />
+        <input type="hidden" name="dateEnd" value="<?php echo $dateEnd; ?>" />
+        <input type="submit" name="gen" value="Generuj raport">
+        <input type="button" onclick="location='interfejsGlowny.phtml'" value="Powrót">
+    </form>
+</div>
+</body>
+</html>
 

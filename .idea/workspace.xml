@@ -22,12 +22,7 @@
     <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="Tabela czujników -- integracja">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/genReport.php" beforeDir="false" afterPath="$PROJECT_DIR$/genReport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interfejsGlowny.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/interfejsGlowny.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/mailTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stylInterfejs.css" beforeDir="false" afterPath="$PROJECT_DIR$/stylInterfejs.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tabelaCzujnikow.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabelaCzujnikow.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tabelaPomiar.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabelaPomiar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist" beforeDir="false" afterPath="$PROJECT_DIR$/todolist" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +142,7 @@
       <workItem from="1589506459337" duration="677000" />
       <workItem from="1589537113821" duration="600000" />
       <workItem from="1589556637592" duration="42000" />
-      <workItem from="1589792437914" duration="10528000" />
+      <workItem from="1589792437914" duration="23343000" />
     </task>
     <task id="LOCAL-00001" summary="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji">
       <created>1587566032743</created>
@@ -219,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589502944701</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Tabela czujników -- integracja">
+      <created>1589814743443</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1589814743443</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
