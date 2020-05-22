@@ -59,7 +59,11 @@ try
                                              Dozwolone znaki to A-Z, a-z, 0-9, <br>
                                              'ąćęłńóśżźĄĆĘŁŃÓŚŻŹ', '-', '_', '.', '!', '$'";
                         }
+
+
                     }
+
+
                 } else
                 {
                     echo "Coś poszło nie tak. Spróbuj ponownie później.";
