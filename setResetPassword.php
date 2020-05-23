@@ -3,14 +3,14 @@
  * Script to set password first time a user logs in
  * or reset it after login.
  */
-
+/*
 // Initialize the session
 session_start();
 // Check if the user is logged in, if not then redirect to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: usrLogin.php");
     exit;
-}
+}*/
 try
 {
 // Include config file
@@ -29,7 +29,8 @@ try
         } elseif (strlen(trim($_POST["new_password"])) < 5)
         {
             $new_password_err = "Hasło musi mieć co najmniej 5 znaków.";
-        } else
+        }
+        else
         {
             $new_password = trim($_POST["new_password"]);
         }
@@ -45,6 +46,21 @@ try
             {
                 $confirm_password_err = "Hasła nie są identyczne!";
             }
+        }
+
+        //Validating password
+        $new_password = filter_var($new_password,FILTER_VALIDATE_REGEXP,
+            array("options"=>array("regexp"=>'/^[^\t\r\n\\\'\\"\\<\\>\\\]{5,}$/')));
+        if($new_password === false)
+        {
+            $new_password_err = "Wykryto znaki białe inne niż spacja lub zastrzeżone znaki w haśle";
+        }
+
+        $confirm_password = filter_var($confirm_password,FILTER_VALIDATE_REGEXP,
+            array("options"=>array("regexp"=>'/^[^\t\r\n\\\'\\"\\<\\>\\\]{5,}$')));
+        if($confirm_password === false)
+        {
+            $confirm_password = "Wykryto znaki białe inne niż spacja lub zastrzeżone znaki w haśle";
         }
 
         // Check input errors before updating the database
@@ -69,24 +85,42 @@ try
                 // Attempt to execute the prepared statement
                 if ($stmt->execute())
                 {
-                    // Password updated successfully. Destroy the session, and redirect to login page
-                    $dbLink->commit();
-                    session_destroy();
-                    header("location: usrLogin.php");
-                    exit();
+                    $passwChangedUpdate= $dbLink->prepare("UPDATE users SET passw_changed = true 
+                                                        WHERE username = :username");
+                    $passwChangedUpdate->bindParam(':username',$_SESSION["username"],PDO::PARAM_STR);
+                    if(!$passwChangedUpdate->execute())
+                    {
+                        $dbLink->rollBack();
+                        echo "Coś poszło nie tak. Spróbuj ponownie później";
+                    }
+                    else
+                    {
+                        // Password updated successfully. Destroy the session, and redirect to login page
+                        $dbLink->commit();
+                        session_destroy();
+                        unset($passwChangedUpdate);
+                        unset($stmt);
+                        unset($dbLink);
+                        header("location: usrLogin.php");
+                        exit();
+                    }
                 } else
                 {
                     $dbLink->rollBack();
                     echo "Coś poszło nie tak. Spróbuj ponownie później";
                 }
 
+
+
+
                 // Close statement
                 unset($stmt);
+
             }
         }
 
         // Close connection
-        unset($pdo);
+        unset($dbLink);
     }
 }
 catch (PDOException $e)

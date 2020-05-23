@@ -1,5 +1,4 @@
 todo:  (!) frontend
-       (!) alarms
-       (?) regexp for password
+       (!) chcecking if admin
        (?) exception handling
        (?) checking if password was changed first time
