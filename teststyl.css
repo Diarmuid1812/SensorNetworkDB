@@ -109,3 +109,36 @@ body{
     border: 2px #e3decc solid;
     padding: 5px;
 }
+
+.myButton {
+	box-shadow:inset 0px 39px 0px -24px #940000;
+	background-color:#940000;
+	border-radius:4px;
+	border:1px solid #e3decc;
+	display:inline-block;
+	cursor:pointer;
+	color:#e3decc;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b0271e;
+}
+.myButton2 {
+	box-shadow:inset 0px 39px 0px -24px #e3decc;
+	background-color:#e3decc;
+	border-radius:4px;
+	border:1px solid #940000;
+	display:inline-block;
+	cursor:pointer;
+	color:#940000;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b0271e;
+}
+
+.container {
+	padding: 10px 10px;
+}
