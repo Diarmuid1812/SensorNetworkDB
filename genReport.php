@@ -88,13 +88,14 @@ catch(PDOException $e)
 <link rel="stylesheet" type="text/css" href="teststyl.css">
 <head>
     <meta charset="UTF-8">
-    <title>Raport</title>
+    <title>Raporty</title>
 </head>
 <body>
 
 	<div class="header"><h1>Raport</h1></div>
 		<div class="column navig">
 				<ul>
+					<li><a href="interfejsGlowny.phtml">Strona główna</a></li>
 					<li><a href="genReport.php">Raporty</a></li> <!-- domyslna strona po zalogowaniu -->
 					<li><a href="interfejsCzujniki.php">Zarządzaj czujnikami</a></li>
 					<li><a href="#">Zarządzaj użytkownikami</a></li>
@@ -139,17 +140,17 @@ catch(PDOException $e)
 					</thead>
 					
 					<tbody>
-					<?php
-					foreach ($report as $rowTable)
-					{
-						echo "<tr>".
-							"<td>".$rowTable['nr_czujnika']."</td>".
-							"<td>".$rowTable['data']."</td>".
-							"<td>".$rowTable['wilgotnosc']."</td>".
-							"<td>".$rowTable['temperatura']."</td>".
-							"</tr>";
-					}
-					?>
+						<?php
+						foreach ($report as $rowTable)
+						{
+							echo "<tr>".
+								"<td>".$rowTable['nr_czujnika']."</td>".
+								"<td>".$rowTable['data']."</td>".
+								"<td>".$rowTable['wilgotnosc']."</td>".
+								"<td>".$rowTable['temperatura']."</td>".
+								"</tr>";
+						}
+						?>
 					</tbody>
 				</table>
 		
@@ -166,7 +167,6 @@ catch(PDOException $e)
 				
 		</div>
 		
-	</div>
 
 </body>
 </html>

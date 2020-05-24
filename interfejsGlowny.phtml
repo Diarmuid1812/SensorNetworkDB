@@ -2,12 +2,12 @@
 /** login test */
 // Initialize the session
 session_start();
-
+/*
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: usrLogin.php");
     exit;
-}
+}*/
 ?>
 
 
@@ -23,9 +23,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="header"><h1>Sieć czujników temperatury i wilgotności</h1></div>
         <div class="column navig">
             <ul>
-                <li><a href="#">Raporty</a></li> <!-- domyslna strona po zalogowaniu -->
+				<li><a href="interfejsGlowny.phtml">Strona główna</a></li>
+                <li><a href="genReport.php">Raporty</a></li> <!-- domyslna strona po zalogowaniu -->
+				<li><a href="interfejsCzujniki.php">Zarządzaj czujnikami</a></li>
 				<li><a href="#">Zarządzaj użytkownikami</a></li>
-				<li><a href="#">Zarządzaj czujnikami</a></li>
                 <li><a href="setResetPassword.php">Zresetuj hasło</a></li>
                 <li><a href="usrLogout.php">Wyloguj się</a></li>
             </ul>
