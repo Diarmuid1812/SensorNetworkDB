@@ -96,7 +96,7 @@ body{
 
 }
 
-.column.content tr:nth-child(2){
+.column.content tr:nth-child(even){
     background: #1934b3;
 }
 

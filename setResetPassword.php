@@ -3,14 +3,14 @@
  * Script to set password first time a user logs in
  * or reset it after login.
  */
-/*
+
 // Initialize the session
 session_start();
 // Check if the user is logged in, if not then redirect to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: usrLogin.php");
     exit;
-}*/
+}
 try
 {
 // Include config file
@@ -33,6 +33,13 @@ try
         else
         {
             $new_password = trim($_POST["new_password"]);
+            $new_password = filter_var($new_password,FILTER_VALIDATE_REGEXP,
+                array("options"=>array("regexp"=>'/^[^\t\r\n\\\'\\"\\<\\>\\\]{5,}$/')));
+            if($new_password === false)
+            {
+                $new_password_err = "Wykryto znaki białe inne niż spacja lub zastrzeżone znaki w haśle";
+            }
+
         }
 
         // Validate confirm password
@@ -42,26 +49,23 @@ try
         } else
         {
             $confirm_password = trim($_POST["confirm_password"]);
+            $confirm_password = filter_var($confirm_password,FILTER_VALIDATE_REGEXP,
+                array("options"=>array("regexp"=>'/^[^\t\r\n\\\'\\"\\<\\>\\\]{5,}$/')));
+            if($confirm_password === false)
+            {
+                $confirm_password = "Wykryto znaki białe inne niż spacja lub zastrzeżone znaki w haśle";
+            }
+
             if (empty($new_password_err) && ($new_password != $confirm_password))
             {
                 $confirm_password_err = "Hasła nie są identyczne!";
             }
         }
 
-        //Validating password
-        $new_password = filter_var($new_password,FILTER_VALIDATE_REGEXP,
-            array("options"=>array("regexp"=>'/^[^\t\r\n\\\'\\"\\<\\>\\\]{5,}$/')));
-        if($new_password === false)
-        {
-            $new_password_err = "Wykryto znaki białe inne niż spacja lub zastrzeżone znaki w haśle";
-        }
 
-        $confirm_password = filter_var($confirm_password,FILTER_VALIDATE_REGEXP,
-            array("options"=>array("regexp"=>'/^[^\t\r\n\\\'\\"\\<\\>\\\]{5,}$')));
-        if($confirm_password === false)
-        {
-            $confirm_password = "Wykryto znaki białe inne niż spacja lub zastrzeżone znaki w haśle";
-        }
+
+
+
 
         // Check input errors before updating the database
         if (empty($new_password_err) && empty($confirm_password_err))
@@ -70,7 +74,7 @@ try
             $dbLink->beginTransaction();
 
             // Prepare an update statement
-            $sql = "UPDATE users SET password = :password WHERE id = :id";
+            $sql = "UPDATE users SET password=:password,passw_changed=true WHERE id=:id";
 
             if ($stmt = $dbLink->prepare($sql))
             {
@@ -97,10 +101,11 @@ try
                     {
                         // Password updated successfully. Destroy the session, and redirect to login page
                         $dbLink->commit();
-                        session_destroy();
                         unset($passwChangedUpdate);
                         unset($stmt);
                         unset($dbLink);
+                        $_SESSION = array();
+                        session_destroy();
                         header("location: usrLogin.php");
                         exit();
                     }

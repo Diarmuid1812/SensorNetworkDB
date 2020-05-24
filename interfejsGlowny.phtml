@@ -21,7 +21,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 <body>
     <?php
-    if(isset($_SESSION["isPasswChanged"]) && $_SESSION["isPasswChanged"] !== true)
+    if($_SESSION["isPasswChanged"] !== true)
         echo "<div>
                 <p>Nie zresetowałeś jeszcze wygenerowanego przez system hasła</p>
                 <p>Zrób to, aby zwiększyć bezpieczeństow twojego konta.</p>
