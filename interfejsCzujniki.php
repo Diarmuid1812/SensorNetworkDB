@@ -8,6 +8,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: usrLogin.php");
     exit;
 }*/
+
+$dodaj_prog_nr = "";
+$usun_prog_nr = "";
+$miejsce = "";
+$usun_prog_nr_err = $dodaj_prog_nr_err = $miejsce_err = "";
+
 ?>
 
 
@@ -35,65 +41,47 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	</div>
 	
 	<div class="column content">
-			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-				<div class="container">
-					<div class="form-group <?php echo (!empty($dateStartErr)) ? 'has-error' : ''; ?>">
-						<label>Dodaj
-							<input type="number" name="prog_nr" class="form-control" value="<?php/* echo $;*/ ?>">
-						</label>
-						<span class="help-block"><?php echo isset($dateStartErr); ?></span>
-					</div>
-					<div class="form-group <?php echo (!empty($dateEndErr)) ? 'has-error' : ''; ?>">
-						<label>
-							<input type="text" name="miejsce" class="form-control" value="<?php echo $dateEnd; ?>">
-						</label>
-						<span class="help-block"><?php echo isset($dateEndErr); ?></span>
-					</div>
-			<br>
-					<div class="form-group">
-						<input type="submit" class="myButton" value="Zmień">
-						<input type="reset" class="myButton2">
-					</div>
-				</div>
-			</form>
-			
-			<br>
-			
-				<table>
-					<thead>
-						<tr>
-							<th>Nr czujnika</th>
-							<th>Data pomiaru</th>
-							<th>Wilgotność</th>
-							<th>Temperatura</th>
-						</tr>
-					</thead>
-					
-					<tbody>
-						<?php
-						foreach ($report as $rowTable)
-						{
-							echo "<tr>".
-								"<td>".$rowTable['nr_czujnika']."</td>".
-								"<td>".$rowTable['data']."</td>".
-								"<td>".$rowTable['wilgotnosc']."</td>".
-								"<td>".$rowTable['temperatura']."</td>".
-								"</tr>";
-						}
-						?>
-					</tbody>
-				</table>
-		
-			<br>
+			<div class="container">
 				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-					<input type="hidden" name="generate" value="gen" />
-					<input type="hidden" name="dateStart" value="<?php echo $dateStart; ?>" />
-					<input type="hidden" name="dateEnd" value="<?php echo $dateEnd; ?>" />
-					<input type="submit" class="myButton" name="gen" value="Generuj raport">
-					<input type="button" class="myButton2" onclick="location='interfejsGlowny.phtml'" value="Powrót">
 					
+						<p>Dodaj</p>
+						<div class="form-group <?php echo (!empty($dodaj_prog_nr_err)) ? 'has-error' : ''; ?>">
+							<label>Nr programowy
+								<input type="number" name="prog_nr" class="form-control" value="<?php echo $dodaj_prog_nr; ?>">
+							</label>
+							<span class="help-block"><?php echo isset($dateStartErr); ?></span>
+						</div>
+						
+						<div class="form-group <?php echo (!empty($miejsce_err)) ? 'has-error' : ''; ?>">
+							<label>Miejsce
+								<input type="text" name="miejsce" class="form-control" value="<?php echo $miejsce; ?>">
+							</label>
+							<span class="help-block"><?php echo isset($dateStartErr); ?></span>
+						</div>
+						
+						<input type="submit" class="myButton" name="dodaj_butt" value="Zatwierdź">
 				</form>
+				
+					<br>
+					
+				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">	
+						<p>Usuń</p>
+						<div class="form-group <?php echo (!empty($usun_prog_nr_err)) ? 'has-error' : ''; ?>">
+							<label>Nr programowy
+								<input type="number" name="prog_nr" class="form-control" value="<?php echo $usun_prog_nr; ?>">
+							</label>
+							<span class="help-block"><?php echo isset($dateStartErr); ?></span>
+						</div>
+						
+						<input type="submit" class="myButton" name="usun_butt" value="Zatwierdź">
+						
+					
+				</form>		
+			</div>
+			
 			<br>
+			
+			<?php include "tabelaCzujnikow.php"?>
 				
 	</div>
 	
