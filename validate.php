@@ -68,6 +68,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Close connection
     unset($dbLink);
 }
+
+/*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 350px; padding: 20px; }
+    </style>
+	*/
+
 ?>
 
 <!DOCTYPE html>
@@ -75,27 +83,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
+    <link rel="stylesheet" href="logowaniestyl2.css">
+    
 </head>
 <body>
 <div class="wrapper">
-    <h2>Potwierdź zmianę hasłem</h2>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-            <label>Hasło
-            <input type="password" name="password" class="form-control">
-            <span class="help-block"><?php echo $password_err; ?></span>
-            </label>
-        </div>
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Potierdź">
-            <a class="btn btn-link" href="javascript:history.go(-1)">Powrót</a>
-        </div>
-    </form>
+    <h2 class="header">Potwierdź zmianę hasłem</h2>
+	<div class="foo">
+
+		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+			<div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+				<label>Hasło
+				<input type="password" name="password" class="form-control">
+				<span class="help-block"><?php echo $password_err; ?></span>
+				</label>
+			</div>
+			<br>
+			<div class="form-group">
+				<input type="submit" class="myButton" value="Potwierdź">
+				<a class="myButton2" href="javascript:history.go(-1)">Powrót</a>
+			</div>
+		</form>
+	</div>
 </div>
 </body>
 </html>
