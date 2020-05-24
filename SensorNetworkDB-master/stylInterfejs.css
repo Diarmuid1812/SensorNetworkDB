@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+}
+
+h1{
+    color: #ee6121;
+    font-style: italic;
+    font-size: 30px;
+    font-family: Serif, sans-serif;
+    text-align: center;
+}
+
+body{
+    min-width:1000px;        /* Suppose you want minimum width of 1000px */
+    width: auto !important;  /* Firefox will set width as auto */
+    color: #ee6121;
+    background-color: #cecece;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font: 18px "Times New Roman","Serif","Cambria";
+    text-align-all: right;
+    margin-left: 200px;
+    margin-top: 100px;
+    font-style: oblique;
+}
+
+.header{
+    padding: 10px 20px;
+    background: #26264c;
+    width: 90%;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+}
+
+.column.navig{
+    float: left;
+    padding: 20px;
+    min-height: 170px;
+    box-sizing: border-box;
+}
+
+.column.navig{
+    width: 20%;
+    background: rgba(0,0,139,0.2);
+    color: mediumslateblue;
+    height:  300px;
+}
+.column.navig ul{
+    list-style: none;
+    padding: 0;
+
+}
+.column.navig ul li{
+    margin-top: 2px;
+}
+.column.navig ul li a{
+    align-items: center;
+    border-radius: 10px;
+    display: block;
+    padding: 10px 25px;
+    background: #001060;
+    color: #0e7b89;
+    text-decoration: none;
+    font-style: normal;
+}
+
+.column.navig ul li a:hover{
+    background: #2d426f;
+    color: white;
+}
+
+
+.column.content {
+    background-color: rgba(238, 97, 33, 0.52);
+    width: 70%;
+    overflow: auto;
+}
+
+.column.content table{
+    border-collapse: collapse;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.column.content th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #00008a;
+    color: white;
+}
+.column.content tr{
+    background: #001060;
+}
+
+.column.content tr:nth-child(2){
+    background: #1934b3;
+}
+
+.column.content td, .content th
+{
+    color: white;
+
+    border: 2px white solid;
+    padding: 5px;
+}
+
+
+table{
+    border-collapse: collapse;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #00008a;
+    color: white;
+}
+tr{
+    background: #001060;
+
+}
+
+tr:nth-child(2){
+    background: #1934b3;
+}
+
+td, .content th
+{
+    color: white;
+
+    border: 2px white solid;
+    padding: 5px;
+}
+
