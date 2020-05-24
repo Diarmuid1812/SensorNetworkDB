@@ -28,8 +28,8 @@ void setup()
   EEPROM.begin(512);
 
   String ssid = "ssid";
-  String password = "passwd";
-  String server_ip = "192.168.1.6";
+  String password = "password";
+  String server_ip = "255.255.255.255";
 
   Serial.println("Waiting for wifi config");
   delay(2000);
@@ -112,8 +112,6 @@ void setup()
     server_ip += char(EEPROM.read(IP_EEPROM_ADDR + i));
   }
 
-  server_ip = "192.168.1.6";
-
   Serial.print("ssid: ");
   Serial.println(ssid);
   Serial.print("password: ");
@@ -157,7 +155,7 @@ void setup()
 
   HTTPClient http;
   Serial.print("http.begin() = ");
-  String beginCommand = "http://" + server_ip + "/SN/post.php";
+  String beginCommand = "http://" + server_ip + "/SN/comPost.php";
   Serial.println(http.begin(beginCommand));
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
 

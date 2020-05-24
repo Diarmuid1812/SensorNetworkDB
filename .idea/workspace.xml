@@ -19,17 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="Tabela czujników -- integracja">
-      <change afterPath="$PROJECT_DIR$/validate.php" afterDir="false" />
+    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="Alarmy, poprawiona obsługa hasła&#10;Sprawdzenie czy komunikujący się czujnik jest w bazie&#10;Alarmy mailowe przy komunikacji&#10;Regex na znaki specjalne w haśle&#10;Sprawdzanie zmiany pierwszego hasła&#10;Potwierdzanie hasłem&#10;Małe naprawy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/addUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arduino/SensorNetwork/SensorNetwork.ino" beforeDir="false" afterPath="$PROJECT_DIR$/Arduino/SensorNetwork/SensorNetwork.ino" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/comPost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interfejsGlowny.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/interfejsGlowny.phtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mailTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/mailTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setResetPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/setResetPassword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist" beforeDir="false" afterPath="$PROJECT_DIR$/todolist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/userTable.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usrLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/usrLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testFunctionality.php" beforeDir="false" afterPath="$PROJECT_DIR$/testFunctionality.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +68,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Arduino" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Arduino/SensorNetwork" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -84,11 +79,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Diarmuid\PhpstormProjects\SensorNetworkDB\Arduino" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\szust\PhpstormProjects\SensorNetwork" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Diarmuid\PhpstormProjects\SensorNetworkDB\Arduino\SensorNetwork" />
+      <recent name="C:\Users\Diarmuid\PhpstormProjects\SensorNetworkDB\Arduino" />
       <recent name="C:\Users\szust\PhpstormProjects\SensorNetwork" />
     </key>
   </component>
@@ -152,7 +148,12 @@
       <workItem from="1589792437914" duration="23343000" />
       <workItem from="1589901190246" duration="2374000" />
       <workItem from="1589972126787" duration="1916000" />
-      <workItem from="1590176051912" duration="13375000" />
+      <workItem from="1590176051912" duration="13530000" />
+      <workItem from="1590266402996" duration="1527000" />
+      <workItem from="1590273739565" duration="3750000" />
+      <workItem from="1590279078969" duration="66000" />
+      <workItem from="1590315542564" duration="898000" />
+      <workItem from="1590323564208" duration="1048000" />
     </task>
     <task id="LOCAL-00001" summary="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji">
       <created>1587566032743</created>
@@ -238,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589901240433</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Alarmy, poprawiona obsługa hasła&#10;Sprawdzenie czy komunikujący się czujnik jest w bazie&#10;Alarmy mailowe przy komunikacji&#10;Regex na znaki specjalne w haśle&#10;Sprawdzanie zmiany pierwszego hasła&#10;Potwierdzanie hasłem&#10;Małe naprawy">
+      <created>1590191283070</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1590191283070</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +277,8 @@
     <MESSAGE value="Transakcej i zabezpieczenia dla bazy danych" />
     <MESSAGE value="Tabela czujników -- integracja" />
     <MESSAGE value="Generacja Raportu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Generacja Raportu" />
+    <MESSAGE value="Alarmy, poprawiona obsługa hasła&#10;Sprawdzenie czy komunikujący się czujnik jest w bazie&#10;Alarmy mailowe przy komunikacji&#10;Regex na znaki specjalne w haśle&#10;Sprawdzanie zmiany pierwszego hasła&#10;Potwierdzanie hasłem&#10;Małe naprawy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alarmy, poprawiona obsługa hasła&#10;Sprawdzenie czy komunikujący się czujnik jest w bazie&#10;Alarmy mailowe przy komunikacji&#10;Regex na znaki specjalne w haśle&#10;Sprawdzanie zmiany pierwszego hasła&#10;Potwierdzanie hasłem&#10;Małe naprawy" />
   </component>
   <component name="WindowStateProjectService">
     <state x="436" y="85" key="#CLI_Interpreters" timestamp="1588171188187">
@@ -411,10 +420,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1585750654644" />
-    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1588460449838">
+    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1590277789431">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1585924273745" />
-    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588460449838" />
+    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590277789431" />
   </component>
 </project>

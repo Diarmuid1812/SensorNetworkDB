@@ -1,10 +1,10 @@
 <?php
 require_once "mailTest.php";
-define('BATTERY_MIN', 5.00);
-define('TEMP_MIN', 5.00);
-define('TEMP_MAX', 5.00);
-define('HUM_MIN', 5.00);
-define('HUM_MAX', 5.00);
+define('BATTERY_MIN', 3.30);
+define('TEMP_MIN', 15.00);
+define('TEMP_MAX', 27.00);
+define('HUM_MIN', 30.00);
+define('HUM_MAX', 50.00);
 
 //create log
 $f_hand = fopen("com_log.txt","w");
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             $alarm=true;
             $isTemp = true;
         }
-        elseif($comTemp < TEMP_MAX)
+        elseif($comTemp > TEMP_MAX)
         {
             $alarm=true;
             $isTemp = true;
@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             $alarm=true;
             $isHum = true;
         }
-        elseif($comHum < HUM_MAX)
+        elseif($comHum > HUM_MAX)
         {
             $alarm=true;
             $isHum = true;
@@ -116,7 +116,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         }
 
         if($alarm)
-            sendAlarm($comID,$comTemp,$comHum,$comBatt,$isTemp,$TempHigh,$isHum,$HumHigh,$isBatt);
+        {
+            sendAlarm($comID, $comTemp, $comHum, $comBatt, $isTemp, $TempHigh, $isHum, $HumHigh, $isBatt);
+            $inf = "Wysłano alarm.\n";
+            fwrite($f_hand, $inf);
+        }
+
 
         $dbLink->beginTransaction();
 
