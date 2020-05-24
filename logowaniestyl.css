@@ -23,25 +23,34 @@ body{
     font-style: normal;
 }
 
-table {
+table.dzialaj {
   border-collapse:collapse;
   border-spacing:0;
 }
-
-th{
+/* trzy nastepne sa do tabel */
+th.dzialaj{
 	padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
     background-color: #940000;
     color: #e3decc;
+	font-weight: bold;
+    border: 2px #e3decc solid;
+    padding: 5px;
 }
 
 tr{
 	background: #bf9595;
 }
 
+td, th{
+	color: #2d2d33;
+	font-weight: bold;
 
-
+    border: 2px #e3decc solid;
+    padding: 5px;
+}
+/* a tu juz nie mam sily sie zastanawiac co sie dzieje */
 .wrapper {
     width: 500px;
     margin: auto auto;

@@ -114,15 +114,15 @@ catch(PDOException $e)
 				<input type="reset" class="myButton2">
 			</div>
 		</form>
-
+		<br>
 		<div>
-			<table>
+			<table class="dzialaj">
 				<thead>
 					<tr>
-						<th>Nr czujnika</th>
-						<th>Data pomiaru</th>
-						<th>Wilgotność</th>
-						<th>Temperatura</th>
+						<th class="dzialaj">Nr czujnika</th>
+						<th class="dzialaj">Data pomiaru</th>
+						<th class="dzialaj">Wilgotność</th>
+						<th class="dzialaj">Temperatura</th>
 					</tr>
 				</thead>
 				<tbody>
