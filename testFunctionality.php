@@ -6,19 +6,8 @@
 
  require 'dodajCzujnik.php';
  require 'usunCzujnik.php';
- require 'mailTest.php';
 /*** działa (PDO)***/
-//deleteSensor(1);
+deleteSensor(1);
 
 /*** działa (PDO)***/
-//addSensor('1','1','Test działania PDO');
-
-try
-{
-    sendAlarm(1,1,1,1,true, false, true, false, true);
-}
-
-catch (Exception $e)
-{
-    echo $e->getMessage();
-}
+addSensor('1','1','Test działania PDO');

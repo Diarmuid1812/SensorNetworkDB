@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, password, admin, passw_changed FROM users WHERE username = :username";
+        $sql = "SELECT id, username, password FROM users WHERE username = :username";
 
         if($stmt = $dbLink->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -52,8 +52,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     if($row = $stmt->fetch()){
                         $id = $row["id"];
                         $username = $row["username"];
-                        $isPasswChanged = $row["passw_changed"];
-                        $isAdmin = $row["admin"];
                         $hashed_password = $row["password"];
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
@@ -63,8 +61,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
-                            $_SESSION["isPasswChanged"] = boolval($isPasswChanged);
-                            $_SESSION["permission"] = $isAdmin;
 
                             // Redirect user to welcome page
                             header("location: interfejsGlowny.phtml");
@@ -87,7 +83,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     // Close connection
-    unset($dbLink);
+    unset($pdo);
+	//https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css
 }
 ?>
 
@@ -96,32 +93,39 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
+    <link rel="stylesheet" href="logowaniestyl.css">
+    
 </head>
 <body>
 <div class="wrapper">
-    <h2>Logowanie</h2>
+    <div class = "header"><h2>Logowanie</h2></div>
+	
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-            <label>Nazwa użytkownika
-            <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-            <span class="help-block"><?php echo $username_err; ?></span>
-            </label>
-        </div>
-        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-            <label>Hasło
-            <input type="password" name="password" class="form-control">
-            <span class="help-block"><?php echo $password_err; ?></span>
-            </label>
-        </div>
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Zaloguj się">
-        </div>
+		<div class = "foo">
+			<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+				<div class = "odsun">
+					<label>Nazwa użytkownika
+					<input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+					<div class = "ero"><span class="help-block"><?php echo $username_err; ?></span></div>
+					</label>
+				</div>	
+			</div>
+			<div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+				<div class = "odsun">
+					<label>Hasło
+					<input type="password" name="password" class="form-control">
+					<div class = "ero"><span class="help-block"><?php echo $password_err; ?></span></div>
+					</label>
+				</div>
+			</div>
+			<div class = "przycisk">
+				<div class="form-group">
+					<input type="submit" class="myButton" value="Zaloguj się">
+				</div>
+			</div>
+		</div>
     </form>
+	
 </div>
 </body>
 </html>

@@ -7,7 +7,7 @@ if(!defined('DB_PARAM_DEFINED'))
     define('DB_SERVER', 'localhost');
     define('DB_USERNAME', 'root');
     define('DB_PASSWORD', '');
-    define('DB_NAME', 'czujniki');
+    define('DB_NAME', 'sensornetwork');
     define('CHARSET', 'utf8');
     define('ERR_MODE', PDO::ERRMODE_EXCEPTION);
 }

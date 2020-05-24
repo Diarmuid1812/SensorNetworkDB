@@ -12,7 +12,7 @@ try
 {
     require "config_db.php";
 
-    $qry = "SELECT * FROM czujnik";
+    $qry = "SELECT * FROM czujniki";
 
     echo "<table>
     <caption> <h3>Tabela czujników </h3></caption>
@@ -26,8 +26,8 @@ try
     foreach ( $dbLink->query($qry) as $rowSensors)
     {
         echo "<tr>";
-        echo "<td>". $rowSensors["id"] . "</td>";
-        echo "<td>". $rowSensors["programowy_nr"] . "</td>";
+        echo "<td>". $rowSensors["nr_czujnika"] . "</td>";
+        echo "<td>". $rowSensors["prog_nr"] . "</td>";
         echo "<td>". $rowSensors["bateria"] . "</td>";
         echo "<td>". $rowSensors["miejsce"] . "</td></tr>";
 

@@ -59,11 +59,7 @@ try
                                              Dozwolone znaki to A-Z, a-z, 0-9, <br>
                                              'ąćęłńóśżźĄĆĘŁŃÓŚŻŹ', '-', '_', '.', '!', '$'";
                         }
-
-
                     }
-
-
                 } else
                 {
                     echo "Coś poszło nie tak. Spróbuj ponownie później.";
@@ -85,12 +81,8 @@ try
             mailTo($email,'Temporary password',$password);
             $dbLink->beginTransaction();
 
-            //Checking if new user should be granted administrator privillages
-            $isAdmin = (isset($_POST["isAdmin"])&&$_POST["isAdmin"]==="true");
-
-
                 // Prepare an insert statement
-            $sql = "INSERT INTO users (username, email, password, admin) VALUES (:username, :email, :password, :isAdmin)";
+            $sql = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
 
             if ($stmt = $dbLink->prepare($sql))
             {
@@ -98,7 +90,6 @@ try
                 $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
                 $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
                 $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
-                $stmt->bindParam(":isAdmin", $isAdmin, PDO::PARAM_BOOL);
 
                 // Set parameters
                 $param_username = $username;
@@ -135,7 +126,12 @@ catch (Exception $e)
     echo $e->getMessage();
 }
 
-
+/*"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"
+<style type="text/css">
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 350px; padding: 20px; }
+    </style>
+*/
 ?>
 
 <!--todo: Move to part of administrator menu-->
@@ -145,39 +141,37 @@ catch (Exception $e)
 <head>
     <meta charset="UTF-8">
     <title>Dodawanie nowego użytkownika</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
+    <link rel="stylesheet" href="logowaniestyl.css">
+    
 </head>
 <body>
     <div class="wrapper">
-        <h2>Dodaj użytkownika</h2>
-        <p>Wpisz nazwę nowego użytkownika, aby utworzyć dla niego konto</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Nazwa
-                    <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-                </label>
-                <span class="help-block"><?php echo $username_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>E-mail
-                    <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
-                </label>
-                <span class="help-block"><?php echo $email_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="checkbox" id="isAdmin" name="isAdmin" value="true">
-                <label for="isAdmin">Uprawnienia administratora</label><br>
-            </div>
-
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Stwórz">
-                <a class="btn btn-link" href="interfejsGlowny.phtml">Powrót</a>
-            </div>
-        </form>
+        <div class="header"><h2>Dodaj użytkownika</h2></div>
+		<div class="foo">
+			<p>Wpisz nazwę nowego użytkownika, aby utworzyć dla niego konto</p>
+			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+			<div class="odsun">
+				<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+					<label>Nazwa
+						<input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+					</label>
+					<div class="ero"><span class="help-block"><?php echo $username_err; ?></span></div>
+				</div>
+				<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+					<label>E-mail
+						<input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
+					</label>
+					<div class="ero"><span class="help-block"><?php echo $email_err; ?></span></div>
+				</div>
+			</div>	
+				<div class="przycisk2">
+					<div class="form-group">
+						<input type="submit" class="myButton" value="Stwórz">
+						<a class="myButton2" href="interfejsGlowny.phtml">Powrót</a>
+					</div>
+				</div>
+			</form>
+		</div>
     </div>
 </body>
 </html>

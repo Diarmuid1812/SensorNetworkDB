@@ -4,7 +4,7 @@
  * or reset it after login.
  */
 
-// Initialize the session
+/*// Initialize the session
 session_start();
 // Check if the user is logged in, if not then redirect to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
@@ -29,17 +29,9 @@ try
         } elseif (strlen(trim($_POST["new_password"])) < 5)
         {
             $new_password_err = "Hasło musi mieć co najmniej 5 znaków.";
-        }
-        else
+        } else
         {
             $new_password = trim($_POST["new_password"]);
-            $new_password = filter_var($new_password,FILTER_VALIDATE_REGEXP,
-                array("options"=>array("regexp"=>'/^[^\t\r\n\\\'\\"\\<\\>\\\]{5,}$/')));
-            if($new_password === false)
-            {
-                $new_password_err = "Wykryto znaki białe inne niż spacja lub zastrzeżone znaki w haśle";
-            }
-
         }
 
         // Validate confirm password
@@ -49,23 +41,11 @@ try
         } else
         {
             $confirm_password = trim($_POST["confirm_password"]);
-            $confirm_password = filter_var($confirm_password,FILTER_VALIDATE_REGEXP,
-                array("options"=>array("regexp"=>'/^[^\t\r\n\\\'\\"\\<\\>\\\]{5,}$/')));
-            if($confirm_password === false)
-            {
-                $confirm_password = "Wykryto znaki białe inne niż spacja lub zastrzeżone znaki w haśle";
-            }
-
             if (empty($new_password_err) && ($new_password != $confirm_password))
             {
                 $confirm_password_err = "Hasła nie są identyczne!";
             }
         }
-
-
-
-
-
 
         // Check input errors before updating the database
         if (empty($new_password_err) && empty($confirm_password_err))
@@ -74,7 +54,7 @@ try
             $dbLink->beginTransaction();
 
             // Prepare an update statement
-            $sql = "UPDATE users SET password=:password,passw_changed=true WHERE id=:id";
+            $sql = "UPDATE users SET password = :password WHERE id = :id";
 
             if ($stmt = $dbLink->prepare($sql))
             {
@@ -89,85 +69,77 @@ try
                 // Attempt to execute the prepared statement
                 if ($stmt->execute())
                 {
-                    $passwChangedUpdate= $dbLink->prepare("UPDATE users SET passw_changed = true 
-                                                        WHERE username = :username");
-                    $passwChangedUpdate->bindParam(':username',$_SESSION["username"],PDO::PARAM_STR);
-                    if(!$passwChangedUpdate->execute())
-                    {
-                        $dbLink->rollBack();
-                        echo "Coś poszło nie tak. Spróbuj ponownie później";
-                    }
-                    else
-                    {
-                        // Password updated successfully. Destroy the session, and redirect to login page
-                        $dbLink->commit();
-                        unset($passwChangedUpdate);
-                        unset($stmt);
-                        unset($dbLink);
-                        $_SESSION = array();
-                        session_destroy();
-                        header("location: usrLogin.php");
-                        exit();
-                    }
+                    // Password updated successfully. Destroy the session, and redirect to login page
+                    $dbLink->commit();
+                    session_destroy();
+                    header("location: usrLogin.php");
+                    exit();
                 } else
                 {
                     $dbLink->rollBack();
                     echo "Coś poszło nie tak. Spróbuj ponownie później";
                 }
 
-
-
-
                 // Close statement
                 unset($stmt);
-
             }
         }
 
         // Close connection
-        unset($dbLink);
+        unset($pdo);
     }
 }
 catch (PDOException $e)
 {
     $dbLink->rollBack();
     echo "Błąd:" . $e->getMessage();
-}
+}*/
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="logowaniestyl2.css">
     <title>Reset Password</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; }
-    </style>
+    </style> -->
 </head>
 <body>
 <div class="wrapper">
-    <h2>Zresetuj hasło</h2>
-    <p>Wprowadź i potwierdź nowe hasło</p>
+    <h2 class="header">Zresetuj hasło</h2>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+	<div class="foo">
+		<p class="pogrub">Wprowadź i potwierdź nowe hasło</p>
         <div class="form-group <?php echo (!empty($new_password_err)) ? 'has-error' : ''; ?>">
+			<div class="odsun">
             <label>Nowe hasło
             <input type="password" name="new_password" class="form-control" value="<?php echo $new_password; ?>">
-            <span class="help-block"><?php echo $new_password_err; ?></span>
+            <span class="ero"><?php echo $new_password_err; ?></span>
             </label>
+			</div>
         </div>
         <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+			<div class="odsun">
             <label>Powtórz hasło
             <input type="password" name="confirm_password" class="form-control">
-            <span class="help-block"><?php echo $confirm_password_err; ?></span>
+            <span class="ero"><?php echo $confirm_password_err; ?></span>
             </label>
+			</div>
         </div>
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Zmień">
-            <a class="btn btn-link" href="interfejsGlowny.phtml">Powrót</a>
-        </div>
+	
+		<div class="przycisk3">
+			<div class="form-group">
+				<input type="submit" class="myButton" value="Zmień">
+				<a class="myButton2" href="interfejsGlowny.phtml">Powrót</a>
+			</div>
+		</div>
+	</div>
     </form>
 </div>
 </body>
