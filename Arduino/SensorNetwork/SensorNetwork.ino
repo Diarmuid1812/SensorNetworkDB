@@ -4,6 +4,8 @@
 #include <WiFiClient.h>
 #include <EEPROM.h>
 
+#include "user_interface.h"
+
 #define DHTTYPE DHT22
 #define DHT_VCC D1
 #define DHT_PIN D2
@@ -11,18 +13,50 @@
 #define SSID_EEPROM_ADDR 10
 #define PASSWD_EEPROM_ADDR 50
 #define IP_EEPROM_ADDR 90
+#define RTCMEMORYSTART 65
+#define MAXHOUR 5 // czas uśpienia w godzinach
+
+#define SLEEP_TIME 6
+
+typedef struct {
+  int count;
+} rtcStore;
 
 DHT dht(DHT_PIN, DHTTYPE);
 
+rtcStore rtcMem;
+
 void setup()
 {
+
+
+
+  //uruchomienie portu szeregowego
+  Serial.begin(74880);
+  readFromRTCMemory();
+
+  //czujnik ma się uruchamiać co 6 godzin
+  if (rtcMem.count <= 5)
+  {
+    Serial.print("Sleep number:");
+    Serial.println(rtcMem.count);
+    Serial.println("##########################################");
+    rtcMem.count++;
+    writeToRTCMemory();
+    ESP.deepSleep(SLEEP_TIME * 1e6);
+  }
+  Serial.print("Sleep number:");
+  Serial.println(rtcMem.count);
+  rtcMem.count = 0;
+  writeToRTCMemory();
+
+
+
   //ustawienie GPIO jako output
   pinMode(DHT_VCC, OUTPUT);
   //zasilenie czujnika DHT z GPIO
   digitalWrite(DHT_VCC, HIGH);
-  //uruchomienie portu szeregowego
-  Serial.begin(74880);
-  //inicjalizacja czujnika
+  //inicjalizacja czujnika wilgotności
   dht.begin();
   //uruchomienie EEPROM
   EEPROM.begin(512);
@@ -55,7 +89,7 @@ void setup()
       EEPROM.write(SSID_EEPROM_ADDR - 1, ssid.length());
       EEPROM.commit();
     }
-    
+
     //identyfikacja komendy hasła
     if (configMsg.substring(0, 7) == "passwd=")
     {
@@ -73,9 +107,8 @@ void setup()
       EEPROM.commit();
     }
 
-    
     //identyfikacja komendy ip serwera
-    if (configMsg.substring(0, 5) == "ip=")
+    if (configMsg.substring(0, 3) == "ip=")
     {
       server_ip = configMsg.substring(3, configMsg.length() - 1);
       Serial.print("new server ip: ");
@@ -118,7 +151,7 @@ void setup()
   Serial.println(password);
   Serial.print("server ip: ");
   Serial.println(server_ip);
-  
+
 
 
   //odczyt wilgotności, temperatury i napięcia baterii
@@ -143,7 +176,7 @@ void setup()
 
   WiFi.begin(ssid, password);
   Serial.println("Connecting to wifi");
-  
+
   while (WiFi.status() != WL_CONNECTED)
   {
     delay(500);
@@ -182,12 +215,24 @@ void setup()
   }
   http.end();
 
-  Serial.println("Sleep for 5 seconds");
+  Serial.println("Sleep");
   Serial.println("##########################################");
-  ESP.deepSleep(5 * 1e6);
+  ESP.deepSleep(SLEEP_TIME * 1e6);
 }
 
 void loop()
 {
 
+}
+
+void readFromRTCMemory()
+{
+  system_rtc_mem_read(RTCMEMORYSTART, &rtcMem, sizeof(rtcMem));
+  yield();
+}
+
+void writeToRTCMemory()
+{
+  system_rtc_mem_write(RTCMEMORYSTART, &rtcMem, 4);
+  yield();
 }
