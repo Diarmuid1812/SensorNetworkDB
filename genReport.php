@@ -1,8 +1,5 @@
 <?php
 
-
-
-//time todo: get form _POST
 if(isset($_POST["dateStart"])&&isset($_POST["dateEnd"]))
 {
     $dateStart=$_POST["dateStart"];
@@ -10,19 +7,45 @@ if(isset($_POST["dateStart"])&&isset($_POST["dateEnd"]))
 }
 else
 {
-    $months = 24;
-    $days = 0;
-    $years = 0;
+    if (isset($_POST["yesterday"]))
+    {
+        $dateEnd = date("Y-m-d");
+        $dateStart = date("Y-m-d",
+            mktime(
+                0,
+                0,
+                0,
+                date("m"),
+                date("d") - 1,
+                date("Y")));
+    }
+    else
+    {
+        $months = 0;
+        $days = 0;
+        $years = 0;
 
-    $dateEnd = date("Y-m-d");
-    $dateStart = date("Y-m-d",
-        mktime(
-            0,
-            0,
-            0,
-            date("m") - $months,
-            date("d") - $days,
-            date("Y") - $years));
+        if (isset($_POST["lastYear"]))
+            $years = 1;
+        elseif (isset($_POST["lastMonth"]))
+            $months = 1;
+        elseif (isset($_POST["lastWeek"]))
+            $days = 7;
+        elseif (isset($_POST["lastDay"]))
+            $days = 0;
+        else
+            $months = 1;
+
+        $dateEnd = date("Y-m-d H:i:s");
+        $dateStart = date("Y-m-d",
+            mktime(
+                0,
+                0,
+                0,
+                date("m") - $months,
+                date("d") - $days,
+                date("Y") - $years));
+    }
 }
 
 try{
@@ -100,7 +123,7 @@ catch(PDOException $e)
     </div>
     <div class="form-group <?php echo (!empty($dateEndErr)) ? 'has-error' : ''; ?>">
         <label>Do:
-            <input type="date" name="dateEnd" class="form-control" value="<?php echo $dateEnd; ?>">
+            <input type="date" name="dateEnd" class="form-control" value="<?php echo date("Y-m-d",strtotime($dateEnd)); ?>">
         </label>
         <span class="help-block"><?php echo isset($dateEndErr); ?></span>
     </div>
@@ -108,6 +131,16 @@ catch(PDOException $e)
     <div class="form-group">
         <input type="submit" class="btn btn-primary" value="Zmień">
         <input type="reset">
+
+    </div>
+</form>
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <div class="form-group">
+        <input type="submit" name="lastYear" value="Z ostatniego roku">
+        <input type="submit" name="lastMonth" value="Z ostatniego miesiąca">
+        <input type="submit" name="lastWeek" value="Z ostatniego tygodnia">
+        <input type="submit" name="yesterday" value="Z wczoraj">
+        <input type="submit" name="lastDay" value="Z dzisiaj">
     </div>
 </form>
 <div>
@@ -139,7 +172,7 @@ catch(PDOException $e)
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <input type="hidden" name="generate" value="gen" />
         <input type="hidden" name="dateStart" value="<?php echo $dateStart; ?>" />
-        <input type="hidden" name="dateEnd" value="<?php echo $dateEnd; ?>" />
+        <input type="hidden" name="dateEnd" value="<?php echo date("Y-m-d", strtotime($dateEnd)); ?>" />
         <input type="submit" name="gen" value="Generuj raport">
         <input type="button" onclick="location='interfejsGlowny.phtml'" value="Powrót">
     </form>

@@ -19,13 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="Poprawione alarmy i czujnik.">
+    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="Admin i sprawdzanie zmiany hasła">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/addUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interfejsGlowny.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/interfejsGlowny.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setResetPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/setResetPassword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stylInterfejs.css" beforeDir="false" afterPath="$PROJECT_DIR$/stylInterfejs.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usrLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/usrLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genReport.php" beforeDir="false" afterPath="$PROJECT_DIR$/genReport.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +150,9 @@
       <workItem from="1590273739565" duration="3750000" />
       <workItem from="1590279078969" duration="66000" />
       <workItem from="1590315542564" duration="898000" />
-      <workItem from="1590323564208" duration="4906000" />
+      <workItem from="1590323564208" duration="5847000" />
+      <workItem from="1590336258067" duration="752000" />
+      <workItem from="1590393743887" duration="1389000" />
     </task>
     <task id="LOCAL-00001" summary="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji">
       <created>1587566032743</created>
@@ -254,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590325491503</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Admin i sprawdzanie zmiany hasła">
+      <created>1590330448578</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1590330448578</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,7 +292,8 @@
     <MESSAGE value="Generacja Raportu" />
     <MESSAGE value="Alarmy, poprawiona obsługa hasła&#10;Sprawdzenie czy komunikujący się czujnik jest w bazie&#10;Alarmy mailowe przy komunikacji&#10;Regex na znaki specjalne w haśle&#10;Sprawdzanie zmiany pierwszego hasła&#10;Potwierdzanie hasłem&#10;Małe naprawy" />
     <MESSAGE value="Poprawione alarmy i czujnik." />
-    <option name="LAST_COMMIT_MESSAGE" value="Poprawione alarmy i czujnik." />
+    <MESSAGE value="Admin i sprawdzanie zmiany hasła" />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin i sprawdzanie zmiany hasła" />
   </component>
   <component name="WindowStateProjectService">
     <state x="436" y="85" key="#CLI_Interpreters" timestamp="1588171188187">
