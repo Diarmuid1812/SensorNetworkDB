@@ -6,14 +6,14 @@
  * @param $miejsce
  * @return bool
  */
-function addSensor($id,$program_id,$miejsce)
+function addSensor($program_id,$miejsce)
 {
 
     /**
      * todo (!)obsługa wyjątku
      */
 
-    if(! filter_var($id,FILTER_VALIDATE_INT) || !filter_var($program_id,FILTER_VALIDATE_INT))
+    if(!filter_var($program_id,FILTER_VALIDATE_INT))
     {
         echo "Nieprawidłowy numer id";
         return false;
@@ -33,7 +33,7 @@ function addSensor($id,$program_id,$miejsce)
         /** @var $dbLink PDO*/
         $dbLink->beginTransaction();
 
-        $qry = $dbLink->prepare("INSERT INTO czujnik (programowy_nr, bateria, miejsce) VALUES (:program_id, 0, :miejsce)");
+        $qry = $dbLink->prepare("INSERT INTO czujniki (programowy_nr, bateria, miejsce) VALUES (:program_id, 0, :miejsce)");
 
         $param_miejsce = trim($miejsce);
 

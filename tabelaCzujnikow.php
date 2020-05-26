@@ -17,7 +17,7 @@ try
     echo "<table>
     <caption> <h3>Tabela czujników </h3></caption>
     <tr>
-    <th>id</th>
+    
     <th>programowy_nr</th>
     <th>bateria</th>
     <th>miejsce</th>
@@ -26,8 +26,8 @@ try
     foreach ( $dbLink->query($qry) as $rowSensors)
     {
         echo "<tr>";
-        echo "<td>". $rowSensors["nr_czujnika"] . "</td>";
-        echo "<td>". $rowSensors["prog_nr"] . "</td>";
+        //echo "<td>". $rowSensors["id"] . "</td>";
+        echo "<td>". $rowSensors["programowy_nr"] . "</td>";
         echo "<td>". $rowSensors["bateria"] . "</td>";
         echo "<td>". $rowSensors["miejsce"] . "</td></tr>";
 

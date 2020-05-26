@@ -12,7 +12,7 @@ function deleteSensor($num_id)
         $dbLink->beginTransaction();
         $dbLink ->exec("SET SQL_SAFE_UPDATES=0");
 
-        $qry = $dbLink->prepare("DELETE FROM czujnik WHERE id=:id");
+        $qry = $dbLink->prepare("DELETE FROM czujniki WHERE programowy_nr=:id");
 
         $qry->bindParam(':id', $num_id, PDO::PARAM_INT);
 
