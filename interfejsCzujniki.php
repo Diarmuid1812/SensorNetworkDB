@@ -14,6 +14,8 @@ $usun_prog_nr = "";
 $miejsce = "";
 $usun_prog_nr_err = $dodaj_prog_nr_err = $miejsce_err = "";
 
+require_once 'dodajCzujnik.php';
+require_once 'usunCzujnik.php';
 ?>
 
 
@@ -33,7 +35,7 @@ $usun_prog_nr_err = $dodaj_prog_nr_err = $miejsce_err = "";
 				<li><a href="interfejsGlowny.phtml">Strona główna</a></li>
                 <li><a href="genReport.php">Raporty</a></li> <!-- domyslna strona po zalogowaniu -->
 				<li><a href="interfejsCzujniki.php">Zarządzaj czujnikami</a></li>
-				<li><a href="#">Zarządzaj użytkownikami</a></li>
+				<li><a href="addUser.php">Zarządzaj użytkownikami</a></li>
                 <li><a href="setResetPassword.php">Zresetuj hasło</a></li>
                 <li><a href="usrLogout.php">Wyloguj się</a></li>
             </ul>
@@ -42,41 +44,74 @@ $usun_prog_nr_err = $dodaj_prog_nr_err = $miejsce_err = "";
 	
 	<div class="column content">
 			<div class="container">
+				<!-- dodawanie czujnikow -->
 				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 					
 						<p>Dodaj</p>
 						<div class="form-group <?php echo (!empty($dodaj_prog_nr_err)) ? 'has-error' : ''; ?>">
 							<label>Nr programowy
-								<input type="number" name="prog_nr" class="form-control" value="<?php echo $dodaj_prog_nr; ?>">
+								<input type="text" name="prog_nr" class="form-control" value="<?php echo $dodaj_prog_nr; ?>">
 							</label>
-							<span class="help-block"><?php echo isset($dateStartErr); ?></span>
+							<span class="help-block"><?php echo $dodaj_prog_nr_err; ?></span>
 						</div>
 						
 						<div class="form-group <?php echo (!empty($miejsce_err)) ? 'has-error' : ''; ?>">
 							<label>Miejsce
 								<input type="text" name="miejsce" class="form-control" value="<?php echo $miejsce; ?>">
 							</label>
-							<span class="help-block"><?php echo isset($dateStartErr); ?></span>
+							<span class="help-block"><?php echo $miejsce_err; ?></span>
 						</div>
 						
 						<input type="submit" class="myButton" name="dodaj_butt" value="Zatwierdź">
+						
 				</form>
-				
-					<br>
 					
+					<?php
+						if(isset($_POST['prog_nr'])&&isset($_POST['miejsce']))
+						{
+							$dodaj_prog_nr = $_POST['prog_nr'];
+							$miejsce = $_POST['miejsce'];
+							
+							if(!empty($dodaj_prog_nr) && !empty($miejsce))
+							{
+								addSensor($dodaj_prog_nr, $miejsce);
+							}
+							/* zapobiega dodawaniu wpisu po odswierzeniu strony*/
+							Header("Location: interfejsCzujniki.php");
+						}
+					?>
+					
+					<br>
+					<!-- usuwanie czujnikow -->
 				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">	
 						<p>Usuń</p>
 						<div class="form-group <?php echo (!empty($usun_prog_nr_err)) ? 'has-error' : ''; ?>">
 							<label>Nr programowy
-								<input type="number" name="prog_nr" class="form-control" value="<?php echo $usun_prog_nr; ?>">
+								<input type="number" name="usun_prog_nr" class="form-control" value="<?php echo $usun_prog_nr; ?>">
 							</label>
-							<span class="help-block"><?php echo isset($dateStartErr); ?></span>
+							<span class="help-block"><?php echo $usun_prog_nr_err; ?></span>
 						</div>
 						
 						<input type="submit" class="myButton" name="usun_butt" value="Zatwierdź">
 						
 					
-				</form>		
+				</form>	
+
+				<?php
+						if(isset($_POST['usun_prog_nr']))
+						{
+							$usun_prog_nr = $_POST['usun_prog_nr'];
+							
+							
+							if(!empty($usun_prog_nr))
+							{
+								deleteSensor($usun_prog_nr);
+							}
+							/* zapobiega dodawaniu wpisu po odswierzeniu strony*/
+							Header("Location: interfejsCzujniki.php");
+						}
+					?>
+				
 			</div>
 			
 			<br>
