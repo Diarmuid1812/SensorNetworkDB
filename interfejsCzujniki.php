@@ -2,12 +2,28 @@
 /** login test */
 // Initialize the session
 session_start();
-/*
+
+//handle deletion
+if(isset($_SESSION['POST'])) //if validated
+{
+    $temp = $_SESSION['POST'];
+    unset($_SESSION['POST']);
+    $test = $_POST['usun_prog_nr'];
+}
+elseif (isset($_POST['usun_prog_nr'])) //if sent from form
+    $usun_prog_nr = $_POST['usun_prog_nr'];
+else
+    $usun_prog_nr = "";
+
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: usrLogin.php");
     exit;
-}*/
+} elseif (!isset($_SESSION["permission"])||$_SESSION["permission"]!==true)
+{
+    header("location: interfejsGlowny.php");
+    exit;
+}
 
 $dodaj_prog_nr = "";
 $usun_prog_nr = "";
@@ -30,17 +46,16 @@ require_once 'usunCzujnik.php';
 </head>
 <body>
 	<div class="header"><h1>Zarządzaj czujnikami</h1></div>
-        <div class="column navig">
-            <ul>
-				<li><a href="interfejsGlowny.phtml">Strona główna</a></li>
-                <li><a href="genReport.php">Raporty</a></li> <!-- domyslna strona po zalogowaniu -->
-				<li><a href="interfejsCzujniki.php">Zarządzaj czujnikami</a></li>
-				<li><a href="addUser.php">Zarządzaj użytkownikami</a></li>
-                <li><a href="setResetPassword.php">Zresetuj hasło</a></li>
-                <li><a href="usrLogout.php">Wyloguj się</a></li>
-            </ul>
-        </div>
-	</div>
+    <div class="column navig">
+        <ul>
+            <li><a href="interfejsGlowny.phtml">Strona główna</a></li>
+            <li><a href="genReport.php">Raporty</a></li> <!-- domyslna strona po zalogowaniu -->
+            <li><a href="interfejsCzujniki.php">Zarządzaj czujnikami</a></li>
+            <li><a href="addUser.php">Zarządzaj użytkownikami</a></li>
+            <li><a href="setResetPassword.php">Zresetuj hasło</a></li>
+            <li><a href="usrLogout.php">Wyloguj się</a></li>
+        </ul>
+    </div>
 	
 	<div class="column content">
 			<div class="container">
@@ -98,19 +113,23 @@ require_once 'usunCzujnik.php';
 				</form>	
 
 				<?php
-						if(isset($_POST['usun_prog_nr']))
+						if(!empty($usun_prog_nr))
 						{
-							$usun_prog_nr = $_POST['usun_prog_nr'];
-							
-							
-							if(!empty($usun_prog_nr))
-							{
-								deleteSensor($usun_prog_nr);
-							}
-							/* zapobiega dodawaniu wpisu po odswierzeniu strony*/
-							Header("Location: interfejsCzujniki.php");
+						    if(isset($_SESSION['validateFlag'])&&$_SESSION['validateFlag']===true)
+						    {
+						        unset($_SESSION['validateFlag']);
+						        deleteSensor($usun_prog_nr);
+                                /* zapobiega dodawaniu wpisu po odswierzeniu strony*/
+                                Header("Location: interfejsCzujniki.php");
+						    }
+                            else
+                            {
+                                $_SESSION["POST"] = $_POST;
+                                Header("Location: validate.php");
+                                exit();
+                            }
 						}
-					?>
+				?>
 				
 			</div>
 			

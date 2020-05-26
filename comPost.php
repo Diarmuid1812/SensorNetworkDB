@@ -28,8 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $comHum   = trim(filter_var($_POST['humidity'],FILTER_VALIDATE_FLOAT));
     $comBatt  = trim(filter_var($_POST['battery'],FILTER_VALIDATE_FLOAT));
 
-//todo: (!)sprawdzanie nr czujnika z bazą
-
     if(!$comID)
     {
         $inf = "Nieprawidłowy format numeru id\n";
@@ -66,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 
         //checking if sensor is registered in the database
-        $sensCheck = $dbLink->prepare("SELECT programowy_nr FROM czujnik WHERE programowy_nr = :parID");
+        $sensCheck = $dbLink->prepare("SELECT programowy_nr FROM czujniki WHERE programowy_nr = :parID");
         $sensCheck->bindParam(':parID',$comID, PDO::PARAM_INT);
         $sensCheck->execute();
 
@@ -129,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         fwrite($f_hand, $inf);
 
         /** Battery state update */
-        $qry = $dbLink->prepare("UPDATE czujnik
+        $qry = $dbLink->prepare("UPDATE czujniki
                             SET bateria=:comBatt
                             WHERE id =:comID");
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="czujniki@localhost" uuid="ebf5b897-f41b-4467-bc77-3dc490b79534">
+    <data-source source="LOCAL" name="MariaDB - sensornetwork@localhost" uuid="c5ba5cd9-a045-48cd-a15b-06a32d71ef77">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://localhost:3306/czujniki</jdbc-url>
+      <jdbc-url>jdbc:mariadb://localhost:3306/sensornetwork</jdbc-url>
     </data-source>
   </component>
 </project>

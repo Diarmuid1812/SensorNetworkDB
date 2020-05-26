@@ -1,16 +1,5 @@
 <?php
 
-// Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: usrLogin.php");
-    exit;
-} elseif (!isset($_SESSION["permission"])||$_SESSION["permission"]!==true)
-{
-    header("location: interfejsGlowny.php");
-    exit;
-}
-
-
 // Include config file
 require 'mailTest.php';
 

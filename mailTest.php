@@ -20,7 +20,7 @@ function sendAlarm(int $sensorID, float $valTemp, float $valHum, float $valBatt,
         require "config_db.php";
 
         /** @var $dbLink PDO */
-        $qryPlacement = "SELECT miejsce FROM czujnik WHERE programowy_nr IS :sensorID";
+        $qryPlacement = "SELECT miejsce FROM czujniki WHERE programowy_nr IS :sensorID";
 
         $stmt = $dbLink->prepare($qryPlacement);
         $stmt->bindParam(":sensorID", $sensorID, PDO::PARAM_INT);

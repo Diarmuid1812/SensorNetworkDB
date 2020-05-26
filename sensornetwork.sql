@@ -54,7 +54,7 @@ INSERT INTO `czujniki` (`id`, `programowy_nr`, `bateria`, `miejsce`) VALUES
 CREATE TABLE `pomiar` (
   `id` int(11) NOT NULL,
   `nr_czujnika` int(11) NOT NULL,
-  `data` date NOT NULL,
+  `data` date DEFAULT CURRENT_TIMESTAMP,
   `wilgotnosc` float NOT NULL,
   `temperatura` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
@@ -81,6 +81,7 @@ CREATE TABLE `users` (
   `email` varchar(30) COLLATE utf8_polish_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_polish_ci NOT NULL,
   `admin` tinyint(1) NOT NULL,
+  `passw_changed` tinyint(1) DEFAULT FALSE,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 

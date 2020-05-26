@@ -1,5 +1,2 @@
-todo:  (!) frontend
-       (!) alarms
-       (?) regexp for password
-       (?) exception handling
-       (?) checking if password was changed first time
+todo:   (!) Structure
+        (!) user management

@@ -1,5 +1,9 @@
 <?php
 
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: usrLogin.php");
+    exit;
+}
 
 
 if(isset($_POST["dateStart"])&&isset($_POST["dateEnd"]))

@@ -1,7 +1,6 @@
 <?php
 
 /**
- * @param $id
  * @param $program_id
  * @param $miejsce
  * @return bool
@@ -9,9 +8,7 @@
 function addSensor($program_id,$miejsce)
 {
 
-    /**
-     * todo (!)obsługa wyjątku
-     */
+    $finished = false;
 
     if(!filter_var($program_id,FILTER_VALIDATE_INT))
     {
@@ -46,12 +43,17 @@ function addSensor($program_id,$miejsce)
         /*** closing connection ***/
 
         echo 'Sensor added successfully.\n';
-        return true;
+        $finished = true;
     }
 catch(PDOException $e)
     {
         $dbLink->rollBack();
         echo $e->getMessage();
-        return false;
+        throw $e;
+    }
+
+finally
+    {
+        return $finished;
     }
  }

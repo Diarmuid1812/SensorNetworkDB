@@ -109,16 +109,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				<div class = "odsun">
 					<label>Nazwa użytkownika
 					<input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                    </label>
 					<div class = "ero"><span class="help-block"><?php echo $username_err; ?></span></div>
-					</label>
+
 				</div>	
 			</div>
 			<div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
 				<div class = "odsun">
 					<label>Hasło
 					<input type="password" name="password" class="form-control">
-					<div class = "ero"><span class="help-block"><?php echo $password_err; ?></span></div>
-					</label>
+                    </label>
+                    <div class = "ero"><span class="help-block"><?php echo $password_err; ?></span></div>
 				</div>
 			</div>
 			<div class = "przycisk">

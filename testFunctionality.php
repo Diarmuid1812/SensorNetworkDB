@@ -10,7 +10,7 @@
 deleteSensor(1);
 
 /*** działa (PDO)***/
-addSensor('1','1','Test działania PDO');
+addSensor('1','Test działania PDO');
 
 
 try
