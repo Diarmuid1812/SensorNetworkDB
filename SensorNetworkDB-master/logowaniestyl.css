@@ -1,0 +1,100 @@
+h2{
+    color: #e3decc;
+    font-style: normal;
+    font-size: 30px;
+	font-weight: bold;
+    font-family: Serif, sans-serif;
+    text-align: center;
+}
+p{
+	font-weight: bold;
+}
+body{
+    min-width:1000px;        /* Suppose you want minimum width of 1000px */
+    width: auto !important;  /* Firefox will set width as auto */
+    color: #000000;
+    background-color: #cecece;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font: 16px sans-serif;
+    text-align-all: right;
+   /* margin-left: 200px;*/
+    margin-top: 100px;
+    font-style: normal;
+}
+
+
+
+.wrapper {
+    width: 500px;
+    margin: auto auto;
+}
+
+.header{	/* ramka wokol naglowka */
+    padding: 10px 20px;
+    background: #2d2d33;
+    width: 100%;
+}
+
+.foo {
+	padding: 10px 20px;
+	background: rgba(78,78,82,0.5);
+	overflow: auto;
+	width: 100%;
+	
+}
+
+
+.przycisk {
+	margin-left: 40%;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	
+}
+.przycisk2 {
+	margin-left: 32%;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	
+}
+
+.odsun {
+	text-align: center;
+	
+}
+
+
+.ero {
+	color: #8c0303;
+}
+
+.myButton {
+	box-shadow:inset 0px 39px 0px -24px #940000;
+	background-color:#940000;
+	border-radius:4px;
+	border:1px solid #e3decc;
+	display:inline-block;
+	cursor:pointer;
+	color:#e3decc;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b0271e;
+}
+.myButton2 {
+	box-shadow:inset 0px 39px 0px -24px #e3decc;
+	background-color:#e3decc;
+	border-radius:4px;
+	border:1px solid #940000;
+	display:inline-block;
+	cursor:pointer;
+	color:#940000;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b0271e;
+}
