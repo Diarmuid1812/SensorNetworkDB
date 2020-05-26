@@ -108,75 +108,97 @@ catch(PDOException $e)
 
 <!DOCTYPE html>
 <html lang="pl">
-<link rel="stylesheet" type="text/css" href="stylInterfejs.css">
+<link rel="stylesheet" type="text/css" href="teststyl.css">
 <head>
     <meta charset="UTF-8">
-    <title>Raport</title>
+    <title>Raporty</title>
 </head>
 <body>
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-    <div class="form-group <?php echo (!empty($dateStartErr)) ? 'has-error' : ''; ?>">
-        <label>Od:
-            <input type="date" name="dateStart" class="form-control" value="<?php echo $dateStart; ?>">
-        </label>
-        <span class="help-block"><?php echo isset($dateStartErr); ?></span>
-    </div>
-    <div class="form-group <?php echo (!empty($dateEndErr)) ? 'has-error' : ''; ?>">
-        <label>Do:
-            <input type="date" name="dateEnd" class="form-control" value="<?php echo date("Y-m-d",strtotime($dateEnd)); ?>">
-        </label>
-        <span class="help-block"><?php echo isset($dateEndErr); ?></span>
-    </div>
 
-    <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Zmień">
-        <input type="reset">
+	<div class="header"><h1>Raport</h1></div>
+		<div class="column navig">
+				<ul>
+					<li><a href="interfejsGlowny.phtml">Strona główna</a></li>
+					<li><a href="genReport.php">Raporty</a></li> <!-- domyslna strona po zalogowaniu -->
+					<li><a href="interfejsCzujniki.php">Zarządzaj czujnikami</a></li>
+					<li><a href="#">Zarządzaj użytkownikami</a></li>
+					<li><a href="setResetPassword.php">Zresetuj hasło</a></li>
+					<li><a href="usrLogout.php">Wyloguj się</a></li>
+				</ul>
+		</div>
+		
+		<div class="column content">
+			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+				<div class="container">
+					<div class="form-group <?php echo (!empty($dateStartErr)) ? 'has-error' : ''; ?>">
+						<label>Od:
+							<input type="date" name="dateStart" class="form-control" value="<?php echo $dateStart; ?>">
+						</label>
+						<span class="help-block"><?php echo isset($dateStartErr); ?></span>
+					</div>
+					<div class="form-group <?php echo (!empty($dateEndErr)) ? 'has-error' : ''; ?>">
+						<label>Do:
+							<input type="date" name="dateEnd" class="form-control" value="<?php echo date("Y-m-d",strtotime($dateEnd)); ?>">
+						</label>
+						<span class="help-block"><?php echo isset($dateEndErr); ?></span>
+					</div>
+			<br>
+					<div class="form-group">
+						<input type="submit" class="myButton" value="Zmień">
+						<input type="reset" class="myButton2">
+					</div>
+				</div>
+			</form>
+			
+			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+				<div class="form-group">
+					<input type="submit" name="lastYear" value="Z ostatniego roku">
+					<input type="submit" name="lastMonth" value="Z ostatniego miesiąca">
+					<input type="submit" name="lastWeek" value="Z ostatniego tygodnia">
+					<input type="submit" name="yesterday" value="Z wczoraj">
+					<input type="submit" name="lastDay" value="Z dzisiaj">
+				</div>
+			</form>
+			
+			<br>
+			
+				<table>
+					<thead>
+						<tr>
+							<th>Nr czujnika</th>
+							<th>Data pomiaru</th>
+							<th>Wilgotność</th>
+							<th>Temperatura</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<?php
+						foreach ($report as $rowTable)
+						{
+							echo "<tr>".
+								"<td>".$rowTable['nr_czujnika']."</td>".
+								"<td>".$rowTable['data']."</td>".
+								"<td>".$rowTable['wilgotnosc']."</td>".
+								"<td>".$rowTable['temperatura']."</td>".
+								"</tr>";
+						}
+						?>
+					</tbody>
+				</table>
 
-    </div>
-</form>
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-    <div class="form-group">
-        <input type="submit" name="lastYear" value="Z ostatniego roku">
-        <input type="submit" name="lastMonth" value="Z ostatniego miesiąca">
-        <input type="submit" name="lastWeek" value="Z ostatniego tygodnia">
-        <input type="submit" name="yesterday" value="Z wczoraj">
-        <input type="submit" name="lastDay" value="Z dzisiaj">
-    </div>
-</form>
-<div>
-    <table>
-        <thead>
-            <tr>
-                <th>Nr czujnika</th>
-                <th>Data pomiaru</th>
-                <th>Wilgotność</th>
-                <th>Temperatura</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-        foreach ($report as $rowTable)
-        {
-            echo "<tr>".
-                "<td>".$rowTable['nr_czujnika']."</td>".
-                "<td>".$rowTable['data']."</td>".
-                "<td>".$rowTable['wilgotnosc']."</td>".
-                "<td>".$rowTable['temperatura']."</td>".
-                "</tr>";
-        }
-        ?>
-        </tbody>
-    </table>
-</div>
-<div>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <input type="hidden" name="generate" value="gen" />
-        <input type="hidden" name="dateStart" value="<?php echo $dateStart; ?>" />
-        <input type="hidden" name="dateEnd" value="<?php echo date("Y-m-d", strtotime($dateEnd)); ?>" />
-        <input type="submit" name="gen" value="Generuj raport">
-        <input type="button" onclick="location='interfejsGlowny.phtml'" value="Powrót">
-    </form>
-</div>
+			<br>
+				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+					<input type="hidden" name="generate" value="gen" />
+					<input type="hidden" name="dateStart" value="<?php echo $dateStart; ?>" />
+					<input type="hidden" name="dateEnd" value="<?php echo date("Y-m-d", strtotime($dateEnd)); ?>" />
+					<input type="submit" class="myButton" name="gen" value="Generuj raport">
+					<input type="button" class="myButton2" onclick="location='interfejsGlowny.phtml'" value="Powrót">
+					
+				</form>
+			<br>
+			
+		</div>
 </body>
 </html>
 
