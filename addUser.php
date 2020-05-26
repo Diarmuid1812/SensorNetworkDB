@@ -3,6 +3,7 @@
 require 'mailTest.php';
 
 
+
 // Initializing username variable and error message variable
 $username = "";
 $email = "";
@@ -81,8 +82,11 @@ try
             mailTo($email,'Temporary password',$password);
             $dbLink->beginTransaction();
 
+            //Checking if new user should be granted administrator privillages
+            $isAdmin = (isset($_POST["isAdmin"])&&$_POST["isAdmin"]==="true");
+
                 // Prepare an insert statement
-            $sql = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
+            $sql = "INSERT INTO users (username, email, password, admin) VALUES (:username, :email, :password, :isAdmin)";
 
             if ($stmt = $dbLink->prepare($sql))
             {
@@ -90,6 +94,7 @@ try
                 $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
                 $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
                 $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
+                $stmt->bindParam(":isAdmin", $isAdmin, PDO::PARAM_BOOL);
 
                 // Set parameters
                 $param_username = $username;
@@ -163,6 +168,10 @@ catch (Exception $e)
 					</label>
 					<div class="ero"><span class="help-block"><?php echo $email_err; ?></span></div>
 				</div>
+                <div class="form-group">
+                    <input type="checkbox" id="isAdmin" name="isAdmin" value="true">
+                    <label for="isAdmin">Uprawnienia administratora</label><br>
+                </div>
 			</div>	
 				<div class="przycisk2">
 					<div class="form-group">

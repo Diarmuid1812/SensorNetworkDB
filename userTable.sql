@@ -4,5 +4,6 @@ CREATE TABLE users (
                        `email`    varchar (30) NOT NULL UNIQUE,
                        `password` VARCHAR(255) NOT NULL,
                        `admin`    BOOLEAN NOT NULL,
+                       `passw_changed` BOOLEAN DEFAULT FALSE,
                        `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
 );

@@ -2,12 +2,12 @@
 /** login test */
 // Initialize the session
 session_start();
-/*
+
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: usrLogin.php");
     exit;
-}*/
+}
 ?>
 
 
@@ -20,6 +20,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 </head>
 <body>
+    <?php
+    if($_SESSION["isPasswChanged"] !== true)
+        echo "<div>
+                <p>Nie zresetowałeś jeszcze wygenerowanego przez system hasła</p>
+                <p>Zrób to, aby zwiększyć bezpieczeństow twojego konta.</p>
+              </div>"
+    ?>
     <div class="header"><h1>Sieć czujników temperatury i wilgotności</h1></div>
         <div class="column navig">
             <ul>

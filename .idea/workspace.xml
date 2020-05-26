@@ -21,7 +21,60 @@
   <component name="ChangeListManager">
     <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="Admin i sprawdzanie zmiany hasła">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arduino/SensorNetwork/SensorNetwork.ino" beforeDir="false" afterPath="$PROJECT_DIR$/Arduino/SensorNetwork/SensorNetwork.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/Arduino/SensorNetwork/SensorNetwork.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/Arduino/SensorNetwork/SensorNetwork.ino.nodemcu.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/Arduino/SensorNetwork/src/DHT_sensor_library/DHT.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/Arduino/SensorNetwork/src/DHT_sensor_library/DHT.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/Arduino/SensorNetwork/src/DHT_sensor_library/DHT_U.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/Arduino/SensorNetwork/src/DHT_sensor_library/DHT_U.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/Arduino/SensorNetwork/src/DHT_sensor_library/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/Arduino/SensorNetwork/src/DHT_sensor_library/examples/DHT_Unified_Sensor/DHT_Unified_Sensor.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/Arduino/SensorNetwork/src/DHT_sensor_library/examples/DHTtester/DHTtester.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/Arduino/SensorNetwork/src/DHT_sensor_library/keywords.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/Arduino/SensorNetwork/src/DHT_sensor_library/library.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/addUser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/comPost.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/com_log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/config_db.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/czujniki.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/dodajCzujnik.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/genReport.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/interfejsGlowny.phtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/logowaniestyl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/logowaniestyl2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/mailTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/setResetPassword.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/stylInterfejs.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/tabelaCzujnikow.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/tabelaPomiar.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/testFunctionality.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/teststyl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/todolist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/userTable.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/usrLogin.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/usrLogout.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorNetworkDB-master/usunCzujnik.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/addUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/comPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/com_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dodajCzujnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/dodajCzujnik.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/genReport.php" beforeDir="false" afterPath="$PROJECT_DIR$/genReport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfejsCzujniki.php" beforeDir="false" afterPath="$PROJECT_DIR$/interfejsCzujniki.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfejsGlowny.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/interfejsGlowny.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logowaniestyl.css" beforeDir="false" afterPath="$PROJECT_DIR$/logowaniestyl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logowaniestyl2.css" beforeDir="false" afterPath="$PROJECT_DIR$/logowaniestyl2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/mailTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setResetPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/setResetPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stylInterfejs.css" beforeDir="false" afterPath="$PROJECT_DIR$/stylInterfejs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabelaCzujnikow.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabelaCzujnikow.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabelaPomiar.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabelaPomiar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testFunctionality.php" beforeDir="false" afterPath="$PROJECT_DIR$/testFunctionality.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teststyl.css" beforeDir="false" afterPath="$PROJECT_DIR$/teststyl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/userTable.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usrLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/usrLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usunCzujnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/usunCzujnik.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate.php" beforeDir="false" afterPath="$PROJECT_DIR$/validate.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +206,7 @@
       <workItem from="1590323564208" duration="5847000" />
       <workItem from="1590336258067" duration="752000" />
       <workItem from="1590393743887" duration="1389000" />
+      <workItem from="1590488017018" duration="3464000" />
     </task>
     <task id="LOCAL-00001" summary="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji">
       <created>1587566032743</created>

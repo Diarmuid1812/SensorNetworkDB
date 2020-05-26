@@ -1,4 +1,11 @@
 <?php
+require_once "mailTest.php";
+
+define('BATTERY_MIN', 3.30);
+define('TEMP_MIN', 15.00);
+define('TEMP_MAX', 27.00);
+define('HUM_MIN', 30.00);
+define('HUM_MAX', 50.00);
 
 //create log
 $f_hand = fopen("com_log.txt","w");
@@ -56,6 +63,66 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     try
     {
         require_once 'config_db.php';
+
+
+        //checking if sensor is registered in the database
+        $sensCheck = $dbLink->prepare("SELECT programowy_nr FROM czujnik WHERE programowy_nr = :parID");
+        $sensCheck->bindParam(':parID',$comID, PDO::PARAM_INT);
+        $sensCheck->execute();
+
+        if(!$sensCheck->rowCount()>0 || !$sensCheck->fetch()==$comID)
+        {
+            $inf = "Brak czujnika o podanym numerze w bazie danych\n";
+            fwrite($f_hand,$inf);
+            fclose($f_hand);
+            unset($dbLink);
+            unset($sensCheck);
+            die("Brak czujnika o podanym numerze w bazie danych");
+        }
+        unset($sensCheck);
+
+        //Checking state of masures for alarming values
+        $alarm = false;
+        $isTemp = false;
+        $isHum = false;
+        $isBatt = false;
+        $TempHigh = false;
+        $HumHigh = false;
+        if($comBatt < BATTERY_MIN)
+        {
+            $alarm=true;
+            $isBatt = true;
+        }
+        if($comTemp < TEMP_MIN)
+        {
+            $alarm=true;
+            $isTemp = true;
+        }
+        elseif($comTemp > TEMP_MAX)
+        {
+            $alarm=true;
+            $isTemp = true;
+            $TempHigh = true;
+        }
+        if($comHum < HUM_MIN)
+        {
+            $alarm=true;
+            $isHum = true;
+        }
+        elseif($comHum > HUM_MAX)
+        {
+            $alarm=true;
+            $isHum = true;
+            $HumHigh = true;
+        }
+
+        if($alarm)
+        {
+            sendAlarm($comID, $comTemp, $comHum, $comBatt, $isTemp, $TempHigh, $isHum, $HumHigh, $isBatt);
+            $inf = "Wysłano alarm.\n";
+            fwrite($f_hand, $inf);
+        }
+
         $dbLink->beginTransaction();
 
         $inf = "Połączono z bazą danych\n";

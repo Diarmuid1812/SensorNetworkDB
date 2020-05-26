@@ -10,7 +10,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 }
 
 // Include config file
-require_once "config_db.php";
+require "config_db.php";
 
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = :username";
+        $sql = "SELECT id, username, password, admin, passw_changed FROM users WHERE username = :username";
 
         if($stmt = $dbLink->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -53,6 +53,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $id = $row["id"];
                         $username = $row["username"];
                         $hashed_password = $row["password"];
+                        $isPasswChanged = $row["passw_changed"];
+                        $isAdmin = $row["admin"];
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
                             session_start();
@@ -61,7 +63,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
-
+                            $_SESSION["isPasswChanged"] = boolval($isPasswChanged);
+                            $_SESSION["permission"] = $isAdmin;
                             // Redirect user to welcome page
                             header("location: interfejsGlowny.phtml");
                         } else{
@@ -83,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     // Close connection
-    unset($pdo);
+    unset($dbLink);
 	//https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css
 }
 ?>
