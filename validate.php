@@ -3,6 +3,8 @@
 // Initialize the session
 session_start();
 
+var_dump($_SESSION["POST"]);
+
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !== true){
     header("location: interfejsGlowny.phtml");
@@ -16,6 +18,15 @@ require_once "config_db.php";
 $password = "";
 $password_err = "";
 
+if(!isset($_SESSION["val_kind"]))
+    die("Błąd: nieznana decyzja do potwierdzenia.<br>");
+else
+{
+    if($_SESSION["val_kind"]==="delSensor") $prev_page = "interfejsCzujniki.php";
+}
+
+var_dump($prev_page);
+
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -25,6 +36,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $password = trim($_POST["password"]);
     }
+
+
 
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
@@ -49,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             //validated and confirmed
                             $_SESSION["validatedFlag"] = true;
                             //previous page
-                            header("location: ". $_SERVER['HTTP_REFERER']);
+                            header("location: ". $prev_page);
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "Niepoprawne hasło";
@@ -101,7 +114,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			<br>
 			<div class="form-group">
 				<input type="submit" class="myButton" value="Potwierdź">
-				<a class="myButton2" href="javascript:history.go(-1)">Powrót</a>
+				<a class="myButton2" href="<?php echo $prev_page?>">Powrót</a>
 			</div>
 		</form>
 	</div>

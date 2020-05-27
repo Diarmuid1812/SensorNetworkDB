@@ -3,17 +3,23 @@
 // Initialize the session
 session_start();
 
+$dodaj_prog_nr = "";
+$usun_prog_nr = "";
+$miejsce = "";
+$usun_prog_nr_err = $dodaj_prog_nr_err = $miejsce_err = "";
+
 //handle deletion
-if(isset($_SESSION['POST'])) //if validated
+if (isset($_POST["usun_prog_nr"])) //if sent from form
+    $usun_prog_nr = $_POST["usun_prog_nr"];
+
+elseif(isset($_SESSION["POST"])) //if validated
 {
-    $temp = $_SESSION['POST'];
-    unset($_SESSION['POST']);
-    $test = $_POST['usun_prog_nr'];
+    $temp = $_SESSION["POST"];
+    unset($_SESSION["POST"]);
+    $usun_prog_nr = $temp["usun_prog_nr"];
 }
-elseif (isset($_POST['usun_prog_nr'])) //if sent from form
-    $usun_prog_nr = $_POST['usun_prog_nr'];
-else
-    $usun_prog_nr = "";
+
+unset($_SESSION["val_kind"]);
 
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
@@ -25,10 +31,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     exit;
 }
 
-$dodaj_prog_nr = "";
-$usun_prog_nr = "";
-$miejsce = "";
-$usun_prog_nr_err = $dodaj_prog_nr_err = $miejsce_err = "";
+
 
 require_once 'dodajCzujnik.php';
 require_once 'usunCzujnik.php';
@@ -115,16 +118,18 @@ require_once 'usunCzujnik.php';
 				<?php
 						if(!empty($usun_prog_nr))
 						{
-						    if(isset($_SESSION['validateFlag'])&&$_SESSION['validateFlag']===true)
+						    if(isset($_SESSION["validatedFlag"])&&$_SESSION["validatedFlag"]===true)
 						    {
-						        unset($_SESSION['validateFlag']);
+						        unset($_SESSION["validatedFlag"]);
+						        unset($_SESSION["val_kind"]);
 						        deleteSensor($usun_prog_nr);
                                 /* zapobiega dodawaniu wpisu po odswierzeniu strony*/
                                 Header("Location: interfejsCzujniki.php");
 						    }
-                            else
+                            elseif($_SERVER["REQUEST_METHOD"] == "POST")
                             {
                                 $_SESSION["POST"] = $_POST;
+                                $_SESSION["val_kind"]="delSensor";
                                 Header("Location: validate.php");
                                 exit();
                             }
