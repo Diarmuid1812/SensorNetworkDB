@@ -61,7 +61,7 @@ try{
 
     $report = array();
 
-    $qrySens="SELECT * FROM czujniki";
+    $qrySens="SELECT * FROM czujniki order by programowy_nr";
     foreach ( $dbLink->query($qrySens) as $rowSens)
     {
         $paramID = $rowSens["programowy_nr"];
