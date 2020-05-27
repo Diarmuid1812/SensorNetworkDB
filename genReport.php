@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: usrLogin.php");
     exit;
@@ -62,7 +61,7 @@ try{
     $report = array();
 
     $qrySens="SELECT * FROM czujniki order by programowy_nr";
-    foreach ( $dbLink->query($qrySens) as $rowSens)
+    foreach ( $dbLink->query($qrySens)->fetchAll() as $rowSens)
     {
         $paramID = $rowSens["programowy_nr"];
         $qryMeas= $dbLink->prepare("SELECT * FROM pomiar WHERE nr_czujnika=:sensID
@@ -73,7 +72,7 @@ try{
 
         $qryMeas->execute();
 
-        foreach ($qryMeas as $rowMeas)
+        foreach ($qryMeas->fetchAll() as $rowMeas)
         {
             array_push($report,
                 array("nr_czujnika" => $rowMeas["nr_czujnika"],
@@ -81,25 +80,25 @@ try{
                     "wilgotnosc" =>number_format($rowMeas["wilgotnosc"],2),
                     "temperatura" =>number_format($rowMeas["temperatura"],2)));
         }
-        if(isset($_POST["generate"])&&$_POST["generate"]==="gen")
-        {
 
-            $fp = fopen('reports/sample.csv', 'wb');
-            foreach ($report as $rowMeas)
-            {
-                $info = array($rowMeas["nr_czujnika"], $rowMeas["data"], $rowMeas["wilgotnosc"], $rowMeas["temperatura"]);
-                fputcsv($fp, $info);
-            }
-            fclose($fp);
-
-            header("Content-Description: File Transfer");
-            header('Content-Disposition: attachment; filename="raport.csv"');
-            header('Content-Type: text/csv');
-            readfile("reports/sample.csv");
-            die();
-        }
     }
+    if(isset($_POST["generate"])&&$_POST["generate"]==="gen")
+    {
 
+        $fp = fopen('reports/sample.csv', 'wb');
+        foreach ($report as $rowMeas)
+        {
+            $info = array($rowMeas["nr_czujnika"], $rowMeas["data"], $rowMeas["wilgotnosc"], $rowMeas["temperatura"]);
+            fputcsv($fp, $info);
+        }
+        fclose($fp);
+
+        header("Content-Description: File Transfer");
+        header('Content-Disposition: attachment; filename="raport.csv"');
+        header('Content-Type: text/csv');
+        readfile("reports/sample.csv");
+        die();
+    }
 
     unset($dbLink);
 
