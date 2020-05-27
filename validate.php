@@ -3,7 +3,6 @@
 // Initialize the session
 session_start();
 
-var_dump($_SESSION["POST"]);
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !== true){
@@ -23,6 +22,8 @@ if(!isset($_SESSION["val_kind"]))
 else
 {
     if($_SESSION["val_kind"]==="delSensor") $prev_page = "interfejsCzujniki.php";
+    elseif($_SESSION["val_kind"]==="delUser") $prev_page = "addUser.php";
+    else die("Błąd: nieznana strona powrotna.<br>");
 }
 
 var_dump($prev_page);

@@ -19,7 +19,7 @@ function deleteUser($username)
             if ($stmt->execute())
             {
 
-                // Check if username exists, if yes then verify password
+                // Check if username exists
                 if ($stmt->rowCount() == 1)
                 {
 
@@ -27,7 +27,7 @@ function deleteUser($username)
 
                     $qry = $dbLink->prepare("DELETE FROM users WHERE username=:paramUser");
 
-                    $qry->bindParam(':paramUser', $username, PDO::PARAM_INT);
+                    $qry->bindParam(':paramUser', $username, PDO::PARAM_STR);
 
                     $qry->execute();
 
@@ -35,7 +35,7 @@ function deleteUser($username)
                     $dbLink->exec("SET SQL_SAFE_UPDATES=1");
                     $dbLink->commit();
                     unset($dbLink);
-                    echo "Usunięto użytkownika.<br>";
+                    echo "Usunięto użytkownika $username. <br>";
                     $success = true;
                 } else
                 {
