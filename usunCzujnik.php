@@ -1,12 +1,10 @@
 <?php
 function deleteSensor($num_id)
 {
-
+    $success = false;
 
     try{
         require "config_db.php";
-
-        echo 'Connected to database<br>';
 
         /** @var $dbLink PDO */
         $sql = "SELECT id, programowy_nr FROM czujniki WHERE programowy_nr = :num_id";
@@ -35,13 +33,12 @@ function deleteSensor($num_id)
                     $dbLink->commit();
                     unset($dbLink);
                     echo "Usunięto czujnik.<br>";
-                    return true;
+                    $success = true;
                 } else
                 {
-                    echo "Brak czujnika o podanej nazwie";
+                    echo "Brak czujnika o podanej nazwie<br>";
                     $dbLink->rollBack();
                     unset($dbLink);
-                    return false;
                 }
             }
         }
@@ -49,8 +46,11 @@ function deleteSensor($num_id)
     catch(PDOException $e)
     {
         $dbLink->rollBack();
-        echo $e->getMessage();
+        echo $e->getMessage()."<br>";
         unset($dbLink);
-        return false;
+    }
+    finally
+    {
+        return $success;
     }
 }
