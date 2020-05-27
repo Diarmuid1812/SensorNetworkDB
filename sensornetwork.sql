@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 26 Maj 2020, 15:31
--- Wersja serwera: 5.7.17
--- Wersja PHP: 5.6.30
+-- Czas generowania: 27 Maj 2020, 23:12
+-- Wersja serwera: 10.4.11-MariaDB
+-- Wersja PHP: 7.2.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -54,7 +53,7 @@ INSERT INTO `czujniki` (`id`, `programowy_nr`, `bateria`, `miejsce`) VALUES
 CREATE TABLE `pomiar` (
   `id` int(11) NOT NULL,
   `nr_czujnika` int(11) NOT NULL,
-  `data` date DEFAULT CURRENT_TIMESTAMP,
+  `data` date DEFAULT current_timestamp(),
   `wilgotnosc` float NOT NULL,
   `temperatura` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
@@ -65,9 +64,9 @@ CREATE TABLE `pomiar` (
 
 INSERT INTO `pomiar` (`id`, `nr_czujnika`, `data`, `wilgotnosc`, `temperatura`) VALUES
 (1, 1, '2020-05-12', 2, 23),
-(2, 2, '2020-05-14', 3, 25),
 (3, 3, '2020-05-16', 8, 27),
-(4, 4, '2020-05-17', 10, 28);
+(4, 4, '2020-05-17', 10, 28),
+(5, 1, '2020-05-27', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -81,29 +80,36 @@ CREATE TABLE `users` (
   `email` varchar(30) COLLATE utf8_polish_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_polish_ci NOT NULL,
   `admin` tinyint(1) NOT NULL,
-  `passw_changed` tinyint(1) DEFAULT FALSE,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP
+  `passw_changed` tinyint(1) DEFAULT 0,
+  `created_at` datetime DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `admin`, `passw_changed`, `created_at`) VALUES
+(10, 'test', '241559@student.pwr.edu.pl', '$2y$10$CJ/AA.p590RMQLH4H.M0zu4J3nZx26Oc4Dd.oorGoxhrU5sOAbnhq', 1, 0, '2020-05-27 22:22:57');
 
 --
 -- Indeksy dla zrzutów tabel
 --
 
 --
--- Indexes for table `czujniki`
+-- Indeksy dla tabeli `czujniki`
 --
 ALTER TABLE `czujniki`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pomiar`
+-- Indeksy dla tabeli `pomiar`
 --
 ALTER TABLE `pomiar`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nr_czujnika` (`nr_czujnika`);
 
 --
--- Indexes for table `users`
+-- Indeksy dla tabeli `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -118,17 +124,20 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT dla tabeli `czujniki`
 --
 ALTER TABLE `czujniki`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT dla tabeli `pomiar`
 --
 ALTER TABLE `pomiar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- Ograniczenia dla zrzutów tabel
 --
@@ -137,7 +146,7 @@ ALTER TABLE `users`
 -- Ograniczenia dla tabeli `pomiar`
 --
 ALTER TABLE `pomiar`
-  ADD CONSTRAINT `pomiar_ibfk_1` FOREIGN KEY (`nr_czujnika`) REFERENCES `czujniki` (`id`);
+  ADD CONSTRAINT `pomiar_ibfk_1` FOREIGN KEY (`nr_czujnika`) REFERENCES `czujniki` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
