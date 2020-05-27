@@ -15,7 +15,7 @@ try
     <caption> <h3>Użytkownicy </h3></caption>
     <tr>
     
-    <th>Nr</th>
+    
     <th>Nazwa użytkownika</th>
     <th>Administrator</th>
     </tr>";
@@ -23,8 +23,7 @@ try
     foreach ( $dbLink->query($qry) as $rowSensors)
     {
         echo "<tr>";
-        //echo "<td>". $rowSensors["id"] . "</td>";
-        echo "<td>". $rowSensors["id"] . "</td>";
+        
         echo "<td>". $rowSensors["username"] . "</td>";
         //echo "<td>". $rowSensors["admin"] . "</td></tr>";
 		
