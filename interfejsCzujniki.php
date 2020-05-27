@@ -53,8 +53,16 @@ require_once 'usunCzujnik.php';
         <ul>
             <li><a href="interfejsGlowny.phtml">Strona główna</a></li>
             <li><a href="genReport.php">Raporty</a></li> <!-- domyslna strona po zalogowaniu -->
-            <li><a href="interfejsCzujniki.php">Zarządzaj czujnikami</a></li>
-            <li><a href="addUser.php">Zarządzaj użytkownikami</a></li>
+            <?php
+                if(isset($_SESSION["permission"])&&$_SESSION["permission"]===true)
+                {
+                    echo '<li><a href="interfejsCzujniki.php">Zarządzaj czujnikami</a></li>';
+				}
+                if(isset($_SESSION["permission"])&&$_SESSION["permission"]===true)
+                {
+                    echo '<li><a href="addUser.php">Zarządzaj użytkownikami</a></li>';
+                }
+            ?>
             <li><a href="setResetPassword.php">Zresetuj hasło</a></li>
             <li><a href="usrLogout.php">Wyloguj się</a></li>
         </ul>

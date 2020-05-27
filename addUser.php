@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: usrLogin.php");
@@ -13,11 +15,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 // Include config file
 require 'mailTest.php';
+require 'usunUzytkownika.php';
 
 // Initializing username variable and error message variable
 $username = "";
+$del_username = "";
 $email = "";
-$username_err = $email_err = "";
+$username_err = $del_username_err = $email_err = "";
 
 try
 {
@@ -148,41 +152,111 @@ catch (Exception $e)
 <head>
     <meta charset="UTF-8">
     <title>Dodawanie nowego użytkownika</title>
-    <link rel="stylesheet" href="logowaniestyl.css">
+    <link rel="stylesheet" href="teststyl.css">
     
 </head>
 <body>
-    <div class="wrapper">
-        <div class="header"><h2>Dodaj użytkownika</h2></div>
-		<div class="foo">
-			<p>Wpisz nazwę nowego użytkownika, aby utworzyć dla niego konto</p>
-			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-			<div class="odsun">
-				<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-					<label>Nazwa
-						<input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-					</label>
-					<div class="ero"><span class="help-block"><?php echo $username_err; ?></span></div>
-				</div>
-				<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-					<label>E-mail
-						<input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
-					</label>
-					<div class="ero"><span class="help-block"><?php echo $email_err; ?></span></div>
-				</div>
-                <div class="form-group">
-                    <input type="checkbox" id="isAdmin" name="isAdmin" value="true">
-                    <label for="isAdmin">Uprawnienia administratora</label><br>
-                </div>
-			</div>	
-				<div class="przycisk2">
+    
+        <div class="header"><h1>Dodaj użytkownika</h1></div>
+		
+		<div class="column navig">
+			<ul>
+				<li><a href="interfejsGlowny.phtml">Strona główna</a></li>
+				<li><a href="genReport.php">Raporty</a></li> <!-- domyslna strona po zalogowaniu -->
+				<?php
+                    if(isset($_SESSION["permission"])&&$_SESSION["permission"]===true)
+                    {
+                        echo '<li><a href="interfejsCzujniki.php">Zarządzaj czujnikami</a></li>';
+				    }
+                    if(isset($_SESSION["permission"])&&$_SESSION["permission"]===true)
+                    {
+                        echo '<li><a href="addUser.php">Zarządzaj użytkownikami</a></li>';
+                    }
+                ?>
+				<li><a href="setResetPassword.php">Zresetuj hasło</a></li>
+				<li><a href="usrLogout.php">Wyloguj się</a></li>
+			</ul>
+		</div>
+		
+		<div class="column content">
+			<div class="container">
+			
+			<!-- dodawanie uzytkownikow -->
+				<p>Wpisz nazwę nowego użytkownika, aby utworzyć dla niego konto</p>
+				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+				
+					<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+						<label>Nazwa
+							<input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+						</label>
+						<div class="ero"><span class="help-block"><?php echo $username_err; ?></span></div>
+					</div>
+					
+					<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+						<label>E-mail
+							<input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
+						</label>
+						<div class="ero"><span class="help-block"><?php echo $email_err; ?></span></div>
+					</div>
+					
+					<br>
+					
+					<div class="form-group">
+						<input type="checkbox" id="isAdmin" name="isAdmin" value="true">
+						<label for="isAdmin">Nadaj użytkownikowi uprawnienia administratora</label><br>
+					</div>
+					
+				
 					<div class="form-group">
 						<input type="submit" class="myButton" value="Stwórz">
-						<a class="myButton2" href="interfejsGlowny.phtml">Powrót</a>
 					</div>
-				</div>
-			</form>
+				
+				</form>
+				
+				
+				<!-- Usuwanie uzytkownikow -->
+				
+				<p>Wpisz nazwę użytkownika, którego chcesz usunąć</p>
+				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+				
+					<div class="form-group <?php echo (!empty($del_username_err)) ? 'has-error' : ''; ?>">
+						<label>Nazwa
+							<input type="text" name="username" class="form-control" value="<?php echo $del_username; ?>">
+						</label>
+						<div class="ero"><span class="help-block"><?php echo $del_username_err; ?></span></div>
+					</div>
+				
+					<div class="form-group">
+						<input type="submit" class="myButton" value="Usuń">
+					</div>
+				
+				</form>
+				
+				<?php
+						if(!empty($del_username))
+						{
+						    if(isset($_SESSION["validatedFlag"])&&$_SESSION["validatedFlag"]===true)
+						    {
+						        unset($_SESSION["validatedFlag"]);
+						        unset($_SESSION["val_kind"]);
+						        deleteUser($del_username);
+                                /* zapobiega dodawaniu wpisu po odswiezeniu strony*/
+                                Header("Location: interfejsCzujniki.php");
+						    }
+                            elseif($_SERVER["REQUEST_METHOD"] == "POST")
+                            {
+                                $_SESSION["POST"] = $_POST;
+                                $_SESSION["val_kind"]="delSensor";
+                                Header("Location: validate.php");
+                                exit();
+                            }
+						}
+				?>
+				
+				
+				<?php include "tabelaUzytkownikow.php"?>
+				
+			</div>
 		</div>
-    </div>
 </body>
 </html>
