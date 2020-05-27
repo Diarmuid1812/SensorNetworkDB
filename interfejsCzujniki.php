@@ -83,7 +83,7 @@ require_once 'usunCzujnik.php';
 						<input type="submit" class="myButton" name="dodaj_butt" value="Zatwierdź">
 						
 				</form>
-					
+				<div>
 					<?php
 						if(isset($_POST['prog_nr'])&&isset($_POST['miejsce']))
 						{
@@ -98,7 +98,7 @@ require_once 'usunCzujnik.php';
 							Header("Location: interfejsCzujniki.php");
 						}
 					?>
-					
+				</div>
 					<br>
 					<!-- usuwanie czujnikow -->
 				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">	
@@ -123,8 +123,6 @@ require_once 'usunCzujnik.php';
 						        unset($_SESSION["validatedFlag"]);
 						        unset($_SESSION["val_kind"]);
 						        deleteSensor($usun_prog_nr);
-                                /* zapobiega dodawaniu wpisu po odswierzeniu strony*/
-                                Header("Location: interfejsCzujniki.php");
 						    }
                             elseif($_SERVER["REQUEST_METHOD"] == "POST")
                             {
