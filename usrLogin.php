@@ -64,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
                             $_SESSION["isPasswChanged"] = boolval($isPasswChanged);
-                            $_SESSION["permission"] = $isAdmin;
+                            $_SESSION["permission"] = boolval($isAdmin);
                             // Redirect user to welcome page
                             header("location: interfejsGlowny.phtml");
                         } else{
