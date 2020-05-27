@@ -209,7 +209,7 @@ catch(PDOException $e)
 					<input type="hidden" name="dateStart" value="<?php echo $dateStart; ?>" />
 					<input type="hidden" name="dateEnd" value="<?php echo date("Y-m-d", strtotime($dateEnd)); ?>" />
 					<input type="submit" class="myButton" name="gen" value="Generuj raport">
-					<input type="button" class="myButton2" onclick="location='interfejsGlowny.phtml'" value="Powrót">
+					
 					
 				</form>
 			<br>

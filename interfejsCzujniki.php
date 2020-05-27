@@ -73,7 +73,7 @@ require_once 'usunCzujnik.php';
 				<!-- dodawanie czujnikow -->
 				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 					
-						<p>Dodaj</p>
+						<p>Dodaj czujnik</p>
 						<div class="form-group <?php echo (!empty($dodaj_prog_nr_err)) ? 'has-error' : ''; ?>">
 							<label>Nr programowy
 								<input type="text" name="prog_nr" class="form-control" value="<?php echo $dodaj_prog_nr; ?>">
@@ -110,7 +110,7 @@ require_once 'usunCzujnik.php';
 					<br>
 					<!-- usuwanie czujnikow -->
 				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">	
-						<p>Usuń</p>
+						<p>Usuń czujnik</p>
 						<div class="form-group <?php echo (!empty($usun_prog_nr_err)) ? 'has-error' : ''; ?>">
 							<label>Nr programowy
 								<input type="number" name="usun_prog_nr" class="form-control" value="<?php echo $usun_prog_nr; ?>">
