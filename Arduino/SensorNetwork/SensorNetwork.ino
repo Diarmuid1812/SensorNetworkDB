@@ -14,9 +14,10 @@
 #define PASSWD_EEPROM_ADDR 50
 #define IP_EEPROM_ADDR 90
 #define RTCMEMORYSTART 65
-#define MAXHOUR 5 // czas uśpienia w godzinach
 
 #define SLEEP_TIME 6
+
+#define SENSOR_ID 1                               // <-- tutaj zmienić ID cczujnika
 
 typedef struct {
   int count;
@@ -28,9 +29,6 @@ rtcStore rtcMem;
 
 void setup()
 {
-
-
-
   //uruchomienie portu szeregowego
   Serial.begin(74880);
   readFromRTCMemory();
@@ -77,8 +75,8 @@ void setup()
     if (configMsg.substring(0, 5) == "ssid=")
     {
       ssid = configMsg.substring(5, configMsg.length() - 1);
-      Serial.print("new ssid: ");
-      Serial.println(ssid);
+      Serial.print("New ssid reeived");
+      //Serial.println(ssid);
 
       //zapis ssid do EEPROM
       for (int i = 0; i < ssid.length(); i++)
@@ -94,8 +92,8 @@ void setup()
     if (configMsg.substring(0, 7) == "passwd=")
     {
       password = configMsg.substring(7, configMsg.length() - 1);
-      Serial.print("new password: ");
-      Serial.println(password);
+      Serial.print("New password reeived");
+      //Serial.println(password);
 
       //zapis hasła do EEPROM
       for (int i = 0; i < password.length(); i++)
@@ -130,13 +128,11 @@ void setup()
   for (int i = 0; i < EEPROM.read(SSID_EEPROM_ADDR - 1); i++)
   {
     ssid += char(EEPROM.read(SSID_EEPROM_ADDR + i));
-    //ssid += EEPROM.read(SSID_EEPROM_ADDR + i);
   }
   password = "";
   for (int i = 0; i < EEPROM.read(PASSWD_EEPROM_ADDR - 1); i++)
   {
     password += char(EEPROM.read(PASSWD_EEPROM_ADDR + i));
-    //password += EEPROM.read(PASSWD_EEPROM_ADDR + i);
   }
   //odczyt ip serwera z EEPROM
   server_ip = "";
@@ -145,12 +141,13 @@ void setup()
     server_ip += char(EEPROM.read(IP_EEPROM_ADDR + i));
   }
 
-  Serial.print("ssid: ");
-  Serial.println(ssid);
-  Serial.print("password: ");
-  Serial.println(password);
-  Serial.print("server ip: ");
-  Serial.println(server_ip);
+
+//  Serial.print("ssid: ");
+//  Serial.println(ssid);
+//  Serial.print("password: ");
+//  Serial.println(password);
+//  Serial.print("server ip: ");
+//  Serial.println(server_ip);
 
 
 
@@ -192,7 +189,7 @@ void setup()
   Serial.println(http.begin(beginCommand));
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
 
-  String id = "&id=1";
+  String id = "&id=" + String(SENSOR_ID);
   String temp = "&temperature=";
   String hum = "&humidity=";
   String bat = "&battery=";
