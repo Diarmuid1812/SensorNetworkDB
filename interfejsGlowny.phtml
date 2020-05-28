@@ -22,10 +22,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <body>
     <?php
     if($_SESSION["isPasswChanged"] !== true)
-        echo "<div>
-                <p>Nie zresetowałeś jeszcze wygenerowanego przez system hasła</p>
-                <p>Zrób to, aby zwiększyć bezpieczeństow twojego konta.</p>
-              </div>"
+        echo '<div>
+                <p style="background-color:#db1d1d; padding: 10px 10px; width:91.8%; font-weight: bold; ">
+				Nie zresetowałeś jeszcze wygenerowanego przez system hasła.
+				<br>
+                Zrób to, aby zwiększyć bezpieczeństwo Twojego konta.</p>
+              </div>'
     ?>
     <div class="header"><h1>Sieć czujników temperatury i wilgotności</h1></div>
         <div class="column navig">
