@@ -34,7 +34,7 @@ void setup()
   readFromRTCMemory();
 
   //czujnik ma się uruchamiać co 6 godzin
-  if (rtcMem.count <= 5)
+  if ((rtcMem.count <= 5) && (rtcMem.count <= 0))
   {
     Serial.print("Sleep number:");
     Serial.println(rtcMem.count);
