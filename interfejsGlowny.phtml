@@ -8,6 +8,16 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: usrLogin.php");
     exit;
 }
+
+    if(isset($_POST["backup"])&&$_POST["backup"]==="Utwórz backup")
+    {
+        $filename='database_backup_'.date('H-i-s_Y-m-d').'.sql';
+        $result=exec('mysqldump database_name --password=your_pass --user=root --single-transaction >/var/backups/'.$filename,$output);
+
+        if(empty($output)) $text = "Utworzono backup";
+        else $text = "Wystąpił błąd, spróbuj ponownie później";
+    }
+
 ?>
 
 
@@ -49,6 +59,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
     <div class="column content">
 
+        <?php if(isset($_SESSION["permission"])&&$_SESSION["permission"]===true)
+        {
+            echo '<form action="<'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
+            <input type="submit" class="myButton" name="backup" value="Utwórz backup">
+            </form>';
+        }
+        ?>
         <?php include "tabelaCzujnikow.php"?>
         <?php include "tabelaPomiar.php"?>
     </div>

@@ -27,8 +27,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="Integracja PHP, naprawa funkcji">
+      <change afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arduino/SensorNetwork/SensorNetwork.ino" beforeDir="false" afterPath="$PROJECT_DIR$/Arduino/SensorNetwork/SensorNetwork.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/addUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addUser_test.php" beforeDir="false" afterPath="$PROJECT_DIR$/addUser_test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/comPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/com_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config_db.php" beforeDir="false" afterPath="$PROJECT_DIR$/config_db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dodajCzujnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/dodajCzujnik.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/genReport.php" beforeDir="false" afterPath="$PROJECT_DIR$/genReport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfejsCzujniki.php" beforeDir="false" afterPath="$PROJECT_DIR$/interfejsCzujniki.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfejsGlowny.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/interfejsGlowny.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logowaniestyl.css" beforeDir="false" afterPath="$PROJECT_DIR$/logowaniestyl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logowaniestyl2.css" beforeDir="false" afterPath="$PROJECT_DIR$/logowaniestyl2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/mailTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/sample.csv" beforeDir="false" afterPath="$PROJECT_DIR$/reports/sample.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sensornetwork.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sensornetwork.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setResetPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/setResetPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stylInterfejs.css" beforeDir="false" afterPath="$PROJECT_DIR$/stylInterfejs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabelaCzujnikow.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabelaCzujnikow.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabelaPomiar.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabelaPomiar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testFunctionality.php" beforeDir="false" afterPath="$PROJECT_DIR$/testFunctionality.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teststyl.css" beforeDir="false" afterPath="$PROJECT_DIR$/teststyl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist" beforeDir="false" afterPath="$PROJECT_DIR$/todolist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usrLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/usrLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usrLogout.php" beforeDir="false" afterPath="$PROJECT_DIR$/usrLogout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usunCzujnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/usunCzujnik.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usunUzytkownika.php" beforeDir="false" afterPath="$PROJECT_DIR$/usunUzytkownika.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate.php" beforeDir="false" afterPath="$PROJECT_DIR$/validate.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +181,7 @@
       <workItem from="1590393743887" duration="1389000" />
       <workItem from="1590488017018" duration="3464000" />
       <workItem from="1590579339473" duration="14439000" />
+      <workItem from="1591011935736" duration="2466000" />
     </task>
     <task id="LOCAL-00001" summary="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji">
       <created>1587566032743</created>
@@ -451,10 +483,10 @@
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587566400224" />
     <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590602471424" />
-    <state x="854" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1590519495583">
+    <state x="854" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1590613349903">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="854" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040@0.0.1920.1040" timestamp="1590519495583" />
+    <state x="854" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040@0.0.1920.1040" timestamp="1590613349903" />
     <state x="755" y="326" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1588175631075">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
