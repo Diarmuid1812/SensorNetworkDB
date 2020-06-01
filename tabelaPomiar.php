@@ -30,8 +30,8 @@ try
         //echo "<td>" . $rowPomiar["id"] . "</td>";
         echo "<td>" . $rowPomiar["nr_czujnika"] . "</td>";
         echo "<td>" . $rowPomiar["data"] . "</td>";
-        echo "<td>" . $rowPomiar["wilgotnosc"] . "</td>";
-        echo "<td>" . $rowPomiar["temperatura"] . "</td></tr>";
+        echo "<td>" . $rowPomiar["wilgotnosc"] . "% </td>";
+        echo "<td>" . $rowPomiar["temperatura"] . "&deg;C </td></tr>";
 
     }
     echo "</table>";

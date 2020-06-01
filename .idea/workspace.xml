@@ -27,8 +27,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="Integracja PHP, naprawa funkcji">
-      <change afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
@@ -181,7 +181,8 @@
       <workItem from="1590393743887" duration="1389000" />
       <workItem from="1590488017018" duration="3464000" />
       <workItem from="1590579339473" duration="14439000" />
-      <workItem from="1591011935736" duration="2466000" />
+      <workItem from="1591011935736" duration="3701000" />
+      <workItem from="1591032625136" duration="555000" />
     </task>
     <task id="LOCAL-00001" summary="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji">
       <created>1587566032743</created>
@@ -469,11 +470,11 @@
     </state>
     <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1587809345219" />
     <state x="755" y="424" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590582935475" />
-    <state x="346" y="69" key="SettingsEditor" timestamp="1588460022477">
+    <state x="346" y="69" key="SettingsEditor" timestamp="1591020730760">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587814010483" />
-    <state x="346" y="69" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588460022477" />
+    <state x="346" y="69" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1591020730760" />
     <state width="335" height="441" key="SqlResolveConfigurable" timestamp="1588175601107">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

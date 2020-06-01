@@ -194,8 +194,8 @@ catch(PDOException $e)
 							echo "<tr>".
 								"<td>".$rowTable['nr_czujnika']."</td>".
 								"<td>".$rowTable['data']."</td>".
-								"<td>".$rowTable['wilgotnosc']."</td>".
-								"<td>".$rowTable['temperatura']."</td>".
+								"<td>".$rowTable['wilgotnosc']."% </td>".
+								"<td>".$rowTable['temperatura']."&deg;C </td>".
 								"</tr>";
 						}
 						?>
