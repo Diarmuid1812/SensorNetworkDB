@@ -15,7 +15,7 @@
 #define IP_EEPROM_ADDR 90
 #define RTCMEMORYSTART 65
 
-#define SLEEP_TIME 6
+#define SLEEP_TIME 6                              //SLEEP_TIME to czas sekund jednego cyklu spania - docelowo godzina 60*60 = 3600 sekund
 
 #define SENSOR_ID 1                               // <-- tutaj zmienić ID cczujnika
 
@@ -34,7 +34,7 @@ void setup()
   readFromRTCMemory();
 
   //czujnik ma się uruchamiać co 6 godzin
-  if ((rtcMem.count <= 5) && (rtcMem.count <= 0))
+  if ((rtcMem.count <= 5) && (rtcMem.count >= 0))
   {
     Serial.print("Sleep number:");
     Serial.println(rtcMem.count);
@@ -112,7 +112,7 @@ void setup()
       Serial.print("new server ip: ");
       Serial.println(server_ip);
 
-      //zapis ssid do EEPROM
+      //zapis ip do EEPROM
       for (int i = 0; i < server_ip.length(); i++)
       {
         char c = server_ip[i];
@@ -121,6 +121,43 @@ void setup()
       EEPROM.write(IP_EEPROM_ADDR - 1, server_ip.length());
       EEPROM.commit();
     }
+
+    //identyfikacja komendy resetu do ustawień fabrycznych
+    if (configMsg.substring(0, 1) == "x")
+    {
+      ssid = "ssid";
+      password = "password";
+      server_ip = "255.255.255.255";
+
+      //zapis ssid do EEPROM
+      for (int i = 0; i < ssid.length(); i++)
+      {
+        char c = ssid[i];
+        EEPROM.write(SSID_EEPROM_ADDR + i, c);
+      }
+      EEPROM.write(SSID_EEPROM_ADDR - 1, ssid.length());
+      EEPROM.commit();
+
+      //zapis hasła do EEPROM
+      for (int i = 0; i < password.length(); i++)
+      {
+        char c = password[i];
+        EEPROM.write(PASSWD_EEPROM_ADDR + i, c);
+      }
+      EEPROM.write(PASSWD_EEPROM_ADDR - 1, password.length());
+      EEPROM.commit();
+
+      //zapis ip do EEPROM
+      for (int i = 0; i < server_ip.length(); i++)
+      {
+        char c = server_ip[i];
+        EEPROM.write(IP_EEPROM_ADDR + i, c);
+      }
+      EEPROM.write(IP_EEPROM_ADDR - 1, server_ip.length());
+      EEPROM.commit();
+    }
+
+    Serial.println("Default settings restored");
   }
 
   //odczyt ssid i hasła z EEPROM
@@ -142,19 +179,19 @@ void setup()
   }
 
 
-//  Serial.print("ssid: ");
-//  Serial.println(ssid);
-//  Serial.print("password: ");
-//  Serial.println(password);
-//  Serial.print("server ip: ");
-//  Serial.println(server_ip);
+  //  Serial.print("ssid: ");
+  //  Serial.println(ssid);
+  //  Serial.print("password: ");
+  //  Serial.println(password);
+  //  Serial.print("server ip: ");
+  //  Serial.println(server_ip);
 
 
 
   //odczyt wilgotności, temperatury i napięcia baterii
   float humidity = dht.readHumidity();
   float temperature = dht.readTemperature();
-  float battery = float(analogRead(A0)) / 1024 * 3.3;
+  float battery = float(analogRead(A0)) / 1024 * 3.3 * 5.02;
 
   Serial.print("temp: ");
   Serial.println(temperature);
