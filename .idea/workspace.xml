@@ -114,13 +114,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\szust\PhpstormProjects\SensorNetwork" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Diarmuid\PhpstormProjects\SensorNetworkDB" />
       <recent name="C:\Users\Diarmuid\PhpstormProjects\SensorNetworkDB\Arduino\SensorNetwork" />
       <recent name="C:\Users\Diarmuid\PhpstormProjects\SensorNetworkDB\Arduino" />
+      <recent name="C:\Users\szust\PhpstormProjects\SensorNetwork" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\szust\PhpstormProjects\SensorNetwork" />
     </key>
   </component>
@@ -183,7 +183,7 @@
       <workItem from="1590579339473" duration="14439000" />
       <workItem from="1591011935736" duration="3701000" />
       <workItem from="1591032625136" duration="555000" />
-      <workItem from="1591082387971" duration="4114000" />
+      <workItem from="1591082387971" duration="4974000" />
     </task>
     <task id="LOCAL-00001" summary="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji">
       <created>1587566032743</created>

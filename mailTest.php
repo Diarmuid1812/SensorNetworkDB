@@ -20,7 +20,7 @@ function sendAlarm(int $sensorID, float $valTemp, float $valHum, float $valBatt,
         require "config_db.php";
 
         /** @var $dbLink PDO */
-        $qryPlacement = "SELECT miejsce FROM czujniki WHERE programowy_nr IS :sensorID";
+        $qryPlacement = "SELECT miejsce FROM czujniki WHERE programowy_nr = :sensorID";
 
         $stmt = $dbLink->prepare($qryPlacement);
         $stmt->bindParam(":sensorID", $sensorID, PDO::PARAM_INT);
@@ -34,7 +34,7 @@ function sendAlarm(int $sensorID, float $valTemp, float $valHum, float $valBatt,
         $recipients = implode(", ", $address);
 
         $stateTemp = $TempHigh ? "za wysoka" : "za niska";
-        $stateHum = $HumHigh ? "za wsoka" : "za niska";
+        $stateHum = $HumHigh ? "za wysoka" : "za niska";
 
         $batt = $isBattery ? "za niski poziom naładowania baterii" : "";
         $temp = $isTemp ? "$stateTemp temperatura" : "";
