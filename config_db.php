@@ -18,5 +18,6 @@ try{
     $dbLink->setAttribute(PDO::ATTR_ERRMODE, ERR_MODE);
     $dbLink ->exec("SET SQL_SAFE_UPDATES=1");
 } catch(PDOException $e){
-    die("ERROR: Could not connect. " . $e->getMessage());
+    throw $e;
+    //die("ERROR: Could not connect. " . $e->getMessage());
 }

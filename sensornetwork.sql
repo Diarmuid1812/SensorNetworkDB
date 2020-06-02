@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 27 Maj 2020, 23:12
+-- Czas generowania: 02 Cze 2020, 11:22
 -- Wersja serwera: 10.4.11-MariaDB
 -- Wersja PHP: 7.2.31
 
@@ -34,16 +34,6 @@ CREATE TABLE `czujniki` (
   `miejsce` text COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
---
--- Zrzut danych tabeli `czujniki`
---
-
-INSERT INTO `czujniki` (`id`, `programowy_nr`, `bateria`, `miejsce`) VALUES
-(1, 3, 50, 'piwnica'),
-(2, 6, 20, 'strych'),
-(3, 4, 70, 'klatka'),
-(4, 1, 40, 'spizarka');
-
 -- --------------------------------------------------------
 
 --
@@ -57,16 +47,6 @@ CREATE TABLE `pomiar` (
   `wilgotnosc` float NOT NULL,
   `temperatura` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
---
--- Zrzut danych tabeli `pomiar`
---
-
-INSERT INTO `pomiar` (`id`, `nr_czujnika`, `data`, `wilgotnosc`, `temperatura`) VALUES
-(1, 1, '2020-05-12', 2, 23),
-(3, 3, '2020-05-16', 8, 27),
-(4, 4, '2020-05-17', 10, 28),
-(5, 1, '2020-05-27', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -89,7 +69,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `admin`, `passw_changed`, `created_at`) VALUES
-(10, 'test', '241559@student.pwr.edu.pl', '$2y$10$CJ/AA.p590RMQLH4H.M0zu4J3nZx26Oc4Dd.oorGoxhrU5sOAbnhq', 1, 0, '2020-05-27 22:22:57');
+(10, 'test', '241559@student.pwr.edu.pl', '$2y$10$5HJSetkQDRrn8QMUOTrwgO8Gl58XBN7olR322eYxGhDDXimP85Pa.', 1, 1, '2020-05-27 22:22:57');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -99,14 +79,15 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `admin`, `passw_chan
 -- Indeksy dla tabeli `czujniki`
 --
 ALTER TABLE `czujniki`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`,`programowy_nr`) USING BTREE,
+  ADD UNIQUE KEY `programowy_nr` (`programowy_nr`);
 
 --
 -- Indeksy dla tabeli `pomiar`
 --
 ALTER TABLE `pomiar`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `nr_czujnika` (`nr_czujnika`);
+  ADD UNIQUE KEY `nr_czujnika` (`nr_czujnika`) USING BTREE;
 
 --
 -- Indeksy dla tabeli `users`
@@ -146,7 +127,7 @@ ALTER TABLE `users`
 -- Ograniczenia dla tabeli `pomiar`
 --
 ALTER TABLE `pomiar`
-  ADD CONSTRAINT `pomiar_ibfk_1` FOREIGN KEY (`nr_czujnika`) REFERENCES `czujniki` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `pomiar_ibfk_1` FOREIGN KEY (`nr_czujnika`) REFERENCES `czujniki` (`programowy_nr`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
