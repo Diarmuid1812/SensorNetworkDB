@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 02 Cze 2020, 11:22
+-- Czas generowania: 02 Cze 2020, 12:17
 -- Wersja serwera: 10.4.11-MariaDB
 -- Wersja PHP: 7.2.31
 
@@ -43,7 +43,7 @@ CREATE TABLE `czujniki` (
 CREATE TABLE `pomiar` (
   `id` int(11) NOT NULL,
   `nr_czujnika` int(11) NOT NULL,
-  `data` date DEFAULT current_timestamp(),
+  `data` datetime DEFAULT current_timestamp(),
   `wilgotnosc` float NOT NULL,
   `temperatura` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
@@ -69,7 +69,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `admin`, `passw_changed`, `created_at`) VALUES
-(10, 'test', '241559@student.pwr.edu.pl', '$2y$10$5HJSetkQDRrn8QMUOTrwgO8Gl58XBN7olR322eYxGhDDXimP85Pa.', 1, 1, '2020-05-27 22:22:57');
+(10, 'test', '---', '$2y$10$5HJSetkQDRrn8QMUOTrwgO8Gl58XBN7olR322eYxGhDDXimP85Pa.', 1, 1, '2020-05-27 22:22:57');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -87,7 +87,7 @@ ALTER TABLE `czujniki`
 --
 ALTER TABLE `pomiar`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `nr_czujnika` (`nr_czujnika`) USING BTREE;
+  ADD KEY `nr_czujnika` (`nr_czujnika`) USING BTREE;
 
 --
 -- Indeksy dla tabeli `users`
@@ -105,7 +105,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT dla tabeli `czujniki`
 --
 ALTER TABLE `czujniki`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT dla tabeli `pomiar`

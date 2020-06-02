@@ -1,1 +1,2 @@
-DirectoryIndex interfejs.Glowny.phtml
+Options -Indexes
+DirectoryIndex interfejsGlowny.phtml

@@ -116,6 +116,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         if($alarm)
         {
+            $inf = "Wykryto stan alarmowy.\n";
+            fwrite($f_hand, $inf);
             sendAlarm($comID, $comTemp, $comHum, $comBatt, $isTemp, $TempHigh, $isHum, $HumHigh, $isBatt);
             $inf = "Wysłano alarm.\n";
             fwrite($f_hand, $inf);
@@ -129,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         /** Battery state update */
         $qry = $dbLink->prepare("UPDATE czujniki
                             SET bateria=:comBatt
-                            WHERE id =:comID");
+                            WHERE programowy_nr =:comID");
 
         $qry->bindParam(':comID', $comID, PDO::PARAM_INT);
         $qry->bindParam(':comBatt', $comBatt, PDO::PARAM_STR);
