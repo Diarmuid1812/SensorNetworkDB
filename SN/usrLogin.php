@@ -17,28 +17,35 @@ $username = $password = "";
 $username_err = $password_err = "";
 
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
 
     // Check if username is empty
-    if(empty(trim($_POST["username"]))){
+    if (empty(trim($_POST["username"])))
+    {
         $username_err = "Podaj nazwę użytkownika.";
-    } else{
+    } else
+    {
         $username = trim($_POST["username"]);
     }
 
     // Check if password is empty
-    if(empty(trim($_POST["password"]))){
+    if (empty(trim($_POST["password"])))
+    {
         $password_err = "Nie podano hasła.";
-    } else{
+    } else
+    {
         $password = trim($_POST["password"]);
     }
 
     // Validate credentials
-    if(empty($username_err) && empty($password_err)){
+    if (empty($username_err) && empty($password_err))
+    {
         // Prepare a select statement
         $sql = "SELECT id, username, password, admin, passw_changed FROM users WHERE username = :username";
 
-        if($stmt = $dbLink->prepare($sql)){
+        if ($stmt = $dbLink->prepare($sql))
+        {
             // Bind variables to the prepared statement as parameters
             $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
 
@@ -46,16 +53,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_username = trim($_POST["username"]);
 
             // Attempt to execute the prepared statement
-            if($stmt->execute()){
+            if ($stmt->execute())
+            {
                 // Check if username exists, if yes then verify password
-                if($stmt->rowCount() == 1){
-                    if($row = $stmt->fetch()){
+                if ($stmt->rowCount() == 1)
+                {
+                    if ($row = $stmt->fetch())
+                    {
                         $id = $row["id"];
                         $username = $row["username"];
                         $hashed_password = $row["password"];
                         $isPasswChanged = $row["passw_changed"];
                         $isAdmin = $row["admin"];
-                        if(password_verify($password, $hashed_password)){
+                        if (password_verify($password, $hashed_password))
+                        {
                             // Password is correct, so start a new session
                             session_start();
 
@@ -67,16 +78,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["permission"] = boolval($isAdmin);
                             // Redirect user to welcome page
                             header("location: interfejsGlowny.phtml");
-                        } else{
+                        } else
+                        {
                             // Display an error message if password is not valid
                             $password_err = "Niepoprawne hasło";
                         }
                     }
-                } else{
+                } else
+                {
                     // Display an error message if username doesn't exist
                     $username_err = "Brak użytkownika o podanej nazwie";
                 }
-            } else{
+            } else
+            {
                 echo "Coś poszło nie tak. Spróbuj ponownie później";
             }
 
@@ -87,7 +101,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Close connection
     unset($dbLink);
-	//https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css
 }
 ?>
 

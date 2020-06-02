@@ -21,7 +21,7 @@ if(isset($_SESSION["backup_success"]))
 else
     $text="";
 
-if(isset($_POST["backup"])/*&&$_POST["backup"]==="Utwórz backup"*/)
+if(isset($_POST["backup"])&&$_POST["backup"]==="Utwórz backup")
 {
     require 'modules/config_db.php';
     $filename='database_backup_'.date('H-i-s_Y-m-d').'.sql';

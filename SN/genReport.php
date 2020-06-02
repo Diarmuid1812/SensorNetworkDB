@@ -182,8 +182,8 @@ catch(PDOException $e)
 						<tr>
 							<th>Nr czujnika</th>
 							<th>Data pomiaru</th>
-							<th>Wilgotność</th>
-							<th>Temperatura</th>
+							<th>Wilgotność [%]</th>
+							<th>Temperatura [&deg;C]</th>
 						</tr>
 					</thead>
 					
@@ -194,8 +194,8 @@ catch(PDOException $e)
 							echo "<tr>".
 								"<td>".$rowTable['nr_czujnika']."</td>".
 								"<td>".$rowTable['data']."</td>".
-								"<td>".$rowTable['wilgotnosc']."% </td>".
-								"<td>".$rowTable['temperatura']."&deg;C </td>".
+								"<td>".$rowTable['wilgotnosc']."</td>".
+								"<td>".$rowTable['temperatura']."</td>".
 								"</tr>";
 						}
 						?>
