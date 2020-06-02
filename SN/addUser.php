@@ -13,8 +13,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 
 // Include config file
-require 'mailTest.php';
-require 'usunUzytkownika.php';
+require 'modules/mailFunc.php';
+require 'modules/usunUzytkownika.php';
 
 // Initializing username variable and error message variable
 $username = "";
@@ -35,7 +35,7 @@ if(isset($_SESSION["POST"])) //if validated
 try
 {
     //database connection
-    require_once "config_db.php";
+    require_once "modules/config_db.php";
     $dbLink->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Processing form data when form is submitted
@@ -221,7 +221,7 @@ catch (Exception $e)
 <head>
     <meta charset="UTF-8">
     <title>Dodawanie nowego użytkownika</title>
-    <link rel="stylesheet" href="teststyl.css">
+    <link rel="stylesheet" href="CSS/teststyl.css">
     
 </head>
 <body>
@@ -321,7 +321,7 @@ catch (Exception $e)
 				?>
 				
 				
-				<?php include "tabelaUzytkownikow.php"?>
+				<?php include "modules/tabelaUzytkownikow.php" ?>
 				
 			</div>
 		</div>

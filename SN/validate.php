@@ -11,7 +11,7 @@ if(!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !== true){
 }
 
 // Include config file
-require_once "config_db.php";
+require_once "modules/config_db.php";
 
 // Define variables and initialize with empty values
 $password = "";
@@ -25,8 +25,6 @@ else
     elseif($_SESSION["val_kind"]==="delUser") $prev_page = "addUser.php";
     else die("Błąd: nieznana strona powrotna.<br>");
 }
-
-var_dump($prev_page);
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -83,12 +81,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     unset($dbLink);
 }
 
-/*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
-	*/
 
 ?>
 
@@ -97,7 +89,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="logowaniestyl2.css">
+    <link rel="stylesheet" href="CSS/logowaniestyl2.css">
     
 </head>
 <body>

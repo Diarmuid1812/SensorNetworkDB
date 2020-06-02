@@ -1,5 +1,5 @@
 <?php
-require_once "mailTest.php";
+require_once "../modules/mailFunc.php";
 
 define('BATTERY_MIN', 3.30);
 define('TEMP_MIN', 15.00);
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     try
     {
-        require_once 'config_db.php';
+        require_once '../modules/config_db.php';
 
 
         //checking if sensor is registered in the database

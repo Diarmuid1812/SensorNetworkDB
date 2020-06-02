@@ -1,0 +1,144 @@
+h1{
+    color: #e3decc;
+    font-style: italic;
+    font-size: 30px;
+    font-family: Serif, sans-serif;
+    text-align: center;
+}
+
+body{
+    min-width:1000px;        /* Suppose you want minimum width of 1000px */
+    width: auto !important;  /* Firefox will set width as auto */
+    color: #000000;
+    background-color: #cecece;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font: 18px "Times New Roman","Serif","Cambria";
+    text-align-all: right;
+    margin-left: 200px;
+    margin-top: 100px;
+    font-style: oblique;
+}
+
+.header{	/* ramka wokol naglowka */
+    padding: 10px 20px;
+    background: #2d2d33;
+    width: 90%;
+}
+
+.column {	/* kolumna menu */
+    float: left;
+    padding: 10px;
+}
+
+.column.navig{	/* kolumna menu */
+    float: left;
+    padding: 20px;
+    min-height: 170px;
+    box-sizing: border-box;
+	width: 20%;
+    background: rgba(78,78,82,0.8);
+    height:  400px;
+}
+
+/* ladne obramowania wokol przyciskow */
+.column.navig ul{
+    list-style: none;
+    padding: 0;
+}
+
+.column.navig ul li{
+    margin-top: 2px;
+}
+
+/* kolory obramowan wokol menu */
+.column.navig ul li a{
+    align-items: center;
+    border-radius: 10px;
+    display: block;
+    padding: 10px 25px;
+	border: 2px solid #9c0511;
+    background: #a80202;
+    color: #e3decc;
+    text-decoration: none;
+    font-style: normal;
+	font-weight: bold;
+}
+/* podswietlenie po najechaniu na przycisk */
+.column.navig ul li a:hover{
+    background: #bf2626;
+    color: white;
+	border: 2px solid #961822;
+}
+
+.column.content {
+    background-color: #d6d4cb;
+    width: 71.75%;
+    overflow: auto;
+	min-height: 330px;
+}
+
+.column.content table{
+    border-collapse: collapse;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.column.content th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #940000;
+    color: #e3decc;
+}
+/* tlo tabel */
+.column.content tr{
+    background: #bf9595;
+}
+
+/*.column.content tr:nth-child(2){
+    background: #1934b3;
+}*/
+/* kratki w tabeli */
+.column.content td, .content th
+{
+    color: #2d2d33;
+	font-weight: bold;
+
+    border: 2px #e3decc solid;
+    padding: 5px;
+}
+
+.myButton {
+	box-shadow:inset 0px 39px 0px -24px #940000;
+	background-color:#940000;
+	border-radius:4px;
+	border:1px solid #e3decc;
+	display:inline-block;
+	cursor:pointer;
+	color:#e3decc;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b0271e;
+}
+.myButton2 {
+	box-shadow:inset 0px 39px 0px -24px #e3decc;
+	background-color:#e3decc;
+	border-radius:4px;
+	border:1px solid #940000;
+	display:inline-block;
+	cursor:pointer;
+	color:#940000;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b0271e;
+}
+
+.container {
+	padding: 10px 10px;
+}

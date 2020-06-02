@@ -56,7 +56,7 @@ else
 }
 
 try{
-    require_once "config_db.php";
+    require_once "modules/config_db.php";
 
     $report = array();
 
@@ -85,7 +85,7 @@ try{
     if(isset($_POST["generate"])&&$_POST["generate"]==="gen")
     {
 
-        $fp = fopen('reports/sample.csv', 'wb');
+        $fp = fopen('reports/last_report.csv', 'wb');
         foreach ($report as $rowMeas)
         {
             $info = array($rowMeas["nr_czujnika"], $rowMeas["data"], $rowMeas["wilgotnosc"], $rowMeas["temperatura"]);
@@ -96,7 +96,7 @@ try{
         header("Content-Description: File Transfer");
         header('Content-Disposition: attachment; filename="raport.csv"');
         header('Content-Type: text/csv');
-        readfile("reports/sample.csv");
+        readfile("reports/last_report.csv");
         die();
     }
 
@@ -115,7 +115,7 @@ catch(PDOException $e)
 
 <!DOCTYPE html>
 <html lang="pl">
-<link rel="stylesheet" type="text/css" href="teststyl.css">
+<link rel="stylesheet" type="text/css" href="CSS/teststyl.css">
 <head>
     <meta charset="UTF-8">
     <title>Raporty</title>

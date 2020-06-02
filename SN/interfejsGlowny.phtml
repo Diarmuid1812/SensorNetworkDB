@@ -1,29 +1,51 @@
 <?php
+
 /** login test */
 // Initialize the session
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
+{
     header("location: usrLogin.php");
     exit;
 }
 
-    if(isset($_POST["backup"])&&$_POST["backup"]==="Utwórz backup")
-    {
-        $filename='database_backup_'.date('H-i-s_Y-m-d').'.sql';
-        $result=exec('mysqldump database_name --password=your_pass --user=root --single-transaction >/var/backups/'.$filename,$output);
 
-        if(empty($output)) $text = "Utworzono backup";
-        else $text = "Wystąpił błąd, spróbuj ponownie później";
-    }
+if(isset($_SESSION["backup_success"]))
+{
+    if($_SESSION["backup_success"])$text = "Utworzono backup!";
+    else $text = "Wystąpił błąd. Spróbuj ponownie późnej";
+    unset($_SESSION["backup_success"]);
+}
+else
+    $text="";
+
+if(isset($_POST["backup"])/*&&$_POST["backup"]==="Utwórz backup"*/)
+{
+    require 'modules/config_db.php';
+    $filename='database_backup_'.date('H-i-s_Y-m-d').'.sql';
+    if(PHP_OS == 'WIN32'||PHP_OS =='WINNT' ||PHP_OS =='Windows')
+        $result=exec('C:\xampp\mysql\bin\mysqldump.exe -h'.trim(DB_SERVER).
+            ' -u'.trim(DB_USERNAME).' '.DB_NAME.' > backup\\'.$filename,$output);
+    else
+        $result=exec('mysqldump -h'.trim(DB_SERVER).
+            ' -u'.trim(DB_USERNAME).' '.DB_NAME.' > backup/'.$filename,$output);
+
+    if(empty($output)) $_SESSION["backup_success"]=true;
+    else $_SESSION["backup_success"]=false;
+
+    header('location: interfejsGlowny.phtml');
+}
+
+
 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" type="text/css" href="teststyl.css">
+<link rel="stylesheet" type="text/css" href="CSS/teststyl.css">
 <head>
     <meta charset="UTF-8">
     <title>Czujniki </title>
@@ -63,13 +85,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
         <?php if(isset($_SESSION["permission"])&&$_SESSION["permission"]===true)
         {
-            echo '<form action="<'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
+            echo '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
             <input type="submit" class="myButton" name="backup" value="Utwórz backup">
             </form>';
+            echo "<h3>$text</h3>";
         }
         ?>
-        <?php include "tabelaCzujnikow.php"?>
-        <?php include "tabelaPomiar.php"?>
+        <?php include "modules/tabelaCzujnikow.php" ?>
+        <?php include "modules/tabelaPomiar.php" ?>
     </div>
 
 </body>

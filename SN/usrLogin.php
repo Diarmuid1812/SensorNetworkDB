@@ -10,7 +10,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 }
 
 // Include config file
-require "config_db.php";
+require "modules/config_db.php";
 
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -96,7 +96,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="logowaniestyl.css">
+    <link rel="stylesheet" href="CSS/logowaniestyl.css">
     
 </head>
 <body>

@@ -14,7 +14,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 try
 {
 // Include config file
-    require_once "config_db.php";
+    require_once "modules/config_db.php";
 
 // Define variables and initialize with empty values
     $new_password = $confirm_password = "";
@@ -130,7 +130,7 @@ catch (PDOException $e)
 
 <head>
     <meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="logowaniestyl2.css">
+	<link rel="stylesheet" type="text/css" href="CSS/logowaniestyl2.css">
     <title>Reset Password</title>
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">

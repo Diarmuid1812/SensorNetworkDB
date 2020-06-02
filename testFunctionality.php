@@ -12,7 +12,7 @@
 /*** działa (PDO)***/
 //addSensor('1','Test działania PDO');
 
-require 'mailTest.php';
+require 'mailFunc.php';
 try
 {
     sendAlarm(1,1,1,1,true, false, true, false, true);
