@@ -1,7 +1,7 @@
 <?php
 require_once "../modules/mailFunc.php";
 
-define('BATTERY_MIN', 3.30);
+define('BATTERY_MIN', 5);
 define('TEMP_MIN', 15.00);
 define('TEMP_MAX', 27.00);
 define('HUM_MIN', 30.00);
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $comID    = trim(filter_var($_POST['id'], FILTER_VALIDATE_INT));
     $comTemp  = trim(filter_var($_POST['temperature'],FILTER_VALIDATE_FLOAT));
     $comHum   = trim(filter_var($_POST['humidity'],FILTER_VALIDATE_FLOAT));
-    $comBatt  = trim(filter_var($_POST['battery'],FILTER_VALIDATE_FLOAT));
+    $comBatt  = trim(filter_var($_POST['battery'],FILTER_VALIDATE_INT));
 
     if(!$comID)
     {

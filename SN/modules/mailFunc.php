@@ -95,9 +95,11 @@ function sendAlarm(int $sensorID, float $valTemp, float $valHum, float $valBatt,
 function mailTo(string $to, string $subject, string $message)
 {
     /**configure stmp server first*/
-$from = "From: noreply @ company . com";
-    echo "Użycie funkcji";
-    if (!mail($to, $subject, $message, $from))
+$head = "From: noreply @ company . com";
+$head.= "MIME-Version: 1.0\r\n";
+$head.= "Content-Type: text/html; charset=UTF-8\r\n";
+
+    if (!mail($to, $subject, $message, $head))
     {
         throw new Exception('Unable to send email. Please try again.');
     }

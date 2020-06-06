@@ -8,19 +8,7 @@
 function addSensor($program_id,$miejsce)
 {
 
-    $finished = false;
-
-    if(!filter_var($program_id,FILTER_VALIDATE_INT))
-    {
-        echo "Nieprawidłowy numer id";
-        return false;
-    }
-
-    if(! filter_var($miejsce, FILTER_VALIDATE_REGEXP,
-    array("options"=>array("regexp"=>'/^[a-zA-ZąćęłńóśżźĄĆĘŁŃÓŚŻŹ _]{3,100}$/')))){
-        echo "Nieprawidłowy opis miejsca";
-        return false;
-    }
+    $finished = "";
 
     try{
 
@@ -42,13 +30,13 @@ function addSensor($program_id,$miejsce)
         $dbLink->commit();
         /*** closing connection ***/
 
-        echo 'Sensor added successfully.\n';
-        $finished = true;
+
+        $finished = ""; //Success
     }
 catch(PDOException $e)
     {
         $dbLink->rollBack();
-        echo $e->getMessage();
+        $finished = "Błąd połączenia z bazą. Sprawdź czy wpraowadziłeś poprawny numer czujnika.";
         throw $e;
     }
 

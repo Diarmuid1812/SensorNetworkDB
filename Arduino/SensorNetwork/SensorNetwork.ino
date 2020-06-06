@@ -222,7 +222,7 @@ void setup()
 
   HTTPClient http;
   Serial.print("http.begin() = ");
-  String beginCommand = "http://" + server_ip + "/SN/comPost.php";
+  String beginCommand = "http://" + server_ip + "/SN/com/comPost.php";
   Serial.println(http.begin(beginCommand));
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
 
