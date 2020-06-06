@@ -64,7 +64,7 @@ void setup()
   String server_ip = "255.255.255.255";
 
   Serial.println("Waiting for wifi config");
-  delay(2000);
+  delay(3000);
 
   if (Serial.available() > 0)
   {
@@ -155,9 +155,10 @@ void setup()
       }
       EEPROM.write(IP_EEPROM_ADDR - 1, server_ip.length());
       EEPROM.commit();
+      Serial.println("Default settings restored");
     }
 
-    Serial.println("Default settings restored");
+    
   }
 
   //odczyt ssid i hasła z EEPROM
