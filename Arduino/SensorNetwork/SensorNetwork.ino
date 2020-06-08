@@ -75,7 +75,7 @@ void setup()
     if (configMsg.substring(0, 5) == "ssid=")
     {
       ssid = configMsg.substring(5, configMsg.length() - 1);
-      Serial.print("New ssid reeived");
+      Serial.println("New ssid reeived");
       //Serial.println(ssid);
 
       //zapis ssid do EEPROM
@@ -92,7 +92,7 @@ void setup()
     if (configMsg.substring(0, 7) == "passwd=")
     {
       password = configMsg.substring(7, configMsg.length() - 1);
-      Serial.print("New password reeived");
+      Serial.println("New password received");
       //Serial.println(password);
 
       //zapis hasła do EEPROM
@@ -109,7 +109,7 @@ void setup()
     if (configMsg.substring(0, 3) == "ip=")
     {
       server_ip = configMsg.substring(3, configMsg.length() - 1);
-      Serial.print("new server ip: ");
+      Serial.println("new server ip: ");
       Serial.println(server_ip);
 
       //zapis ip do EEPROM
