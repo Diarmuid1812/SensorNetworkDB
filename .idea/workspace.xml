@@ -26,40 +26,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="Integracja PHP, naprawa funkcji">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+    <list default="true" id="0b380629-7a02-4552-81a6-bc4aa7c1a21e" name="Default Changelist" comment="Po testach, komunikaty interfejsu czujników, bateria&#10;Bateria w procentach, powyżej 5 %&#10;Wyświetlanie jednostki&#10;Poprawa nagłówka dla numeru czujnika&#10;Komunikaty przy błędach dodania czujnika&#10;Poprawione URL do komunikacji">
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arduino/SensorNetwork/SensorNetwork.ino" beforeDir="false" afterPath="$PROJECT_DIR$/Arduino/SensorNetwork/SensorNetwork.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/addUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addUser_test.php" beforeDir="false" afterPath="$PROJECT_DIR$/addUser_test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/comPost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/com_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config_db.php" beforeDir="false" afterPath="$PROJECT_DIR$/config_db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dodajCzujnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/dodajCzujnik.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genReport.php" beforeDir="false" afterPath="$PROJECT_DIR$/genReport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interfejsCzujniki.php" beforeDir="false" afterPath="$PROJECT_DIR$/interfejsCzujniki.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interfejsGlowny.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/interfejsGlowny.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logowaniestyl.css" beforeDir="false" afterPath="$PROJECT_DIR$/logowaniestyl.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logowaniestyl2.css" beforeDir="false" afterPath="$PROJECT_DIR$/logowaniestyl2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/mailTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/sample.csv" beforeDir="false" afterPath="$PROJECT_DIR$/reports/sample.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sensornetwork.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sensornetwork.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setResetPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/setResetPassword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stylInterfejs.css" beforeDir="false" afterPath="$PROJECT_DIR$/stylInterfejs.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tabelaCzujnikow.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabelaCzujnikow.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tabelaPomiar.php" beforeDir="false" afterPath="$PROJECT_DIR$/tabelaPomiar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testFunctionality.php" beforeDir="false" afterPath="$PROJECT_DIR$/testFunctionality.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/teststyl.css" beforeDir="false" afterPath="$PROJECT_DIR$/teststyl.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist" beforeDir="false" afterPath="$PROJECT_DIR$/todolist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usrLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/usrLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usrLogout.php" beforeDir="false" afterPath="$PROJECT_DIR$/usrLogout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usunCzujnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/usunCzujnik.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usunUzytkownika.php" beforeDir="false" afterPath="$PROJECT_DIR$/usunUzytkownika.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validate.php" beforeDir="false" afterPath="$PROJECT_DIR$/validate.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +74,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/SN/CSS" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -114,14 +85,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Diarmuid\PhpstormProjects\SensorNetworkDB\SN\modules" />
+      <recent name="C:\Users\Diarmuid\PhpstormProjects\SensorNetworkDB\SN" />
+      <recent name="C:\Users\Diarmuid\PhpstormProjects\SensorNetworkDB\SN\com" />
+      <recent name="C:\Users\Diarmuid\PhpstormProjects\SensorNetworkDB\SN\CSS" />
+      <recent name="C:\Users\szust\PhpstormProjects\SensorNetwork" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Diarmuid\PhpstormProjects\SensorNetworkDB\SN\CSS" />
+      <recent name="C:\Users\Diarmuid\PhpstormProjects\SensorNetworkDB\SN\backup" />
       <recent name="C:\Users\Diarmuid\PhpstormProjects\SensorNetworkDB" />
       <recent name="C:\Users\Diarmuid\PhpstormProjects\SensorNetworkDB\Arduino\SensorNetwork" />
       <recent name="C:\Users\Diarmuid\PhpstormProjects\SensorNetworkDB\Arduino" />
-      <recent name="C:\Users\szust\PhpstormProjects\SensorNetwork" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\szust\PhpstormProjects\SensorNetwork" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -183,7 +159,10 @@
       <workItem from="1590579339473" duration="14439000" />
       <workItem from="1591011935736" duration="3701000" />
       <workItem from="1591032625136" duration="555000" />
-      <workItem from="1591082387971" duration="6950000" />
+      <workItem from="1591082387971" duration="11189000" />
+      <workItem from="1591097491584" duration="5686000" />
+      <workItem from="1591282100242" duration="965000" />
+      <workItem from="1591433291130" duration="6519000" />
     </task>
     <task id="LOCAL-00001" summary="komunikacja i poprawienie dodania&#10;Todolist w komentarzach do komunikacji">
       <created>1587566032743</created>
@@ -311,7 +290,35 @@
       <option name="project" value="LOCAL" />
       <updated>1590611265247</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Restrukturyzacja, backupy bazy">
+      <created>1591101566795</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1591101566796</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Wersja testowa">
+      <created>1591103336713</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1591103336713</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Po testach, komunikaty interfejsu czujników, bateria&#10;Bateria w procentach, powyżej 5 %&#10;Wyświetlanie jednostki&#10;Poprawa nagłówka dla numeru czujnika&#10;Komunikaty przy błędach dodania czujnika&#10;Poprawione URL do komunikacji">
+      <created>1591453986851</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1591453986851</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Po testach, komunikaty interfejsu czujników, bateria&#10;Bateria w procentach, powyżej 5 %&#10;Wyświetlanie jednostki&#10;Poprawa nagłówka dla numeru czujnika&#10;Komunikaty przy błędach dodania czujnika&#10;Poprawione URL do komunikacji">
+      <created>1591454262332</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1591454262332</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +379,11 @@
     <MESSAGE value="Login i zabezpieczenia&#10;Logowanie do stron, potwierdzanie usunięcia czujnika za pomocą hasła, podział na opcje zwykłe i administratorskie" />
     <MESSAGE value="Informacje o błędach usuwania" />
     <MESSAGE value="Integracja PHP, naprawa funkcji" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integracja PHP, naprawa funkcji" />
+    <MESSAGE value="Restrukturyzacja" />
+    <MESSAGE value="Restrukturyzacja, backupy bazy" />
+    <MESSAGE value="Wersja testowa" />
+    <MESSAGE value="Po testach, komunikaty interfejsu czujników, bateria&#10;Bateria w procentach, powyżej 5 %&#10;Wyświetlanie jednostki&#10;Poprawa nagłówka dla numeru czujnika&#10;Komunikaty przy błędach dodania czujnika&#10;Poprawione URL do komunikacji" />
+    <option name="LAST_COMMIT_MESSAGE" value="Po testach, komunikaty interfejsu czujników, bateria&#10;Bateria w procentach, powyżej 5 %&#10;Wyświetlanie jednostki&#10;Poprawa nagłówka dla numeru czujnika&#10;Komunikaty przy błędach dodania czujnika&#10;Poprawione URL do komunikacji" />
   </component>
   <component name="WindowStateProjectService">
     <state x="436" y="85" key="#CLI_Interpreters" timestamp="1588171188187">
@@ -480,6 +491,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="335" height="441" key="SqlResolveConfigurable/0.0.1920.1040@0.0.1920.1040" timestamp="1588175601107" />
+    <state x="846" y="434" key="VCS.EditChangelistDialog" timestamp="1591101510973">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="846" y="434" key="VCS.EditChangelistDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591101510973" />
     <state x="451" y="183" key="Vcs.Push.Dialog.v2" timestamp="1590602471424">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -514,10 +529,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1585750654644" />
-    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1590277789431">
+    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1591102923150">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1585924273745" />
-    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590277789431" />
+    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1591102923150" />
   </component>
 </project>

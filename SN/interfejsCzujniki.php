@@ -33,6 +33,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 
 
+
+
 require_once 'modules/dodajCzujnik.php';
 require_once 'modules/usunCzujnik.php';
 ?>
@@ -95,15 +97,30 @@ require_once 'modules/usunCzujnik.php';
 					<?php
 						if(isset($_POST['prog_nr'])&&isset($_POST['miejsce']))
 						{
-							$dodaj_prog_nr = $_POST['prog_nr'];
-							$miejsce = $_POST['miejsce'];
-							
-							if(!empty($dodaj_prog_nr) && !empty($miejsce))
-							{
-								addSensor($dodaj_prog_nr, $miejsce);
-							}
-							/* zapobiega dodawaniu wpisu po odswierzeniu strony*/
-							Header("Location: interfejsCzujniki.php");
+                            if(!filter_var($_POST['prog_nr'],FILTER_VALIDATE_INT))
+                            {
+
+                                $dodaj_prog_nr_err = "Nieprawidłowy numer id";;
+                            }
+
+                            if(!filter_var($_POST['miejsce'], FILTER_VALIDATE_REGEXP,
+                                array("options"=>array("regexp"=>'/^[a-zA-ZąćęłńóśżźĄĆĘŁŃÓŚŻŹ0-9 _]{3,100}$/')))){
+                                $finished = "Nieprawidłowy opis miejsca. Opis powinien składać się z od 3 do 100 liter i cyfr";;
+                            }
+						    if(empty($dodaj_prog_nr_err))
+                            {
+                                $dodaj_prog_nr = $_POST['prog_nr'];
+                                $miejsce = $_POST['miejsce'];
+
+                                if (!empty($dodaj_prog_nr) && !empty($miejsce))
+                                {
+                                    $dodaj_prog_nr_err = addSensor($dodaj_prog_nr, $miejsce);
+                                }
+                                if(empty($dodaj_prog_nr_err))
+                                {   /* zapobiega dodawaniu wpisu po odswierzeniu strony*/
+                                    Header("Location: interfejsCzujniki.php");
+                                }
+                            }
 						}
 					?>
 				</div>
