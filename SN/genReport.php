@@ -6,7 +6,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     exit;
 }
 
-
 if(isset($_POST["dateStart"])&&isset($_POST["dateEnd"]))
 {
     $dateStart=$_POST["dateStart"];
@@ -26,6 +25,11 @@ else
                 date("d") - 1,
                 date("Y")));
     }
+    elseif (isset($_POST["lastDay"]))
+    {
+        $dateEnd = date("Y-m-d H:i:s");
+        $dateStart = date("Y-m-d");
+    }
     else
     {
         $months = 0;
@@ -38,8 +42,7 @@ else
             $months = 1;
         elseif (isset($_POST["lastWeek"]))
             $days = 7;
-        elseif (isset($_POST["lastDay"]))
-            $days = 0;
+
         else
             $months = 1;
 
@@ -56,7 +59,7 @@ else
 }
 
 try{
-    require_once "modules/config_db.php";
+    require "modules/config_db.php";
 
     $report = array();
 
@@ -85,7 +88,7 @@ try{
     if(isset($_POST["generate"])&&$_POST["generate"]==="gen")
     {
 
-        $fp = fopen('reports/last_report.csv', 'wb');
+        $fp = fopen('reports/last_report.csv', 'w+');
         foreach ($report as $rowMeas)
         {
             $info = array($rowMeas["nr_czujnika"], $rowMeas["data"], $rowMeas["wilgotnosc"], $rowMeas["temperatura"]);

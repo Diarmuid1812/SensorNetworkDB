@@ -142,3 +142,10 @@ body{
 .container {
 	padding: 10px 10px;
 }
+
+.column.content.container2
+{
+    padding-top: 10px;
+    float: left;
+    width: 45%;
+}

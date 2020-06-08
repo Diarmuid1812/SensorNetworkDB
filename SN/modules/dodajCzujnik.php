@@ -29,6 +29,8 @@ function addSensor($program_id,$miejsce)
         $qry->execute();
         $dbLink->commit();
         /*** closing connection ***/
+        unset($dbLink);
+        unset($qry);
 
 
         $finished = ""; //Success

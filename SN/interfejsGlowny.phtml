@@ -83,16 +83,21 @@ if(isset($_POST["backup"])&&$_POST["backup"]==="Utwórz backup")
         </div>
     <div class="column content">
 
-        <?php if(isset($_SESSION["permission"])&&$_SESSION["permission"]===true)
-        {
-            echo '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
+
+        <div class="column content container2">
+            <?php include "modules/tabelaCzujnikow.php" ?>
+        </div>
+        <div class="column content container2">
+            <?php if(isset($_SESSION["permission"])&&$_SESSION["permission"]===true)
+            {
+                echo '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
             <input type="submit" class="myButton" name="backup" value="Utwórz backup">
             </form>';
-            echo "<h3>$text</h3>";
-        }
-        ?>
-        <?php include "modules/tabelaCzujnikow.php" ?>
-        <?php include "modules/tabelaPomiar.php" ?>
+                echo "<h3>$text</h3>";
+            }
+            ?>
+            <?php include "modules/tabelaPomiar.php" ?>
+        </div>
     </div>
 
 </body>
