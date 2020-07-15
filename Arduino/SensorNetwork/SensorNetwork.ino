@@ -15,9 +15,9 @@
 #define IP_EEPROM_ADDR 90
 #define RTCMEMORYSTART 65
 
-#define SLEEP_TIME 6                              //SLEEP_TIME to czas sekund jednego cyklu spania - docelowo godzina 60*60 = 3600 sekund
+#define SLEEP_TIME 3600                              //SLEEP_TIME to czas sekund jednego cyklu spania - docelowo godzina 60*60 = 3600 sekund
 
-#define SENSOR_ID 1                               // <-- tutaj zmienić ID cczujnika
+#define SENSOR_ID 1                               // <-- tutaj zmienić ID czujnika
 
 typedef struct {
   int count;
@@ -126,8 +126,8 @@ void setup()
     if (configMsg.substring(0, 1) == "x")
     {
       ssid = "ssid";
-      password = "password";
-      server_ip = "255.255.255.255";
+      password = "passwd";
+      server_ip = "server_ip";
 
       //zapis ssid do EEPROM
       for (int i = 0; i < ssid.length(); i++)
@@ -158,7 +158,7 @@ void setup()
       Serial.println("Default settings restored");
     }
 
-    
+
   }
 
   //odczyt ssid i hasła z EEPROM
@@ -180,19 +180,24 @@ void setup()
   }
 
 
-  //  Serial.print("ssid: ");
-  //  Serial.println(ssid);
-  //  Serial.print("password: ");
-  //  Serial.println(password);
-  //  Serial.print("server ip: ");
-  //  Serial.println(server_ip);
+//  Serial.print("ssid: ");
+//  Serial.println(ssid);
+//  Serial.print("password: ");
+//  Serial.println(password);
+//  Serial.print("server ip: ");
+//  Serial.println(server_ip);
 
 
 
   //odczyt wilgotności, temperatury i napięcia baterii
   float humidity = dht.readHumidity();
   float temperature = dht.readTemperature();
-  float battery = float(analogRead(A0)) / 1024 * 3.3 * 5.02;
+  int battery = float(analogRead(A0)) / 1024 * 5.02;
+  battery = mapf(battery, 3.3, 4.2, 0, 100);
+  if (battery > 100)
+  {
+    battery = 100;
+  }
 
   Serial.print("temp: ");
   Serial.println(temperature);
@@ -212,10 +217,19 @@ void setup()
   WiFi.begin(ssid, password);
   Serial.println("Connecting to wifi");
 
+  int timeout = 0;
   while (WiFi.status() != WL_CONNECTED)
   {
     delay(500);
     Serial.print(".");
+    timeout++;
+    if (timeout >= 80)
+    {
+      Serial.println("No wifi connection found");
+      Serial.println("Sleep");
+      Serial.println("##########################################");
+      ESP.deepSleep(SLEEP_TIME * 1e6);
+    }
   }
   Serial.println("");
   Serial.print("Connected to WiFi network with IP Address: ");
@@ -223,7 +237,8 @@ void setup()
 
   HTTPClient http;
   Serial.print("http.begin() = ");
-  String beginCommand = "http://" + server_ip + "/SN/com/comPost.php";
+  String beginCommand = "http://" + server_ip + "/sn/com/comPost.php";
+  Serial.println(beginCommand);
   Serial.println(http.begin(beginCommand));
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
 
@@ -270,4 +285,8 @@ void writeToRTCMemory()
 {
   system_rtc_mem_write(RTCMEMORYSTART, &rtcMem, 4);
   yield();
+}
+
+float mapf(float x, float in_min, float in_max, float out_min, float out_max) {
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
