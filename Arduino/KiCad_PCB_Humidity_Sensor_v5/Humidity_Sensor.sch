@@ -1,0 +1,450 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L RF_Module:ESP-12E U2
+U 1 1 5E7B7147
+P 7450 4000
+F 0 "U2" H 7450 4100 50  0000 C CNN
+F 1 "ESP-12E" H 7450 4000 50  0000 C CNN
+F 2 "RF_Module:ESP-12E" H 7450 4000 50  0001 C CNN
+F 3 "http://wiki.ai-thinker.com/_media/esp8266/esp8266_series_modules_user_manual_v1.1.pdf" H 7100 4100 50  0001 C CNN
+	1    7450 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7450 2700 7450 3200
+$Comp
+L Sensor:DHT11 U3
+U 1 1 5E7C5D29
+P 9400 4300
+F 0 "U3" H 9156 4346 50  0000 R CNN
+F 1 "DHT22" H 9156 4255 50  0000 R CNN
+F 2 "Sensor:Aosong_DHT11_5.5x12.0_P2.54mm" H 9400 3900 50  0001 C CNN
+F 3 "http://akizukidenshi.com/download/ds/aosong/DHT11.pdf" H 9550 4550 50  0001 C CNN
+	1    9400 4300
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	8050 3900 8650 3900
+Wire Wire Line
+	9400 3900 9400 4000
+Wire Wire Line
+	7450 4700 7450 4900
+Wire Wire Line
+	7450 4900 8300 4900
+Wire Wire Line
+	9400 4900 9400 4600
+Wire Wire Line
+	8050 3800 9000 3800
+Wire Wire Line
+	9000 3800 9000 4300
+Wire Wire Line
+	9000 4300 9100 4300
+Wire Wire Line
+	6700 3400 6700 3100
+Wire Wire Line
+	8450 4400 8050 4400
+Wire Wire Line
+	8050 3500 8700 3500
+Wire Wire Line
+	8700 3500 8700 3150
+Wire Wire Line
+	8700 3150 9150 3150
+Wire Wire Line
+	9150 3250 8800 3250
+Wire Wire Line
+	8800 3250 8800 3700
+Wire Wire Line
+	8800 3700 8050 3700
+Wire Wire Line
+	9150 3450 8900 3450
+Wire Wire Line
+	8900 3450 8900 4900
+Connection ~ 8900 4900
+Wire Wire Line
+	8900 4900 9400 4900
+$Comp
+L power:GND #PWR02
+U 1 1 5E7D0F59
+P 7450 5000
+F 0 "#PWR02" H 7450 4750 50  0001 C CNN
+F 1 "GND" H 7455 4827 50  0000 C CNN
+F 2 "" H 7450 5000 50  0001 C CNN
+F 3 "" H 7450 5000 50  0001 C CNN
+	1    7450 5000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7450 5000 7450 4900
+Connection ~ 7450 4900
+Wire Wire Line
+	4950 3050 5500 3050
+Wire Wire Line
+	5100 4100 5100 4050
+Wire Wire Line
+	4950 4100 5100 4100
+Wire Wire Line
+	4950 3050 4950 4100
+Wire Wire Line
+	5100 2700 5200 2700
+Wire Wire Line
+	5100 3550 5100 2700
+$Comp
+L Device:R_Small R2
+U 1 1 5E7C3514
+P 5100 3950
+F 0 "R2" H 5159 3996 50  0000 L CNN
+F 1 "82k" H 5159 3905 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" H 5100 3950 50  0001 C CNN
+F 3 "~" H 5100 3950 50  0001 C CNN
+	1    5100 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R1
+U 1 1 5E7C2347
+P 5100 3650
+F 0 "R1" H 5159 3696 50  0000 L CNN
+F 1 "330k" H 5159 3605 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" H 5100 3650 50  0001 C CNN
+F 3 "~" H 5100 3650 50  0001 C CNN
+	1    5100 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 3050 5500 3050
+Wire Wire Line
+	6050 2950 6050 3050
+Wire Wire Line
+	6050 2700 6050 2750
+Wire Wire Line
+	5800 2700 6050 2700
+$Comp
+L Device:CP_Small C1
+U 1 1 5E7BEA31
+P 6050 2850
+F 0 "C1" H 6138 2896 50  0000 L CNN
+F 1 "220u" H 6138 2805 50  0000 L CNN
+F 2 "Capacitor_SMD:CP_Elec_6.3x7.7" H 6050 2850 50  0001 C CNN
+F 3 "~" H 6050 2850 50  0001 C CNN
+	1    6050 2850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 2950 2650 2950
+Wire Wire Line
+	2500 2800 2500 2950
+Wire Wire Line
+	2300 2800 2500 2800
+Wire Wire Line
+	2500 2600 2650 2600
+Wire Wire Line
+	2500 2700 2500 2600
+Wire Wire Line
+	2300 2700 2500 2700
+$Comp
+L Connector:Conn_01x02_Male J1
+U 1 1 5E7BD8F1
+P 2100 2700
+F 0 "J1" H 2200 2950 50  0000 C CNN
+F 1 "Battery input" H 2250 2850 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2100 2700 50  0001 C CNN
+F 3 "~" H 2100 2700 50  0001 C CNN
+	1    2100 2700
+	1    0    0    -1  
+$EndComp
+Connection ~ 5500 3050
+Wire Wire Line
+	5500 3100 5500 3050
+$Comp
+L power:GND #PWR01
+U 1 1 5E7BD1F8
+P 5500 3100
+F 0 "#PWR01" H 5500 2850 50  0001 C CNN
+F 1 "GND" H 5505 2927 50  0000 C CNN
+F 2 "" H 5500 3100 50  0001 C CNN
+F 3 "" H 5500 3100 50  0001 C CNN
+	1    5500 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5500 3050 5500 3000
+Wire Wire Line
+	2650 2900 2650 2950
+$Comp
+L Device:Battery_Cell BT1
+U 1 1 5E7BBDCB
+P 2650 2800
+F 0 "BT1" H 2768 2896 50  0000 L CNN
+F 1 "Li-ion 2500mAh" H 2768 2805 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" V 2650 2860 50  0001 C CNN
+F 3 "~" V 2650 2860 50  0001 C CNN
+	1    2650 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Regulator_Linear:MCP1700-3302E_SOT23 U1
+U 1 1 5E7B7767
+P 5500 2700
+F 0 "U1" H 5500 2942 50  0000 C CNN
+F 1 "MCP1700-3302E" H 5500 2851 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 5500 2925 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20001826D.pdf" H 5500 2700 50  0001 C CNN
+	1    5500 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R6
+U 1 1 5E7DC1C3
+P 8650 4100
+F 0 "R6" H 8709 4146 50  0000 L CNN
+F 1 "10k" H 8709 4055 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" H 8650 4100 50  0001 C CNN
+F 3 "~" H 8650 4100 50  0001 C CNN
+	1    8650 4100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8650 4000 8650 3900
+Connection ~ 8650 3900
+Wire Wire Line
+	8650 3900 9400 3900
+Wire Wire Line
+	9000 4300 8650 4300
+Wire Wire Line
+	8650 4200 8650 4300
+Connection ~ 9000 4300
+Wire Wire Line
+	8450 3100 8450 4400
+Wire Wire Line
+	8600 2700 8600 3350
+Connection ~ 7450 2700
+$Comp
+L Device:R_Small R4
+U 1 1 5E91066C
+P 7100 2900
+F 0 "R4" H 7159 2946 50  0000 L CNN
+F 1 "10k" H 7159 2855 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" H 7100 2900 50  0001 C CNN
+F 3 "~" H 7100 2900 50  0001 C CNN
+	1    7100 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 3100 7100 3100
+Wire Wire Line
+	6850 3400 6700 3400
+Wire Wire Line
+	7100 2800 7100 2700
+Connection ~ 7100 2700
+Wire Wire Line
+	7100 2700 7450 2700
+Wire Wire Line
+	7100 3000 7100 3100
+Connection ~ 7100 3100
+Wire Wire Line
+	7100 3100 8050 3100
+$Comp
+L Device:R_Small R3
+U 1 1 5E9173AE
+P 6550 2900
+F 0 "R3" H 6609 2946 50  0000 L CNN
+F 1 "10k" H 6609 2855 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" H 6550 2900 50  0001 C CNN
+F 3 "~" H 6550 2900 50  0001 C CNN
+	1    6550 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 3750 5100 3800
+Wire Wire Line
+	6050 2700 6550 2700
+Connection ~ 6050 2700
+Wire Wire Line
+	5100 3800 6850 3800
+Connection ~ 5100 3800
+Wire Wire Line
+	5100 3800 5100 3850
+Wire Wire Line
+	6850 3600 6550 3600
+Wire Wire Line
+	6550 3600 6550 3000
+Wire Wire Line
+	6550 2800 6550 2700
+Connection ~ 6550 2700
+Wire Wire Line
+	6550 2700 7100 2700
+$Comp
+L Device:R_Small R5
+U 1 1 5E92C595
+P 8300 4700
+F 0 "R5" H 8359 4746 50  0000 L CNN
+F 1 "10k" H 8359 4655 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" H 8300 4700 50  0001 C CNN
+F 3 "~" H 8300 4700 50  0001 C CNN
+	1    8300 4700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8050 4300 8300 4300
+Wire Wire Line
+	8300 4300 8300 4600
+Wire Wire Line
+	8300 4800 8300 4900
+Connection ~ 8300 4900
+Wire Wire Line
+	8300 4900 8900 4900
+$Comp
+L Connector:Conn_01x01_Male J4
+U 1 1 5E910CEA
+P 9350 3150
+F 0 "J4" H 9322 3082 50  0000 R CNN
+F 1 "TXD" H 9200 3100 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 9350 3150 50  0001 C CNN
+F 3 "~" H 9350 3150 50  0001 C CNN
+	1    9350 3150
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J5
+U 1 1 5E91540B
+P 9350 3250
+F 0 "J5" H 9322 3182 50  0000 R CNN
+F 1 "RXD" H 9200 3200 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 9350 3250 50  0001 C CNN
+F 3 "~" H 9350 3250 50  0001 C CNN
+	1    9350 3250
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J7
+U 1 1 5E918518
+P 9350 3450
+F 0 "J7" H 9322 3382 50  0000 R CNN
+F 1 "GND" H 9200 3400 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 9350 3450 50  0001 C CNN
+F 3 "~" H 9350 3450 50  0001 C CNN
+	1    9350 3450
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J6
+U 1 1 5E916D21
+P 9350 3350
+F 0 "J6" H 9322 3282 50  0000 R CNN
+F 1 "3V3" H 9200 3300 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 9350 3350 50  0001 C CNN
+F 3 "~" H 9350 3350 50  0001 C CNN
+	1    9350 3350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8600 3350 9150 3350
+$Comp
+L Connector:Conn_01x01_Male J3
+U 1 1 5E95EE0E
+P 8500 2450
+F 0 "J3" H 8472 2382 50  0000 R CNN
+F 1 "FLASH" H 8350 2400 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8500 2450 50  0001 C CNN
+F 3 "~" H 8500 2450 50  0001 C CNN
+	1    8500 2450
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7450 2700 8600 2700
+Wire Wire Line
+	8300 2450 8250 2450
+Wire Wire Line
+	8250 2450 8250 3400
+Wire Wire Line
+	8050 3400 8250 3400
+Wire Wire Line
+	8300 2250 8050 2250
+$Comp
+L Connector:Conn_01x01_Male J2
+U 1 1 5E964C6C
+P 8500 2250
+F 0 "J2" H 8472 2182 50  0000 R CNN
+F 1 "RESET" H 8350 2200 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8500 2250 50  0001 C CNN
+F 3 "~" H 8500 2250 50  0001 C CNN
+	1    8500 2250
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8050 2250 8050 3100
+Connection ~ 8050 3100
+Wire Wire Line
+	8050 3100 8450 3100
+$Comp
+L Diode:BAT54C D1
+U 1 1 5E962B4A
+P 3950 3750
+F 0 "D1" H 3950 3975 50  0000 C CNN
+F 1 "BAT54C" H 3950 3884 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 4025 3875 50  0001 L CNN
+F 3 "http://www.diodes.com/_files/datasheets/ds11005.pdf" H 3870 3750 50  0001 C CNN
+	1    3950 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_FET:IRLML0030 Q1
+U 1 1 5E963E71
+P 3950 2850
+F 0 "Q1" H 4154 2896 50  0000 L CNN
+F 1 "IRLML0030" H 4154 2805 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 4150 2775 50  0001 L CIN
+F 3 "https://www.infineon.com/dgdl/irlml0030pbf.pdf?fileId=5546d462533600a401535664773825df" H 3950 2850 50  0001 L CNN
+	1    3950 2850
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	2650 2600 3950 2600
+Wire Wire Line
+	3950 2600 3950 2650
+Connection ~ 2650 2600
+Wire Wire Line
+	3950 2600 5100 2600
+Wire Wire Line
+	5100 2600 5100 2700
+Connection ~ 3950 2600
+Connection ~ 5100 2700
+Wire Wire Line
+	4950 3050 4350 3050
+Wire Wire Line
+	4350 3050 4350 3750
+Wire Wire Line
+	4350 3750 4250 3750
+Connection ~ 4950 3050
+Wire Wire Line
+	3950 3950 3400 3950
+Wire Wire Line
+	2650 3950 2650 2950
+Connection ~ 2650 2950
+Wire Wire Line
+	4150 2950 4350 2950
+Wire Wire Line
+	4350 2950 4350 3050
+Connection ~ 4350 3050
+Wire Wire Line
+	3750 2950 3400 2950
+Wire Wire Line
+	3400 2950 3400 3950
+Connection ~ 3400 3950
+Wire Wire Line
+	3400 3950 2650 3950
+$EndSCHEMATC
