@@ -192,11 +192,17 @@ void setup()
   //odczyt wilgotności, temperatury i napięcia baterii
   float humidity = dht.readHumidity();
   float temperature = dht.readTemperature();
-  int battery = float(analogRead(A0)) / 1024 * 5.02;
-  battery = mapf(battery, 3.3, 4.2, 0, 100);
+  float raw_battery = float(analogRead(A0)) / 1024 * 5.02;
+
+  
+  int battery = mapf(raw_battery, 3.3, 4.2, 0, 100);
   if (battery > 100)
   {
     battery = 100;
+  }
+  if (battery < 0)
+  {
+    battery = 0;
   }
 
   Serial.print("temp: ");
@@ -204,6 +210,8 @@ void setup()
   Serial.print("hum: ");
   Serial.println(humidity);
   Serial.print("analog: ");
+  Serial.println(raw_battery);
+  Serial.print("battery percent: ");
   Serial.println(battery);
   Serial.println();
 
